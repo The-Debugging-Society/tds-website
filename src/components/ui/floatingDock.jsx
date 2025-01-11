@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
 import { cn } from "../utils/cn";
-import { Link } from "react-router-dom";
 
 export const FloatingDock = ({ items, desktopClassName, mobileClassName }) => {
   return (

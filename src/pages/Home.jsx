@@ -1,9 +1,4 @@
-import Hero from "@/components/Hero"
-import { VelocityScrollText } from "@/components/VelocityScrollText"
-import MarqueeDemo from "@/components/Review"
-import { MagicCardDemo } from "@/components/Card"
-import { BentoDemo } from "@/components/Events"
-import AboutSection from "@/components/About"
+import { Hero, AboutSection, BentoDemo, MagicCardDemo, MarqueeDemo, VelocityScrollText } from '../components/index.js'  
 const Home = () => {
   return (
     <>
