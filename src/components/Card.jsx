@@ -1,25 +1,36 @@
 import { MagicCard } from "./ui/magic-card";
+import FlipText from "./ui/flip-text";
 
 export function MagicCardDemo() {
   const { theme } = "dark";
   return (
-    <div
-      className={
-        "flex h-[500px] w-1/3 flex-col gap-4 lg:h-[250px] lg:flex-row"
-      }
-    >
-      <MagicCard
-        className="cursor-pointer flex-col items-center justify-center whitespace-nowrap text-4xl shadow-2xl"
-        gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
-      >
-        Magic
-      </MagicCard>
-      <MagicCard
-        className="cursor-pointer flex-col items-center justify-center whitespace-nowrap text-4xl shadow-2xl"
-        gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
-      >
-        Card
-      </MagicCard>
+    <>
+    <div className="flex flex-col md:flex-row justify-center items-center gap-5 p-5 w-full bg-black">
+    <FlipText
+      className="text-4xl font-bold -tracking-widest text-black  dark:text-white md:text-7xl md:leading-[5rem]"
+      word="Events"
+    />
     </div>
+    <div className="flex flex-col md:flex-row justify-center items-center gap-5 p-5 h-[500px] w-full bg-gray-950">
+<MagicCard
+  image="event1.jpg"
+  title="Stunning Card"
+  body="This is a beautiful card with interactive animations."
+  className="max-w-sm"
+/>
+<MagicCard
+  image="event2.jpg"
+  title="Stunning Card"
+  body="This is a beautiful card with interactive animations."
+  className="max-w-sm"
+/>
+<MagicCard
+  image="event3.jpg"
+  title="Stunning Card"
+  body="This is a beautiful card with interactive animations."
+  className="max-w-sm"
+/>
+      </div>
+    </>
   );
 }

@@ -1,57 +1,40 @@
-"use client";;
+"use client";
+
 import { motion, useMotionTemplate, useMotionValue } from "motion/react";
 import React, { useCallback, useEffect, useRef } from "react";
 
 import { cn } from "@/lib/utils";
 
 export function MagicCard({
-  children,
+  image,
+  title,
+  body,
   className,
   gradientSize = 200,
   gradientColor = "#262626",
   gradientOpacity = 0.8,
   gradientFrom = "#9E7AFF",
-  gradientTo = "#FE8BBB"
+  gradientTo = "#FE8BBB",
 }) {
   const cardRef = useRef(null);
   const mouseX = useMotionValue(-gradientSize);
   const mouseY = useMotionValue(-gradientSize);
 
-  const handleMouseMove = useCallback((e) => {
-    if (cardRef.current) {
-      const { left, top } = cardRef.current.getBoundingClientRect();
-      const clientX = e.clientX;
-      const clientY = e.clientY;
-      mouseX.set(clientX - left);
-      mouseY.set(clientY - top);
-    }
-  }, [mouseX, mouseY]);
+  const handleMouseMove = useCallback(
+    (e) => {
+      if (cardRef.current) {
+        const { left, top } = cardRef.current.getBoundingClientRect();
+        mouseX.set(e.clientX - left);
+        mouseY.set(e.clientY - top);
+      }
+    },
+    [mouseX, mouseY]
+  );
 
-  const handleMouseOut = useCallback((e) => {
-    if (!e.relatedTarget) {
-      document.removeEventListener("mousemove", handleMouseMove);
-      mouseX.set(-gradientSize);
-      mouseY.set(-gradientSize);
-    }
-  }, [handleMouseMove, mouseX, gradientSize, mouseY]);
-
-  const handleMouseEnter = useCallback(() => {
-    document.addEventListener("mousemove", handleMouseMove);
+  const handleMouseOut = useCallback(() => {
     mouseX.set(-gradientSize);
     mouseY.set(-gradientSize);
-  }, [handleMouseMove, mouseX, gradientSize, mouseY]);
-
-  useEffect(() => {
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseout", handleMouseOut);
-    document.addEventListener("mouseenter", handleMouseEnter);
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseout", handleMouseOut);
-      document.removeEventListener("mouseenter", handleMouseEnter);
-    };
-  }, [handleMouseEnter, handleMouseMove, handleMouseOut]);
+  }, [mouseX, mouseY, gradientSize]);
 
   useEffect(() => {
     mouseX.set(-gradientSize);
@@ -59,30 +42,48 @@ export function MagicCard({
   }, [gradientSize, mouseX, mouseY]);
 
   return (
-    (<div
+    <div
       ref={cardRef}
-      className={cn("group relative flex size-full rounded-xl", className)}>
-      <div className="absolute inset-px z-10 rounded-xl bg-background" />
-      <div className="relative z-30">{children}</div>
+      className={cn(
+        "group relative flex flex-col items-center p-4 rounded-xl shadow-lg overflow-hidden bg-white",
+        className
+      )}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseOut}
+    >
+      {/* Gradient Overlays */}
       <motion.div
-        className="pointer-events-none absolute inset-px z-10 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 z-0 rounded-xl"
         style={{
           background: useMotionTemplate`
             radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px, ${gradientColor}, transparent 100%)
           `,
           opacity: gradientOpacity,
-        }} />
+        }}
+      />
       <motion.div
-        className="pointer-events-none absolute inset-0 rounded-xl bg-border duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 z-0 rounded-xl"
         style={{
           background: useMotionTemplate`
             radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px,
-              ${gradientFrom}, 
-              ${gradientTo}, 
+              ${gradientFrom},
+              ${gradientTo},
               hsl(var(--border)) 100%
             )
           `,
-        }} />
-    </div>)
+        }}
+      />
+
+      {/* Card Content */}
+      <img
+        src={image}
+        alt={title}
+        className="rounded-t-xl object-cover w-full h-40 z-10"
+      />
+      <div className="relative z-10 p-4 text-center">
+        <h3 className="text-lg font-semibold text-white">{title}</h3>
+        <p className="text-sm text-white mt-2">{body}</p>
+      </div>
+    </div>
   );
 }
