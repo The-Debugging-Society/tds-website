@@ -76,7 +76,7 @@ function ParallaxText({
       ref={containerRef}
       className="w-full overflow-hidden whitespace-nowrap"
       {...props}>
-      <motion.div className="inline-block" style={{ x }}>
+      <motion.div className="inline-block pb-2" style={{ x }}>
         {Array.from({ length: repetitions }).map((_, i) => (
           <span key={i} ref={i === 0 ? textRef : null}>
             {children}{" "}

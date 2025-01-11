@@ -63,7 +63,7 @@
   
   export function BentoDemo() {
     return(
-        <div className="relative flex h-auto w-full px-12 py-8 flex-col items-center justify-start rounded-lg bg-background md:shadow-xl">
+        <div className="relative flex h-auto w-full px-12 py-8 flex-col items-center justify-start bg-background md:shadow-xl">
           <FlipText
       className="text-4xl font-bold -tracking-widest mt-12 mb-12 text-black dark:text-white md:text-7xl md:leading-[5rem]"
       word="Highlights"

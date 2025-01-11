@@ -1,8 +1,5 @@
-"use client";
-
 import { motion, useMotionTemplate, useMotionValue } from "motion/react";
 import React, { useCallback, useEffect, useRef } from "react";
-
 import { cn } from "@/lib/utils";
 
 export function MagicCard({
@@ -45,7 +42,7 @@ export function MagicCard({
     <div
       ref={cardRef}
       className={cn(
-        "group relative flex flex-col items-center p-4 rounded-xl shadow-lg overflow-hidden bg-white",
+        "group relative flex flex-col items-center p-4 rounded-xl shadow-lg bg-white",
         className
       )}
       onMouseMove={handleMouseMove}
@@ -80,7 +77,7 @@ export function MagicCard({
         alt={title}
         className="rounded-t-xl object-cover w-full h-40 z-10"
       />
-      <div className="relative z-10 p-4 text-center">
+      <div className="z-10 p-4 text-center">
         <h3 className="text-lg font-semibold text-white">{title}</h3>
         <p className="text-sm text-white mt-2">{body}</p>
       </div>
