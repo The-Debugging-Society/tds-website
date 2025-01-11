@@ -42,7 +42,7 @@ export function FloatingDockDemo() {
     <div className="w-auto m-auto mt-1">
         <FloatingDock
           items={links}
-          desktopClassName="h-16 gap-4 rounded-full px-4 pb-3"
+          desktopClassName="gap-4"
           mobileClassName="h-10 gap-4 rounded-full px-4 pb-3"
         />
     </div>

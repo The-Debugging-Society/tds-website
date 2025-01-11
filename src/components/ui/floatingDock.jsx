@@ -19,7 +19,7 @@ const FloatingDockMobile = ({ items, className }) => {
   <AnimatePresence>
     <motion.div
       layoutId="nav"
-      className="flex justify-center gap-4"
+      className="flex gap-4"
     >
       {items.map((item, idx) => (
         <motion.div
@@ -36,7 +36,7 @@ const FloatingDockMobile = ({ items, className }) => {
           <a
             href={item.href}
           >
-            <div className="h-8 px-4">{item.icon}</div>
+            <div className="h-8 pr-4">{item.icon}</div>
           </a>
         </motion.div>
       ))}
@@ -57,7 +57,7 @@ const FloatingDockDesktop = ({ items, className }) => {
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "mx-auto hidden md:flex gap-4 items-end rounded-2xl px-4 pb-3 justify-center",
+        "mx-auto hidden md:flex rounded-2xl pb-3",
         className
       )}
     >
