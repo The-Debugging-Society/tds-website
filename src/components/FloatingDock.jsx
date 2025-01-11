@@ -40,13 +40,11 @@ export function FloatingDockDemo() {
 
   return (
     <div className="w-auto m-auto mt-1">
-      <div className="relative rounded-full bg-gray-50 dark:bg-neutral-900 p-4 shadow-lg md:h-auto md:w-auto">
         <FloatingDock
           items={links}
-          desktopClassName="h-16 gap-4 rounded-full bg-gray-50 dark:bg-neutral-900 px-4 pb-3"
-          mobileClassName="h-10 gap-4 rounded-full bg-gray-50 dark:bg-neutral-900 px-4 pb-3"
+          desktopClassName="h-16 gap-4 rounded-full px-4 pb-3"
+          mobileClassName="h-10 gap-4 rounded-full px-4 pb-3"
         />
-      </div>
     </div>
   );
 }

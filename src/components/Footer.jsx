@@ -1,37 +1,3 @@
-// import React from "react";
-// import { FloatingDockDemo } from "./FloatingDock";
-
-// const Footer = () => {
-//   const year= new Date().getFullYear();
-//   return (
-//     <footer className="bg-black text-white py-8 mt-8">
-//       <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-between items-center">
-//         {/* Left Section */}
-//         <div className="mb-4 md:mb-0">
-//           <div className="flex items-center space-x-2">
-//             <img
-//               src="logo.jpeg" // Replace with your logo
-//               alt="Logo"
-//               className="w-12 h-12"
-//             />
-//             <div>
-//               <h2 className="text-lg font-semibold">TDS NSUT</h2>
-//               <p>Soc tagline</p>
-//             </div>
-//           </div>
-//           <p className="mt-4 text-gray-400 text-sm">
-//             &copy; TDS NSUT {year} | All rights reserved.
-//           </p>
-//         </div>
-
-//        <FloatingDockDemo />
-//       </div>
-//     </footer>
-//   );
-// };
-
-// export default Footer;
-
 import React from "react";
 import { FloatingDockDemo } from "./FloatingDock";
 
@@ -50,7 +16,7 @@ const Footer = () => {
             />
             <div>
               <h2 className="text-lg font-semibold">TDS NSUT</h2>
-              <p>Soc tagline</p>
+              <p className="text-gray-300">We Teach, Code And Compete</p>
             </div>
           </div>
           <p className="mt-4 text-gray-400 text-sm">

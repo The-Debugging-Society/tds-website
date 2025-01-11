@@ -8,10 +8,10 @@ export function MagicCard({
   body,
   className,
   gradientSize = 200,
-  gradientColor = "#262626",
+  gradientColor = "#1e90ff",
   gradientOpacity = 0.8,
-  gradientFrom = "#9E7AFF",
-  gradientTo = "#FE8BBB",
+  gradientFrom = "#0197f6",
+  gradientTo = "#0f52ba",
 }) {
   const cardRef = useRef(null);
   const mouseX = useMotionValue(-gradientSize);
@@ -78,8 +78,8 @@ export function MagicCard({
         className="rounded-t-xl object-cover w-full h-40 z-10"
       />
       <div className="z-10 p-4 text-center">
-        <h3 className="text-lg font-semibold text-white">{title}</h3>
-        <p className="text-sm text-white mt-2">{body}</p>
+        <h3 className="text-lg font-bold text-white">{title}</h3>
+        <p className="text-sm text-gray-300 mt-2">{body}</p>
       </div>
     </div>
   );
