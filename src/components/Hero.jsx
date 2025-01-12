@@ -2,6 +2,7 @@ import RetroGrid from "./ui/retro-grid";
 import ScrollProgress from "./ui/scroll-progress";
 import TypingAnimation from "./ui/typing-animation";
 import { TextAnimate } from "./ui/text-animate";
+import Particles from "./ui/particles";
 
 import React from 'react'
 
@@ -14,8 +15,15 @@ function Hero() {
         The Debugging Society
       </span>
       </TextAnimate>
-      <TypingAnimation className={"mt-4 p-2 text-2xl md:text-4xl text-center"}>We Teach, Code And Compete</TypingAnimation>
+      <TypingAnimation duration={70} className={"mt-4 p-2 text-2xl md:text-4xl text-center"}>We Teach, Code And Compete.</TypingAnimation>
       <RetroGrid />
+      <Particles
+        className="absolute inset-0 z-0"
+        quantity={60}
+        ease={80}
+        color={"#90E0EF"}
+        refresh
+      />
     </div>
 
   )

@@ -2,44 +2,43 @@ import Marquee from "./ui/marquee";
 import FlipText from "./ui/flip-text";
 
 const reviews = [
-    {
-      name: "Aarav",
-      username: "@aarav",
-      body: "The events organized by TDS NSUT are exceptional. The hands-on workshops are a game changer!",
-      img: "https://avatar.vercel.sh/aarav?theme=indian",
-    },
-    {
-      name: "Ishita",
-      username: "@ishita",
-      body: "Being part of TDS NSUT has boosted my coding skills immensely. The guidance here is unmatched!",
-      img: "https://avatar.vercel.sh/ishita?theme=indian",
-    },
-    {
-      name: "Rohan",
-      username: "@rohan",
-      body: "The community is amazing! The hackathons and tech talks really broaden your perspective.",
-      img: "https://avatar.vercel.sh/rohan?theme=indian",
-    },
-    {
-      name: "Meera",
-      username: "@meera",
-      body: "I love how TDS NSUT makes learning so fun and interactive. Joining was the best decision!",
-      img: "https://avatar.vercel.sh/meera?theme=indian",
-    },
-    {
-      name: "Kabir",
-      username: "@kabir",
-      body: "From coding competitions to guest lectures, TDS NSUT is the hub of tech brilliance.",
-      img: "https://avatar.vercel.sh/kabir?theme=indian",
-    },
-    {
-      name: "Ananya",
-      username: "@ananya",
-      body: "The mentorship program at TDS NSUT is outstanding. It helped me land my first internship!",
-      img: "https://avatar.vercel.sh/ananya?theme=indian",
-    },
-  ];
-  
+  {
+    "name": "Aarav",
+    "username": "@aarav",
+    "body": "The events organized by TDS NSUT are exceptional. The hands-on workshops are a game changer!",
+    "img": "https://api.dicebear.com/9.x/identicon/svg?seed=Aarav"
+  },
+  {
+    "name": "Ishita",
+    "username": "@ishita",
+    "body": "Being part of TDS NSUT has boosted my coding skills immensely. The guidance here is unmatched!",
+    "img": "https://api.dicebear.com/9.x/identicon/svg?seed=Ishita"
+  },
+  {
+    "name": "Rohan",
+    "username": "@rohan",
+    "body": "The community is amazing! The hackathons and tech talks really broaden your perspective.",
+    "img": "https://api.dicebear.com/9.x/identicon/svg?seed=Rohan"
+  },
+  {
+    "name": "Meera",
+    "username": "@meera",
+    "body": "I love how TDS NSUT makes learning so fun and interactive. Joining was the best decision!",
+    "img": "https://api.dicebear.com/9.x/identicon/svg?seed=Meera"
+  },
+  {
+    "name": "Kabir",
+    "username": "@kabir",
+    "body": "From coding competitions to guest lectures, TDS NSUT is the hub of tech brilliance.",
+    "img": "https://api.dicebear.com/9.x/identicon/svg?seed=Kabir"
+  },
+  {
+    "name": "Ananya",
+    "username": "@ananya",
+    "body": "The mentorship program at TDS NSUT is outstanding. It helped me land my first internship!",
+    "img": "https://api.dicebear.com/9.x/identicon/svg?seed=Ananya"
+  }
+]
 
 const firstRow = reviews.slice(0, reviews.length / 2);
 const secondRow = reviews.slice(reviews.length / 2);
