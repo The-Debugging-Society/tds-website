@@ -20,22 +20,22 @@ const Navbar = () => {
           </label>
         </div>
         <div className="hidden lg:flex justify-end items-center gap-5 text-white">
-          <Link to="/"><HyperText className="text-lg text-blue-500">Home</HyperText></Link>
-          <Link to="/about"><HyperText className="text-lg text-blue-500">About</HyperText></Link>
-          <Link to="/community"><HyperText className="text-lg text-blue-500">Community</HyperText></Link>
-          <Link to="/events"><HyperText className="text-lg text-blue-500">Events</HyperText></Link>
-          <Link to="/blogs"><HyperText className="text-lg text-blue-500">Blogs</HyperText></Link>
-          <Link to="/alumni"><HyperText className="text-lg text-blue-500">Alumni</HyperText></Link>
+          <Link to="/" className="text-lg text-blue-500 mb-5">Home</Link>
+          <Link to="/about" className="text-lg text-blue-500 mb-5">About</Link>
+          <Link to="/community" className="text-lg text-blue-500 mb-5">Community</Link>
+          <Link to="/events" className="text-lg text-blue-500 mb-5">Events</Link>
+          <Link to="/blogs" className="text-lg text-blue-500 mb-5">Blogs</Link>
+          <Link to="/alumni" className="text-lg text-blue-500 mb-5">Alumni</Link>
         </div>
       </div>
       <div className={`fixed top-0 left-0 w-full h-screen bg-black text-white flex flex-col items-center justify-center transform ${isMenuOpen ? "translate-x-0" : "translate-x-full"} transition-transform duration-300 lg:hidden`}>
         <button onClick={() => setIsMenuOpen(false)} className="absolute top-8 right-8 text-2xl text-blue-500"><X size={24}/></button>
-        <Link to="/" onClick={() => setIsMenuOpen(false)}><HyperText className="text-lg text-blue-500 mb-5">Home</HyperText></Link>
-        <Link to="/about" onClick={() => setIsMenuOpen(false)}><HyperText className="text-lg text-blue-500 mb-5">About</HyperText></Link>
-        <Link to="/community" onClick={() => setIsMenuOpen(false)}><HyperText className="text-lg text-blue-500 mb-5">Community</HyperText></Link>
-        <Link to="/events" onClick={() => setIsMenuOpen(false)}><HyperText className="text-lg text-blue-500 mb-5">Events</HyperText></Link>
-        <Link to="/blogs" onClick={() => setIsMenuOpen(false)}><HyperText className="text-lg text-blue-500 mb-5">Blogs</HyperText></Link>
-        <Link to="/alumni" onClick={() => setIsMenuOpen(false)}><HyperText className="text-lg text-blue-500 mb-5">Alumni</HyperText></Link>
+        <Link to="/" className="text-lg text-blue-500 mb-5">Home</Link>
+        <Link to="/about"  className="text-lg text-blue-500 mb-5">About</Link>
+        <Link to="/community"  className="text-lg text-blue-500 mb-5">Community</Link>
+        <Link to="/events"  className="text-lg text-blue-500 mb-5">Events</Link>
+        <Link to="/blogs"  className="text-lg text-blue-500 mb-5">Blogs</Link>
+        <Link to="/alumni"  className="text-lg text-blue-500 mb-5">Alumni</Link>
       </div>
     </div>
   );

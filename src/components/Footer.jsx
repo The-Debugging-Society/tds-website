@@ -1,21 +1,23 @@
 import React from "react";
 import { FloatingDockDemo } from "./FloatingDock";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
     <footer className="bg-black text-white py-8">
       <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-between">
-        {/* Left Section: Logo and About */}
         <div className="mb-4 md:mb-0 w-full md:w-2/5">
           <div className="flex items-center space-x-2">
-            <img
-              src="logo.jpeg" // Replace with your logo
-              alt="Logo"
-              className="w-12 h-12"
-            />
+            <Link to='/'>
+              <img
+                src="logo.jpeg" // Replace with your logo
+                alt="Logo"
+                className="w-12 h-12"
+              />
+            </Link>
             <div>
-              <h2 className="text-lg font-semibold">TDS NSUT</h2>
+              <Link to='/'><h2 className="text-lg font-semibold">TDS NSUT</h2></Link>
               <p className="text-gray-300">We Teach, Code And Compete</p>
             </div>
           </div>
@@ -29,24 +31,24 @@ const Footer = () => {
           <h3 className="text-lg font-semibold">Quick Links</h3>
           <ul className="mt-2 space-y-2">
             <li>
-              <a href="#about" className="text-gray-400 hover:text-white">
+              <Link to="/about" className="text-gray-400 hover:text-white">
                 About Us
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#projects" className="text-gray-400 hover:text-white">
+              <Link to="/events" className="text-gray-400 hover:text-white">
                 Our Projects
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#contact" className="text-gray-400 hover:text-white">
-                Contact Us
-              </a>
+              <Link to="/community" className="text-gray-400 hover:text-white">
+                Community
+              </Link>
             </li>
             <li>
-              <a href="#privacy" className="text-gray-400 hover:text-white">
-                Privacy Policy
-              </a>
+              <Link to="/alumni" className="text-gray-400 hover:text-white">
+                Alumni
+              </Link>
             </li>
           </ul>
         </div>

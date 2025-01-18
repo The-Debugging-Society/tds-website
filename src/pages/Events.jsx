@@ -1,11 +1,8 @@
 import React from 'react'
+import {UpcomingEvents} from '../components/index.js'
 
 function Events() {
-  return (
-    <div>
-      Events
-    </div>
-  )
+  return <UpcomingEvents/>
 }
 
 export default Events
