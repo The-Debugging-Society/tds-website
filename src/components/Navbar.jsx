@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import HyperText from './ui/hyper-text';
 import {Menu,X} from 'lucide-react';
+import ScrollProgress from "./ui/scroll-progress"
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,6 +37,7 @@ const Navbar = () => {
         <Link to="/blogs" onClick={() => setIsMenuOpen(prev => !prev)} className="text-lg text-blue-500 mb-5">Blogs</Link>
         <Link to="/alumni" onClick={() => setIsMenuOpen(prev => !prev)} className="text-lg text-blue-500 mb-5">Alumni</Link>
       </div>
+      <ScrollProgress className="top-[88px]" />
     </div>
   );
 };
