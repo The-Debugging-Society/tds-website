@@ -6,6 +6,6 @@ import Footer from "./Footer";
 import Hero from "./Hero";
 import Navbar from "./Navbar";
 import MarqueeDemo from "./Review";
-import UpcomingEvents from "./UpcomingEvents";
+import PastEvents from "./PastEvents";
 
-export { AboutSection, MagicCardDemo, VelocityScrollText ,BentoDemo, Footer, Hero, Navbar, MarqueeDemo, UpcomingEvents };  
+export { AboutSection, MagicCardDemo, VelocityScrollText ,BentoDemo, Footer, Hero, Navbar, MarqueeDemo, PastEvents };  

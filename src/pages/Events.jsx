@@ -1,8 +1,18 @@
-import React from 'react'
-import {UpcomingEvents} from '../components/index.js'
+import React from "react";
+import  PastEvents  from "@/components/PastEvents.jsx";
+import AnimatedList from "@/components/AnimatedEvents.jsx";
+import HyperText from "@/components/ui/hyper-text.jsx";
 
 function Events() {
-  return <UpcomingEvents/>
+
+  return (
+    <>
+    <div className="relative flex flex-col items-center justify-center"><HyperText className="text-4xl text-blue-400">Upcomming Events</HyperText></div>
+      <AnimatedList />
+    <div className="relative flex flex-col items-center justify-center"><HyperText className="text-4xl text-blue-400">Past Events</HyperText><br/><PastEvents /> </div>
+      
+    </>
+  );
 }
 
-export default Events
+export default Events;

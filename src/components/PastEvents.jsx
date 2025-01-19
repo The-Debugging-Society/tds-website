@@ -1,7 +1,7 @@
 import React from "react";
-import "./UpcomingEvents.css";
+import "./PastEvents.css";
 
-const UpcomingEvents = () => {
+const PastEvents = () => {
   const events = [
     {
       title: "Tech Workshop 1",
@@ -23,7 +23,6 @@ const UpcomingEvents = () => {
   return (
     <>
       <div class="card">
-        <h1>Upcoming Events</h1>
         <div class="timeline">
           {events.map((event, index) => (
             <div key={index} className="event-wrapper">
@@ -31,7 +30,6 @@ const UpcomingEvents = () => {
                 <h2>{event.title}</h2>
                 <p>{event.description}</p>
                 <span className="event-date">{event.date}</span>
-                <button className="rsvp-btn">RSVP</button>
               </div>
             </div>
           ))}
@@ -41,4 +39,4 @@ const UpcomingEvents = () => {
   );
 };
 
-export default UpcomingEvents;
+export default PastEvents;
