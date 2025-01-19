@@ -7,7 +7,7 @@ function Events() {
 
   return (
     <>
-    <div className="relative flex flex-col items-center justify-center"><HyperText className="text-4xl text-blue-400">Upcomming Events</HyperText></div>
+    <div className="relative flex flex-col items-center justify-center"><HyperText className="text-4xl text-blue-400">Upcoming Events</HyperText></div>
       <AnimatedList />
     <div className="relative flex flex-col items-center justify-center"><HyperText className="text-4xl text-blue-400">Past Events</HyperText><br/><PastEvents /> </div>
       
