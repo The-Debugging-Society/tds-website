@@ -20,24 +20,24 @@ const Navbar = () => {
             </div>
           </label>
         </div>
-        <div className="hidden lg:flex justify-end items-center gap-5 text-white">
-          <Link to="/" className="text-lg text-blue-500 mb-5">Home</Link>
-          <Link to="/about" className="text-lg text-blue-500 mb-5">About</Link>
-          <Link to="/community" className="text-lg text-blue-500 mb-5">Community</Link>
-          <Link to="/events" className="text-lg text-blue-500 mb-5">Events</Link>
-          <Link to="/blogs" className="text-lg text-blue-500 mb-5">Blogs</Link>
-          <Link to="/alumni" className="text-lg text-blue-500 mb-5">Alumni</Link>
-          <Link to="/resources" className="text-lg text-blue-500 mb-5">Resources</Link>
+        <div className="hidden lg:flex justify-end items-center gap-8 font-semibold text-lg text-blue-500">
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/community">Community</Link>
+          <Link to="/events">Events</Link>
+          <Link to="/blogs">Blogs</Link>
+          <Link to="/alumni">Alumni</Link>
+          <Link to="/resources">Resources</Link>
         </div>
-      <div className={`fixed top-0 left-0 w-full h-screen bg-black text-white flex flex-col items-center justify-center transform ${isMenuOpen ? "translate-x-0" : "translate-x-full"} transition-transform duration-300 lg:hidden`}>
+      <div className={`fixed top-0 left-0 w-full h-screen text-lg text-blue-500 bg-black space-y-5 flex flex-col items-center justify-center transform ${isMenuOpen ? "translate-x-0" : "translate-x-full"} transition-transform duration-300 lg:hidden`}>
         <button onClick={() => setIsMenuOpen(false)} className="absolute top-8 right-8 text-2xl text-blue-500"><X size={24}/></button>
-        <Link to="/" onClick={() => setIsMenuOpen(prev => !prev)} className="text-lg text-blue-500 mb-5">Home</Link>
-        <Link to="/about" onClick={() => setIsMenuOpen(prev => !prev)} className="text-lg text-blue-500 mb-5">About</Link>
-        <Link to="/community" onClick={() => setIsMenuOpen(prev => !prev)} className="text-lg text-blue-500 mb-5">Community</Link>
-        <Link to="/events" onClick={() => setIsMenuOpen(prev => !prev)} className="text-lg text-blue-500 mb-5">Events</Link>
-        <Link to="/blogs" onClick={() => setIsMenuOpen(prev => !prev)} className="text-lg text-blue-500 mb-5">Blogs</Link>
-        <Link to="/alumni" onClick={() => setIsMenuOpen(prev => !prev)} className="text-lg text-blue-500 mb-5">Alumni</Link>
-        <Link to="/resources" onClick={() => setIsMenuOpen(prev => !prev)} className="text-lg text-blue-500 mb-5">Resources</Link>
+        <Link to="/" onClick={() => setIsMenuOpen(prev => !prev)}>Home</Link>
+        <Link to="/about" onClick={() => setIsMenuOpen(prev => !prev)}>About</Link>
+        <Link to="/community" onClick={() => setIsMenuOpen(prev => !prev)}>Community</Link>
+        <Link to="/events" onClick={() => setIsMenuOpen(prev => !prev)} className="">Events</Link>
+        <Link to="/blogs" onClick={() => setIsMenuOpen(prev => !prev)}>Blogs</Link>
+        <Link to="/alumni" onClick={() => setIsMenuOpen(prev => !prev)}>Alumni</Link>
+        <Link to="/resources" onClick={() => setIsMenuOpen(prev => !prev)}>Resources</Link>
       </div>
       <ScrollProgress className="top-[88px]" />
     </div>
