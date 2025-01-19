@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-black text-white py-8">
+    <footer className="bg-black text-white py-12">
       <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-between">
         <div className="mb-4 md:mb-0 w-full md:w-2/5">
           <div className="flex items-center space-x-2">
@@ -48,6 +48,11 @@ const Footer = () => {
             <li>
               <Link to="/alumni" className="text-gray-400 hover:text-white">
                 Alumni
+              </Link>
+            </li>
+            <li>
+              <Link to="/alumni" className="text-gray-400 hover:text-white">
+                Resources
               </Link>
             </li>
           </ul>
