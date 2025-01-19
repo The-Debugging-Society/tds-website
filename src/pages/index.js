@@ -6,5 +6,16 @@ import NotFound from "./NotFound";
 import Blogs from "./Blogs";
 import Events from "./Events";
 import Layout from "./Layout";
+import Resources from "./Resources";
 
-export { Home,Layout,About, Community,Events, Alumni, NotFound, Blogs }; 
+export {
+  Home,
+  Layout,
+  About,
+  Community,
+  Events,
+  Alumni,
+  NotFound,
+  Blogs,
+  Resources,
+};

@@ -1,5 +1,6 @@
 import React from "react";
 import "./UpcomingEvents.css";
+import FlipText from "../components/ui/flip-text";
 
 const UpcomingEvents = () => {
   const events = [
@@ -22,9 +23,14 @@ const UpcomingEvents = () => {
 
   return (
     <>
-      <div class="card">
-        <h1>Upcoming Events</h1>
-        <div class="timeline">
+      <div className="card">
+        <div className="flex animate-on-scroll flex-col md:flex-row justify-center items-center gap-5 p-5 w-full bg-background mt-10 mb-10">
+          <FlipText
+            className="text-4xl font-bold -tracking-widest text-blue-500 md:text-7xl md:leading-[5rem]"
+            word="Events"
+          />
+        </div>
+        <div className="timeline">
           {events.map((event, index) => (
             <div key={index} className="event-wrapper">
               <div className="event-card">
