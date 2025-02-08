@@ -7,5 +7,6 @@ import Hero from "./Hero";
 import Navbar from "./Navbar";
 import MarqueeDemo from "./Review";
 import PastEvents from "./PastEvents";
+import { MeetTDSCard } from "./MeetTDSCard";
 
-export { AboutSection, MagicCardDemo, VelocityScrollText ,BentoDemo, Footer, Hero, Navbar, MarqueeDemo, PastEvents };  
+export { AboutSection, MagicCardDemo, VelocityScrollText ,BentoDemo, Footer, Hero, Navbar, MarqueeDemo, PastEvents,MeetTDSCard };  
