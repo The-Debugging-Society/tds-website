@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import {Menu,X} from 'lucide-react';
-import ScrollProgress from "./ui/scroll-progress"
-import HyperText from './ui/hyper-text';
+import ScrollProgress from "../ui/scroll-progress"
+import HyperText from '../ui/hyper-text';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

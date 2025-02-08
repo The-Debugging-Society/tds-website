@@ -1,5 +1,5 @@
-import BoxReveal from "./ui/box-reveal";
-import FlickeringGrid from "./ui/flickering-grid";
+import BoxReveal from "../ui/box-reveal";
+import FlickeringGrid from "../ui/flickering-grid";
 
 const AboutSection = () => {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import { FloatingDock } from "./ui/floatingDock"; // Adjust the import path for your FloatingDock component
+import { FloatingDock } from "../ui/floatingDock"; // Adjust the import path for your FloatingDock component
 import {
   IconBrandFacebook,
   IconBrandInstagram,

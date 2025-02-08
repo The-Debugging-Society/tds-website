@@ -1,5 +1,5 @@
-import { MagicCard } from "./ui/magic-card";
-import FlipText from "./ui/flip-text";
+import { MagicCard } from "../ui/magic-card";
+import FlipText from "../ui/flip-text";
 
 export function MagicCardDemo() {
   

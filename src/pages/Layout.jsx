@@ -2,7 +2,6 @@ import { Navbar, Footer } from '../components/index.js'
 import { Outlet } from 'react-router-dom'
 import { Loader } from '../components/Loader.jsx'
 import { useState, useEffect } from 'react'
-import { ScrollArea } from '@/components/ui/scroll-area.jsx'
 
 function Layout() {
   const [isLoading, setIsLoading] = useState(true)
@@ -20,11 +19,9 @@ function Layout() {
 
   return (
     <>
-      <ScrollArea className="h-screen w-full">
-      <Navbar />
-      <Outlet />
-      <Footer />
-      </ScrollArea>
+        <Navbar />
+          <Outlet />
+        <Footer />
     </>
   )
 }

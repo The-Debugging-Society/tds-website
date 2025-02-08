@@ -1,7 +1,7 @@
-import RetroGrid from "./ui/retro-grid";
-import TypingAnimation from "./ui/typing-animation";
-import { TextAnimate } from "./ui/text-animate";
-import Particles from "./ui/particles";
+import RetroGrid from "../ui/retro-grid";
+import TypingAnimation from "../ui/typing-animation";
+import { TextAnimate } from "../ui/text-animate";
+import Particles from "../ui/particles";
 
 import React from 'react'
 

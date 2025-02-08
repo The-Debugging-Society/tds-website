@@ -1,5 +1,5 @@
-import Marquee from "./ui/marquee";
-import FlipText from "./ui/flip-text";
+import Marquee from "../ui/marquee";
+import FlipText from "../ui/flip-text";
 
 const reviews = [
   {

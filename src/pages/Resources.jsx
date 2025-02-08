@@ -12,9 +12,9 @@ const Resources = () => {
           />
       </div>
       <div className="flex flex-col md:flex-row justify-center gap-5 p-4 h-auto w-full bg-background">
-        <button className="border-4 px-6 py-3 rounded-full text-white hover:shadow-white hover:shadow-md"><Link to='https://leetcode.com/explore/'>Leetcode</Link></button>
-        <button className="border-4 px-6 py-3 rounded-full text-white hover:shadow-white hover:shadow-md"><Link to='https://www.geeksforgeeks.org/problem-of-the-day'>Geeks For Geeks</Link></button>
-        <button className="border-4 px-6 py-3 rounded-full text-white hover:shadow-white hover:shadow-md"><Link to='https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/'>Striver A-Z</Link></button>
+        <button className="border-4 px-6 py-3 rounded-full text-white hover:shadow-white hover:shadow-md"><Link target="_blank" to='https://leetcode.com/explore/'>Leetcode</Link></button>
+        <button className="border-4 px-6 py-3 rounded-full text-white hover:shadow-white hover:shadow-md"><Link target="_blank" to='https://www.geeksforgeeks.org/problem-of-the-day'>Geeks For Geeks</Link></button>
+        <button className="border-4 px-6 py-3 rounded-full text-white hover:shadow-white hover:shadow-md"><Link target="_blank" to='https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/'>Striver A-Z</Link></button>
       </div>
       <div className="flex flex-col md:flex-row justify-center items-center gap-5 p-4 h-auto w-full bg-background">
         <MagicCard

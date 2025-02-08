@@ -1,10 +1,7 @@
-
-  import DotPattern from "./ui/dot-pattern";
+  import DotPattern from "../ui/dot-pattern";
   import { cn } from "@/lib/utils";
-  import FlipText from "./ui/flip-text";
-
-  
-  import { BentoCard, BentoGrid } from "./ui/bento-grid";
+  import FlipText from "../ui/flip-text";
+  import { BentoCard, BentoGrid } from "../ui/bento-grid";
   
   const features = [
     {
