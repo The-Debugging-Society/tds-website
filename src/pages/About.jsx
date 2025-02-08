@@ -50,6 +50,12 @@ const About = () => {
               position="Managing director"
               description="A strategic thinker focused on driving growth and efficiency."
             />
+            <MeetTDSCard
+              photoUrl="https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003210/WhatsApp_Image_2025-02-06_at_20.04.08_abbbfb4e_ujqwny.jpg"
+              name="Anjali"
+              position="Treasure"
+              description="Our Treasurer ,Always ready to guide juniors with their doubts and ensures our finances stay on point and our team spirit stays high. Because when the numbers are right, everything else falls into place."
+            />
               <MeetTDSCard
                 photoUrl="https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003213/WhatsApp_Image_2025-02-06_at_20.04.25_87b34146_xqrnxm.jpg"
                 name="Ritesh"

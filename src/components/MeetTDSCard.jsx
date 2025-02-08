@@ -19,10 +19,10 @@ export const MeetTDSCard = ({
     twitterUrl,
 }) => {
     return (
-        <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-black text-white transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-105">
+        <div className="max-w-sm rounded-lg p-5 overflow-hidden shadow-lg bg-black text-white border border-gray-700 transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-105">
             <div className="overflow-hidden">
                 <img
-                    className="w-full h-64 object-cover object-center transition-transform duration-300 ease-in-out hover:scale-110"
+                    className="w-full rounded-lg h-64 object-cover object-center transition-transform duration-300 ease-in-out hover:scale-110"
                     src={photoUrl}
                     alt={`${name}'s profile`}
                 />
