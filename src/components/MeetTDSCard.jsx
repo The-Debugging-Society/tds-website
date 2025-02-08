@@ -27,9 +27,9 @@ export const MeetTDSCard = ({
                     alt={`${name}'s profile`}
                 />
             </div>
-            <div className="px-6 py-4">
-                <h3 className="font-bold text-xl mb-2 text-white">{name}</h3>
-                <p className="text-gray-400 font-medium text-sm mb-2">{position}</p>
+            <div className="px-2 py-4">
+                <h3 className="font-bold text-2xl mb-1 text-white">{name}</h3>
+                <p className="text-gray-300 font-medium text-md mb-2">{position}</p>
                 <p className="text-gray-400 text-sm leading-relaxed">{description}</p>
             </div>
             <div className="px-6 pt-4 pb-2">
