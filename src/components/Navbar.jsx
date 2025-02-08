@@ -23,9 +23,9 @@ const Navbar = () => {
         <div className="hidden lg:flex justify-end items-center gap-8 font-semibold text-lg text-blue-500">
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
-          <Link to="/community">Community</Link>
+          {/* <Link to="/community">Community</Link> */}
           <Link to="/events">Events</Link>
-          <Link to="/blogs">Blogs</Link>
+          {/* <Link to="/blogs">Blogs</Link> */}
           <Link to="/alumni">Alumni</Link>
           <Link to="/resources">Resources</Link>
         </div>
@@ -33,9 +33,9 @@ const Navbar = () => {
         <button onClick={() => setIsMenuOpen(false)} className="absolute top-8 right-8 text-2xl text-blue-500"><X size={24}/></button>
         <Link to="/" onClick={() => setIsMenuOpen(prev => !prev)}>Home</Link>
         <Link to="/about" onClick={() => setIsMenuOpen(prev => !prev)}>About</Link>
-        <Link to="/community" onClick={() => setIsMenuOpen(prev => !prev)}>Community</Link>
+        {/* <Link to="/community" onClick={() => setIsMenuOpen(prev => !prev)}>Community</Link> */}
         <Link to="/events" onClick={() => setIsMenuOpen(prev => !prev)} className="">Events</Link>
-        <Link to="/blogs" onClick={() => setIsMenuOpen(prev => !prev)}>Blogs</Link>
+        {/* <Link to="/blogs" onClick={() => setIsMenuOpen(prev => !prev)}>Blogs</Link> */}
         <Link to="/alumni" onClick={() => setIsMenuOpen(prev => !prev)}>Alumni</Link>
         <Link to="/resources" onClick={() => setIsMenuOpen(prev => !prev)}>Resources</Link>
       </div>
