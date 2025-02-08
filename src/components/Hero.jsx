@@ -9,7 +9,7 @@ function Hero() {
   return (
     <div className="relative flex h-[700px] w-full flex-col items-center justify-center bg-background md:shadow-xl">
            <TextAnimate animation="blurIn" by="text">
-      <span className="z-10 whitespace-pre-wrap bg-gradient-to-b from-blue-300 via-blue-500 to-blue-700 bg-clip-text text-center md:text-8xl text-6xl font-bold leading-none tracking-tighter text-transparent">
+      <span className="z-10 whitespace-pre-wrap bg-gradient-to-b from-blue-300 via-blue-500 to-blue-700 bg-clip-text text-center md:text-8xl text-4xl font-bold leading-none tracking-tighter text-transparent">
         The Debugging Society
       </span>
       </TextAnimate>
