@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import BoxReveal from "../ui/box-reveal";
 import FlickeringGrid from "../ui/flickering-grid";
 
@@ -37,7 +38,7 @@ const AboutSection = () => {
           </BoxReveal>
           <BoxReveal boxColor={"#0077B6"} duration={0.3}>
             <button className="px-6 py-2 text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg shadow-lg hover:opacity-90">
-              Learn More
+              <Link to="/about">Learn More</Link>
             </button>
           </BoxReveal>
         </div>

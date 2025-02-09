@@ -1,6 +1,6 @@
 import AboutSection from "./Home/About";
-import {MagicCardDemo} from "./Home/Card";
-import {BentoDemo} from "./Home/Events";
+import {MagicCardDemo} from "./Home/Events";
+import {BentoDemo} from "./Home/Highlights";
 import { VelocityScrollText } from "./Home/VelocityScrollText";
 import Footer from "./Footer/Footer";
 import Hero from "./Home/Hero";

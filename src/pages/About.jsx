@@ -10,11 +10,7 @@ const About = () => {
       position: 'President',
       description:
         'A dynamic leader with a vision to drive innovation and excellence.',
-      instagramUrl: 'https://instagram.com/dummy',
-      linkedinUrl: 'https://linkedin.com/dummy',
-      facebookUrl: 'https://facebook.com/dummy',
-      githubUrl: 'https://github.com/dummy',
-      twitterUrl: 'https://twitter.com/dummy',
+      linkedinUrl: 'https://www.linkedin.com/in/nikhil-nsut?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     },
     {
       photo:
@@ -23,11 +19,7 @@ const About = () => {
       position: 'Vice president',
       description:
         'A dedicated leader committed to fostering innovation and teamwork.',
-      instagramUrl: 'https://instagram.com/dummy',
-      linkedinUrl: 'https://linkedin.com/dummy',
-      facebookUrl: 'https://facebook.com/dummy',
-      githubUrl: 'https://github.com/dummy',
-      twitterUrl: 'https://twitter.com/dummy',
+      linkedinUrl: 'https://www.linkedin.com/in/ashwajeetbhatia/',
     },
     {
       photo:
@@ -36,11 +28,7 @@ const About = () => {
       position: 'Managing Director',
       description:
         'A strategic thinker focused on driving growth and efficiency.',
-      instagramUrl: 'https://instagram.com/dummy',
-      linkedinUrl: 'https://linkedin.com/dummy',
-      facebookUrl: 'https://facebook.com/dummy',
-      githubUrl: 'https://github.com/dummy',
-      twitterUrl: 'https://twitter.com/dummy',
+      linkedinUrl: 'https://www.linkedin.com/in/daksh-b0a820263/',
     },
     {
       photo:
@@ -49,11 +37,7 @@ const About = () => {
       position: 'Treasurer',
       description:
         'A Treasurer who ensures our finances stay on point and our team spirit stays high.',
-      instagramUrl: 'https://instagram.com/dummy',
-      linkedinUrl: 'https://linkedin.com/dummy',
-      facebookUrl: 'https://facebook.com/dummy',
-      githubUrl: 'https://github.com/dummy',
-      twitterUrl: 'https://twitter.com/dummy',
+      linkedinUrl: 'https://www.linkedin.com/in/anjali-longre-573953258/ ',
     },
     {
       photo:
@@ -62,11 +46,7 @@ const About = () => {
       position: 'Web dev lead',
       description:
         'A creative coder passionate about building impactful web applications.',
-      instagramUrl: 'https://instagram.com/dummy',
-      linkedinUrl: 'https://linkedin.com/dummy',
-      facebookUrl: 'https://facebook.com/dummy',
-      githubUrl: 'https://github.com/dummy',
-      twitterUrl: 'https://twitter.com/dummy',
+      linkedinUrl: 'https://www.linkedin.com/in/riteshwadhwani?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     },
     {
       photo:
@@ -75,11 +55,7 @@ const About = () => {
       position: 'ML Lead',
       description:
         'A machine learning enthusiast passionate about AI-driven solutions.',
-      instagramUrl: 'https://instagram.com/dummy',
-      linkedinUrl: 'https://linkedin.com/dummy',
-      facebookUrl: 'https://facebook.com/dummy',
-      githubUrl: 'https://github.com/dummy',
-      twitterUrl: 'https://twitter.com/dummy',
+      linkedinUrl: 'https://www.linkedin.com/in/saneh-mahrolia-5801a3257/',
     },
     {
       photo:
@@ -88,11 +64,7 @@ const About = () => {
       position: 'DSA Lead',
       description:
         'A problem-solving enthusiast with a keen interest in data structures and algorithms.',
-      instagramUrl: 'https://instagram.com/dummy',
       linkedinUrl: 'https://linkedin.com/dummy',
-      facebookUrl: 'https://facebook.com/dummy',
-      githubUrl: 'https://github.com/dummy',
-      twitterUrl: 'https://twitter.com/dummy',
     },
     {
       photo:
@@ -101,11 +73,25 @@ const About = () => {
       position: 'General Secretary',
       description:
         'An energetic and passionate individual dedicated to fostering collaboration.',
-      instagramUrl: 'https://instagram.com/dummy',
-      linkedinUrl: 'https://linkedin.com/dummy',
-      facebookUrl: 'https://facebook.com/dummy',
-      githubUrl: 'https://github.com/dummy',
-      twitterUrl: 'https://twitter.com/dummy',
+      linkedinUrl: 'https://www.linkedin.com/in/ayushman-bari-49145a27a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ',
+    },
+    {
+      photo:
+        'https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003203/WhatsApp_Image_2025-02-06_at_20.03.48_bc6bf5a5_omtnjl.jpg',
+      name: 'Ayush',
+      position: 'General Secretary',
+      description:
+        'An energetic and passionate individual dedicated to fostering collaboration.',
+      linkedinUrl: 'https://www.linkedin.com/in/ayush-dewangan-133b28259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app9',
+    },
+    {
+      photo:
+        'https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003198/WhatsApp_Image_2025-02-06_at_20.02.30_5797de16_vhf3aa.jpg',
+      name: 'Ishita',
+      position: 'Operational lead',
+      description:
+        'An energetic and passionate individual dedicated to fostering collaboration.',
+      linkedinUrl: 'https://www.linkedin.com',
     },
   ]
 

@@ -32,8 +32,8 @@ export const MeetTDSCard = ({
                 <p className="text-gray-300 font-medium text-md mb-2">{position}</p>
                 <p className="text-gray-400 text-sm leading-relaxed">{description}</p>
             </div>
-            <div className="px-6 pt-4 pb-2">
-                <div className="flex justify-center space-x-4">
+            <div className="px-2 pt-4 pb-2">
+                <div className="flex gap-4">
                     {instagramUrl && (
                         <a
                             href={instagramUrl}
@@ -41,7 +41,7 @@ export const MeetTDSCard = ({
                             rel="noopener noreferrer"
                             className="text-gray-500 hover:text-pink-500 transition-colors duration-300"
                         >
-                            <IconBrandInstagram className="h-6 w-6" />
+                            <IconBrandInstagram className="h-7 w-7" />
                         </a>
                     )}
                     {facebookUrl && (
@@ -51,7 +51,7 @@ export const MeetTDSCard = ({
                             rel="noopener noreferrer"
                             className="text-gray-500 hover:text-blue-500 transition-colors duration-300"
                         >
-                            <IconBrandFacebook className="h-6 w-6" />
+                            <IconBrandFacebook className="h-7 w-7" />
                         </a>
                     )}
                     {twitterUrl && (
@@ -61,7 +61,7 @@ export const MeetTDSCard = ({
                             rel="noopener noreferrer"
                             className="text-gray-500 hover:text-blue-400 transition-colors duration-300"
                         >
-                            <IconBrandTwitter className="h-6 w-6" />
+                            <IconBrandTwitter className="h-7 w-7" />
                         </a>
                     )}
                     {linkedinUrl && (
@@ -71,7 +71,7 @@ export const MeetTDSCard = ({
                             rel="noopener noreferrer"
                             className="text-gray-500 hover:text-blue-700 transition-colors duration-300"
                         >
-                            <IconBrandLinkedin className="h-6 w-6" />
+                            <IconBrandLinkedin className="h-7 w-7" />
                         </a>
                     )}
                     {githubUrl && (
@@ -81,7 +81,7 @@ export const MeetTDSCard = ({
                             rel="noopener noreferrer"
                             className="text-gray-500 hover:text-gray-300 transition-colors duration-300"
                         >
-                            <IconBrandGithub className="h-6 w-6" />
+                            <IconBrandGithub className="h-7 w-7" />
                         </a>
                     )}
                 </div>

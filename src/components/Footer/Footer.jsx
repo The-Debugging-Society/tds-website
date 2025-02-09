@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="flex items-center space-x-2">
             <Link to='/'>
               <img
-                src="logo.jpeg" // Replace with your logo
+                src="https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739019866/logo_zlscnv.jpg"
                 alt="Logo"
                 className="w-12 h-12"
               />
@@ -37,13 +37,13 @@ const Footer = () => {
             </li>
             <li>
               <Link to="/events" className="text-gray-400 hover:text-white">
-                Our Projects
+                Our Events
               </Link>
             </li>
             <li>
-              <Link to="/community" className="text-gray-400 hover:text-white">
+              {/* <Link to="/community" className="text-gray-400 hover:text-white">
                 Community
-              </Link>
+              </Link> */}
             </li>
             <li>
               <Link to="/alumni" className="text-gray-400 hover:text-white">
@@ -51,7 +51,7 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link to="/alumni" className="text-gray-400 hover:text-white">
+              <Link to="/resources" className="text-gray-400 hover:text-white">
                 Resources
               </Link>
             </li>

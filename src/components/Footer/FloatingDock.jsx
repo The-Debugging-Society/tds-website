@@ -1,40 +1,32 @@
 import React from "react";
 import { FloatingDock } from "../ui/floatingDock"; // Adjust the import path for your FloatingDock component
 import {
-  IconBrandFacebook,
   IconBrandInstagram,
-  IconBrandTwitter,
-  IconBrandGithub,
+  IconBrandLinkedin,
+  IconBrandWhatsapp,
 } from "@tabler/icons-react"; 
 export function FloatingDockDemo() {
   const links = [
-    {
-      title: "Facebook",
-      icon: (
-        <IconBrandFacebook className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "https://www.facebook.com", 
-    },
     {
       title: "Instagram",
       icon: (
         <IconBrandInstagram className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "https://www.instagram.com", 
+      href: "https://www.instagram.com/thedebuggingsocietynsut?utm_source=ig_web_button_share_sheet&igsh=ODdmZWVhMTFiMw==", 
     },
     {
-      title: "X (Twitter)",
+      title: "LinkedIn",
       icon: (
-        <IconBrandTwitter className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconBrandLinkedin className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "https://www.twitter.com", 
+      href: "https://www.linkedin.com/company/thedebuggingsocietynsut/mycompany/",
     },
     {
-      title: "GitHub",
+      title: "Freshers Group",
       icon: (
-        <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconBrandWhatsapp className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "https://www.github.com", 
+      href: "https://chat.whatsapp.com/GQThHbXdSpT68iHm2nT8Dx",
     },
   ];
 
