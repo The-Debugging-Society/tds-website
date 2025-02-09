@@ -86,7 +86,7 @@ const About = () => {
     },
     {
       photo:
-        'https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003198/WhatsApp_Image_2025-02-06_at_20.02.30_5797de16_vhf3aa.jpg',
+        'https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739006535/WhatsApp_Image_2025-02-08_at_14.51.45_890968f5_lr6qxk.jpg',
       name: 'Ishita',
       position: 'Operational lead',
       description:
