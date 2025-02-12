@@ -64,7 +64,7 @@ const About = () => {
       position: 'DSA Lead',
       description:
         'A problem-solving enthusiast with a keen interest in data structures and algorithms.',
-      linkedinUrl: 'https://linkedin.com/dummy',
+      linkedinUrl: 'https://www.linkedin.com/company/thedebuggingsocietynsut/mycompany/',
     },
     {
       photo:
@@ -91,7 +91,7 @@ const About = () => {
       position: 'Operational lead',
       description:
         'An energetic and passionate individual dedicated to fostering collaboration.',
-      linkedinUrl: 'https://www.linkedin.com',
+      linkedinUrl: 'https://www.linkedin.com/company/thedebuggingsocietynsut/mycompany/',
     },
   ]
 
@@ -105,18 +105,36 @@ const About = () => {
         />
       </div>
       <div className="backdrop-blur-lg bg-opacity-50 bg-black px-5">
-        <div className="text-xl md:text-2xl max-w-2xl mx-auto text-center text-gray-300 mt-10 space-y-5">
+        <div className="text-xl md:text-2xl max-w-3xl mx-auto text-center text-gray-300 mt-8">
           TDS Alumni is a community dedicated to sharing knowledge, inspiring,
           and connecting with aspiring software engineers from around the world.
           We aim to foster a supportive and inclusive environment where
           individuals can learn, grow, and excel.
-          <br />
-          <p className="font-semibold">Todos:</p>
-          <ul className="list-disc list-inside text-gray-300">
-            <li>Our Mission</li>
-            <li>Our Vision</li>
-            <li>Why join TDS</li>
-          </ul>
+        </div>
+        <div className="flex animate-on-scroll flex-col justify-center items-center gap-5 p-5 w-full text-center">
+          <FlipText
+            className="text-4xl font-bold -tracking-[6px] text-blue-500 md:text-6xl md:leading-[5rem]"
+            word="Our Mission"
+          />
+        <h2 className="text-xl font-semibold text-gray-300 italic">"Code with passion, innovate with purpose, and create an impact that lasts!"</h2>
+            <p className="text-xl md:text-2xl max-w-4xl mx-auto text-center text-gray-300 mt-8">
+            - Empowering Innovators: We foster a community where tech enthusiasts can explore, innovate, and build impactful solutions. 
+            </p>
+            <p className="text-xl md:text-2xl max-w-4xl mx-auto text-center text-gray-300 mt-8">
+            - Hands-on Learning:Through projects, hackathons, and collaborative problem-solving, we bridge the gap between theory and real-world application.  
+            </p>
+            <p className="text-xl md:text-2xl max-w-4xl mx-auto text-center text-gray-300 mt-8">
+            - Skill Development:We equip members with expertise in software development, AI, cybersecurity, and emerging technologies through workshops and mentorship.
+            </p>
+            <p className="text-xl md:text-2xl max-w-4xl mx-auto text-center text-gray-300 mt-8">
+            - Industry & Academia Connection: We provide exposure to industry trends, career opportunities, and networking with experts.  
+            </p>
+            <p className="text-xl md:text-2xl max-w-4xl mx-auto text-center text-gray-300 mt-8">
+            - Technology for Impact:We believe in using tech for social good, solving real-world challenges through open-source and community-driven initiatives.  
+            </p>
+            <p className="text-xl md:text-2xl max-w-4xl mx-auto text-center text-gray-300 mt-8">
+            - A Culture of Curiosity:We encourage continuous learning, critical thinking, and debugging challenges—one solution at a time.
+            </p>
         </div>
         <div className="flex animate-on-scroll flex-col md:flex-row justify-center items-center gap-5 p-5 w-full text-center">
           <FlipText
