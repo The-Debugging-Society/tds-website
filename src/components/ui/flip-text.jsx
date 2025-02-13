@@ -31,7 +31,7 @@ export default function FlipText({
   }, []);
 
   return (
-    <div ref={ref} className="flex justify-center space-x-2">
+    <div ref={ref} className="flex justi space-x-2">
       <AnimatePresence >
         {word.split("").map((char, i) => (
           <motion.span
