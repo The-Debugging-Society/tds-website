@@ -142,7 +142,15 @@ const About = () => {
             word="Our  Team"
           />
         </div>
-        <div className="mt-12 flex flex-wrap justify-center gap-8 px-5 mb-10">
+        <div className="mt-12 mb-10" style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
+            gap: '24px',
+            justifyItems: 'center',
+            gridAutoRows: "500px",
+            width: "calc(100% - 16px)",
+            padding: "0 20px",
+        }}>
           {teamData.map((member, index) => (
             <MeetTDSCard
               key={index}
