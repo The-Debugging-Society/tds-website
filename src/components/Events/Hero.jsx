@@ -17,7 +17,7 @@ export default function HeroOfEvent() {
         }
         intervalRef.current = setInterval(() => {
             setImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 1000);
+        }, 250);
     };
 
     const handleHoverLeave = () => {
