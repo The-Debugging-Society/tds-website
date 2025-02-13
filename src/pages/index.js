@@ -4,7 +4,7 @@ import Community from "./Community";
 import Alumni from "./Alumni";
 import NotFound from "./NotFound";
 import Blogs from "./Blogs";
-import Events from "./Events";
+import Eventspage from "./Events";
 import Layout from "./Layout";
 import Resources from "./Resources";
 
@@ -13,7 +13,7 @@ export {
   Layout,
   About,
   Community,
-  Events,
+  Eventspage,
   Alumni,
   NotFound,
   Blogs,
