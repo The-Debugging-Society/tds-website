@@ -1,5 +1,6 @@
 import FlipText from '@/components/ui/flip-text'
 import { MeetTDSCard } from '@/components'
+import { Card } from "../components/ui/card"
 
 const About = () => {
   const teamData = [
@@ -95,10 +96,38 @@ const About = () => {
     },
   ]
 
+  const features = [
+    {
+      title: "Empowering Innovators",
+      description: "We foster a community where tech enthusiasts can explore, innovate, and build impactful solutions.",
+    },
+    {
+      title: "Hands-on Learning",
+      description: "Through projects, hackathons, and collaborative problem-solving, we bridge the gap between theory and real-world application.",
+    },
+    {
+      title: "Skill Development",
+      description: "We equip members with expertise in software development, AI, cybersecurity, and emerging technologies through workshops and mentorship.",
+    },
+    {
+      title: "Industry & Academia Connection",
+      description: "We provide exposure to industry trends, career opportunities, and networking with experts.",
+    },
+    {
+      title: "Technology for Impact",
+      description:
+        "We believe in using tech for social good, solving real-world challenges through open-source and community-driven initiatives.",
+    },
+    {
+      title: "A Culture of Curiosity",
+      description: "We encourage continuous learning, critical thinking, and debugging challenges—one solution at a time.",
+    },
+  ]
+
   return (
     // <div className="bg-cover bg-center bg-[url('/logo.jpeg')]">
     <div>
-      <div className="backdrop-blur-lg bg-opacity-50 bg-black flex animate-on-scroll flex-col md:flex-row justify-center items-center gap-5 p-5 w-full text-center">
+      <div className="backdrop-blur-lg bg-opacity-50 bg-black flex animate-on-scroll flex-col md:flex-row justify-center items-center gap-5 p-5 w-full text-center ">
         <FlipText
           className="text-4xl font-bold -tracking-[6px] text-blue-500 md:text-7xl md:leading-[5rem]"
           word="About"
@@ -110,31 +139,29 @@ const About = () => {
           and connecting with aspiring software engineers from around the world.
           We aim to foster a supportive and inclusive environment where
           individuals can learn, grow, and excel.
-        </div>
-        <div className="flex animate-on-scroll flex-col justify-center items-center gap-5 p-5 w-full text-center">
+        </div >
+        <div className="flex animate-on-scroll m-auto flex-col justify-center items-center gap-5 p-5 pt-0 text-center bg-[#1f1f1f] rounded-lg" style={{
+          width:"fit-content"
+        }}>
+        <div >
           <FlipText
             className="text-4xl font-bold -tracking-[6px] text-blue-500 md:text-6xl md:leading-[5rem]"
             word="Our Mission"
           />
-        <h2 className="text-xl font-semibold text-gray-300 italic">"Code with passion, innovate with purpose, and create an impact that lasts!"</h2>
-            <p className="text-xl md:text-2xl max-w-4xl mx-auto text-center text-gray-300 mt-8">
-            - Empowering Innovators: We foster a community where tech enthusiasts can explore, innovate, and build impactful solutions. 
-            </p>
-            <p className="text-xl md:text-2xl max-w-4xl mx-auto text-center text-gray-300 mt-8">
-            - Hands-on Learning:Through projects, hackathons, and collaborative problem-solving, we bridge the gap between theory and real-world application.  
-            </p>
-            <p className="text-xl md:text-2xl max-w-4xl mx-auto text-center text-gray-300 mt-8">
-            - Skill Development:We equip members with expertise in software development, AI, cybersecurity, and emerging technologies through workshops and mentorship.
-            </p>
-            <p className="text-xl md:text-2xl max-w-4xl mx-auto text-center text-gray-300 mt-8">
-            - Industry & Academia Connection: We provide exposure to industry trends, career opportunities, and networking with experts.  
-            </p>
-            <p className="text-xl md:text-2xl max-w-4xl mx-auto text-center text-gray-300 mt-8">
-            - Technology for Impact:We believe in using tech for social good, solving real-world challenges through open-source and community-driven initiatives.  
-            </p>
-            <p className="text-xl md:text-2xl max-w-4xl mx-auto text-center text-gray-300 mt-8">
-            - A Culture of Curiosity:We encourage continuous learning, critical thinking, and debugging challenges—one solution at a time.
-            </p>
+        <h2 className="text-xl text-left mt-1 mb-4 font-semibold text-gray-300 italic">"Code with passion, innovate with purpose, and create an impact that lasts!"</h2>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+          {features.map((feature, index) => (
+            <Card
+              key={index}
+              className="bg-gray-800/50 hover:bg-gray-700/50 transition-colors duration-200 p-6 space-y-4"
+            >
+              {/* <feature.icon className="w-8 h-8 text-white opacity-90" strokeWidth={1.5} /> */}
+              <h3 className="text-xl font-semibold text-white">{feature.title}</h3>
+              <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+            </Card>
+          ))}
+          </div>
+        </div>
         </div>
         <div className="flex animate-on-scroll flex-col md:flex-row justify-center items-center gap-5 p-5 w-full text-center">
           <FlipText
