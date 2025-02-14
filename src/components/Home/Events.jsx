@@ -33,12 +33,15 @@ export function MagicCardDemo() {
           word="Events"
         />
       </div>
-      <div className="px-12 py-8 pt-1 pb-1" style={{
+      <div className="mt-5 mb-10" style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
             gap: '24px',
             width: "100%",
-            gridAutoColumns: "500px",
+            maxWidth: "1500px",
+            gridAutoRows: "400px",
+            padding: "0 20px",
+            margin: "0 auto",
           }}>
         {cards.map((card, index) => (
           <div key={index} className="w-full">

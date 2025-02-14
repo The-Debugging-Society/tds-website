@@ -5,7 +5,7 @@ const Home = () => {
       <Hero />
       <VelocityScrollText />
       <AboutSection />
-      <BentoDemo />
+      {/* <BentoDemo /> */}
       <MagicCardDemo />
       <MarqueeDemo />
     </>

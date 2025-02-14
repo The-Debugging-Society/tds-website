@@ -12,16 +12,18 @@ const AlumniCard = ({ name, passoutYear, company, linkedin }) => {
       </div>
       <div className="text-center md:text-left">
         <h2 className="text-xl font-bold mb-2 text-white">{name}</h2>
-        <p className="text-gray-300 mb-1">Passout Year: {passoutYear}</p>
+        {passoutYear && <p 
+        className="text-gray-300 mb-1">Passout Year: {passoutYear}
+        </p>}
         <p className="text-gray-400 mb-4">Company: {company}</p>
-        <a
+        {linkedin && <a
           href={linkedin}
           className="text-blue-500 hover:underline flex items-center justify-center md:justify-start"
           target="_blank"
           rel="noopener noreferrer"
         >
           <IconBrandLinkedin className="mr-2 h-6 w-6" />
-        </a>
+        </a>}
       </div>
     </div>
   )

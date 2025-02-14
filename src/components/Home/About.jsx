@@ -25,16 +25,15 @@ const AboutSection = () => {
           </BoxReveal>
           <BoxReveal boxColor={"#0077B6"} duration={0.3}>
             <h3 className="text-3xl md:text-4xl font-extrabold leading-snug mb-4">
-              The Demo Organization
+              The Debugging society
             </h3>
           </BoxReveal>
           <BoxReveal boxColor={"#0077B6"} duration={0.3}>
             <p className="text-gray-300 leading-relaxed mb-6">
-              The Demo Organization was founded with the vision to inspire creativity and foster
-              innovation in communities around the world. Our goal is to provide a platform where
-              individuals can collaborate, learn, and grow together. We aim to expand our reach and
-              create meaningful impact through knowledge sharing and community-driven initiatives.
+              The Debugging Society has been initiated with the purpose to develop a passion for coding throught regular assignments,weekly quizzes and create a network of like-minded individuals who are passionate about coding and technology.
             </p>
+            <p className="text-gray-300 leading-relaxed mb-6">Specialties<br/>
+            DATA STRUCTUE AND ALGORITHIMS, COMPETITIVE PROGRAMMING, WEB DEVELOPMENT, INTERVIEW PREPARATION, ANDROID DEVELOPMENT, C++ and JAVA</p>
           </BoxReveal>
           <BoxReveal boxColor={"#0077B6"} duration={0.3}>
             <button className="bg-blue-400 text-white py-2 px-4 rounded-md hover:bg-blue-500">

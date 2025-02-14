@@ -1,6 +1,6 @@
 function PastEvents() {
     return (
-        <section id="past">
+        <section>
             <h2>Past Events</h2>
             <p>add past events</p>
         </section>
