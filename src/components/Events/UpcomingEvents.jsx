@@ -28,7 +28,6 @@ function UpcomingEvents() {
     return (
         events.length > 0 ? <div
             className="flex rounded-3xl animate-on-scroll m-auto flex-col justify-center items-center gap-5 pt-0 text-center"
-            id={"aboutMission"}
             style={{
                 boxShadow: "0px 0px 14px 1px #5e5e5e inset",
                 boxSizing: "border-box",
