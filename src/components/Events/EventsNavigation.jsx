@@ -20,10 +20,10 @@ const EventsNavigation = () => {
         <div>
             <div className="bg-black p-4 md:p-8">
                 <div className="flex flex-col items-center sm:flex-row sm:gap-4 mb-12 justify-center">
-                    <Link to="/events/upcoming" className="w-[474px] h-[50px]">
+                    <Link to="/events/upcoming" className="w-full sm:w-[474px] h-[50px] mb-4 sm:mb-0">
                         <Button
                             variant="ghost"
-                            className={`rounded-full border px-4 py-2 mb-2 md:px-8 text-sm md:text-lg font-medium transition-colors w-full h-full
+                            className={`rounded-full border-2 px-8 py-6 text-lg font-medium transition-colors w-full h-full
                                 ${
                                     activeTab === "upcoming"
                                         ? "border-transparent bg-white text-black hover:bg-gray-200"
@@ -34,10 +34,10 @@ const EventsNavigation = () => {
                             UPCOMING EVENTS
                         </Button>
                     </Link>
-                    <Link to="/events/past" className="w-[474px] h-[50px]">
+                    <Link to="/events/past" className="w-full sm:w-[474px] h-[50px] mb-4 sm:mb-0">
                         <Button
                             variant="ghost"
-                            className={`rounded-full border px-4 py-2 mb-2 md:px-8 text-sm md:text-lg font-medium transition-colors w-full h-full
+                            className={`rounded-full border-2 px-8 py-6 text-lg font-medium transition-colors w-full h-full
                                 ${
                                     activeTab === "past"
                                         ? "border-transparent bg-white text-black hover:bg-gray-200"
@@ -48,10 +48,10 @@ const EventsNavigation = () => {
                             PAST EVENTS
                         </Button>
                     </Link>
-                    <Link to="/events/past-workshop" className="w-[474px] h-[50px]">
+                    <Link to="/events/past-workshop" className="w-full sm:w-[474px] h-[50px]">
                         <Button
                             variant="ghost"
-                            className={`rounded-full border px-4 py-2 mb-2 md:px-8 text-sm md:text-lg font-medium transition-colors w-full h-full
+                            className={`rounded-full border-2 px-8 py-6 text-lg font-medium transition-colors w-full h-full
                                 ${
                                     activeTab === "past workshop"
                                         ? "border-transparent bg-white text-black hover:bg-gray-200"
