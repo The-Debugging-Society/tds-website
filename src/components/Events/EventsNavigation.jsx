@@ -26,8 +26,8 @@ const EventsNavigation = () => {
                             className={`rounded-full border-2 px-8 py-6 text-lg font-medium transition-colors w-full h-full
                                 ${
                                     activeTab === "upcoming"
-                                        ? "border-transparent bg-white text-black hover:bg-gray-200"
-                                        : "border-gray-700 text-gray-400 hover:bg-gray-800"
+                                        ? "border-transparent bg-white text-black md:hover:bg-gray-300"
+                                        : "border-gray-700 text-gray-400 md:hover:bg-gray-800 md:hover:text-white"
                                 }`}
                             onClick={() => setActiveTab("upcoming")}
                         >
@@ -40,8 +40,8 @@ const EventsNavigation = () => {
                             className={`rounded-full border-2 px-8 py-6 text-lg font-medium transition-colors w-full h-full
                                 ${
                                     activeTab === "past"
-                                        ? "border-transparent bg-white text-black hover:bg-gray-200"
-                                        : "border-gray-700 text-gray-400 hover:bg-gray-800"
+                                        ? "border-transparent bg-white text-black md:hover:bg-gray-300"
+                                        : "border-gray-700 text-gray-400 md:hover:bg-gray-800 md:hover:text-white"
                                 }`}
                             onClick={() => setActiveTab("past")}
                         >
@@ -54,8 +54,8 @@ const EventsNavigation = () => {
                             className={`rounded-full border-2 px-8 py-6 text-lg font-medium transition-colors w-full h-full
                                 ${
                                     activeTab === "past workshop"
-                                        ? "border-transparent bg-white text-black hover:bg-gray-200"
-                                        : "border-gray-700 text-gray-400 hover:bg-gray-800"
+                                        ? "border-transparent bg-white text-black md:hover:bg-gray-300"
+                                        : "border-gray-700 text-gray-400 md:hover:bg-gray-800 md:hover:text-white"
                                 }`}
                             onClick={() => setActiveTab("past workshop")}
                         >
