@@ -1,4 +1,4 @@
-import React, { useState,useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 export default function HeroOfEvent() {
     const [imageIndex, setImageIndex] = useState(0);
@@ -41,10 +41,10 @@ export default function HeroOfEvent() {
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
                         <div className="space-y-2">
-                            <h2 className="text-blue-500 uppercase tracking-wider text-lg font-medium">EVENTS</h2>
-                            <h1 className="text-blue-500 text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">JOIN US IRL</h1>
+                            <h2 className="text-white uppercase tracking-wider text-lg font-medium">EVENTS</h2>
+                            <h1 className="text-white text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">JOIN US IRL</h1>
                         </div>
-                        <p className="text-blue-500 text-lg sm:text-xl leading-relaxed max-w-2xl">
+                        <p className="text-gray-400 text-lg sm:text-xl leading-relaxed max-w-2xl">
                             We pride ourselves on meeting and hanging out with our community in real life. Come join us at a number of
                             conferences and hangouts throughout the year.
                         </p>
@@ -54,7 +54,7 @@ export default function HeroOfEvent() {
                             onMouseEnter={handleHover}
                             onMouseLeave={handleHoverLeave}
                             src={images[imageIndex]}
-                            className="rounded-lg w-[600px] h-[400px]"
+                            className="rounded-lg w-[600px] h-[400px] transform transition duration-300 hover:scale-105 hover:shadow-xl"
                             alt="Event visuals"
                         />
                     </div>
