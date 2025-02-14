@@ -26,7 +26,7 @@ const Navbar = () => {
         {/* navbar links for large screen */}
         <div className="hidden lg:flex justify-end items-center gap-8 font-semibold text-lg text-blue-500">
           {links.map((link, index) => (
-            <Link key={index} to={link.toLocaleLowerCase() === "events" ? "/events/upcoming" : `/${link.toLocaleLowerCase()}`} className="hover:underline">
+            <Link key={index} to={`/${link.toLocaleLowerCase()}`} className="hover:underline">
               <HyperText animateOnHover={false} className={'text-lg'}>{link}</HyperText>
             </Link>
           ))}
@@ -35,7 +35,7 @@ const Navbar = () => {
       <div className={`fixed top-0 left-0 w-full h-screen text-lg text-blue-500 bg-black space-y-5 flex flex-col items-center justify-center transform ${isMenuOpen ? "translate-x-0" : "translate-x-full"} transition-transform duration-300 lg:hidden`}>
         <button onClick={() => setIsMenuOpen(false)} className="absolute top-8 right-8 text-2xl text-blue-500"><X size={24}/></button>
         {links.map((link, index) => (
-          <Link key={index} to={link.toLocaleLowerCase() === "events" ? "/events/upcoming" : `/${link.toLocaleLowerCase()}`}>
+          <Link key={index} to={`/${link.toLocaleLowerCase()}`}>
             <h1 onClick={() => setIsMenuOpen(false)} className={'text-lg text-blue-500'}>{link}</h1>
           </Link>
         ))}

@@ -7,7 +7,7 @@ const EventsNavigation = () => {
     const [activeTab, setActiveTab] = useState("upcoming");
 
     useEffect(() => {
-        const hash = pathname.split("/events/")[1]; // Get the section name
+        const hash = pathname.split("/events/")[1];
         if (hash) {
             const section = document.getElementById(hash);
             if (section) {

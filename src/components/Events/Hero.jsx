@@ -4,12 +4,12 @@ export default function HeroOfEvent() {
     const [imageIndex, setImageIndex] = useState(0);
     const intervalRef = useRef(null);
     const images = [
-        "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003210/WhatsApp_Image_2025-02-06_at_20.04.08_abbbfb4e_ujqwny.jpg",
-        "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003213/WhatsApp_Image_2025-02-06_at_20.04.25_87b34146_xqrnxm.jpg",
-        'https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739006407/WhatsApp_Image_2025-02-08_at_14.49.31_e641d0c3_ept4uw.jpg',
-        'https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003223/WhatsApp_Image_2025-02-06_at_20.47.13_c8834e60_t28kec.jpg',
-        'https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739006535/WhatsApp_Image_2025-02-08_at_14.51.45_890968f5_lr6qxk.jpg'
-    ];
+        "../../../public/event1.jpg",
+        "../../../public/event2.jpg",
+        "../../../public/event3.jpg",
+        "../../../public/event4.jpg",
+        "../../../public/event5.jpg",
+      ];
 
     const handleHover = () => {
         if (intervalRef.current) {
