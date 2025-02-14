@@ -1,10 +1,13 @@
+import {HeroOfEvent,EventsNavigation} from "./index.js"
 import React from "react"
-import HeroOfEvent from "./Hero"
 
-const Events = () => {
+function Eventspage() {
     return (
-        <HeroOfEvent/>
-    )
+        <div>
+            <HeroOfEvent/>
+            <EventsNavigation/>
+        </div>
+    );
 }
 
-export default Events
+export default Eventspage;

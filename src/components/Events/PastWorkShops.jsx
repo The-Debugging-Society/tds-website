@@ -1,9 +1,10 @@
-import React from "react";
-
-const PastWorkShops = () => {
+function PastWorkshops() {
     return (
-        <div>PastWorkShops</div>
-    )
+        <section id="past-workshop">
+            <h2>Past Workshops</h2>
+            <p>to add past workshop and linke it with thier instagram post</p>
+        </section>
+    );
 }
 
-export default PastWorkShops
+export default PastWorkshops;

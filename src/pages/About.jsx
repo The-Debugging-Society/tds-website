@@ -65,7 +65,7 @@ const About = () => {
       position: 'DSA Lead',
       description:
         'A problem-solving enthusiast with a keen interest in data structures and algorithms.',
-      linkedinUrl: 'https://www.linkedin.com/company/thedebuggingsocietynsut/mycompany/',
+      linkedinUrl: 'https://www.linkedin.com/in/harsh-aggarwal-b331821b5/',
     },
     {
       photo:
