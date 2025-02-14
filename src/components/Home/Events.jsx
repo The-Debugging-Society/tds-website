@@ -33,7 +33,7 @@ export function MagicCardDemo() {
           word="Events"
         />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4 pt-12 w-full max-w-7xl mx-auto bg-background">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4 pt-0 pb-0 w-full max-w-7xl mx-auto bg-background">
         {cards.map((card, index) => (
           <div key={index} className="w-full">
             <MagicCard

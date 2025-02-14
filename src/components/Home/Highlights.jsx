@@ -60,16 +60,20 @@
   
   export function BentoDemo() {
     return(
-        <div className="relative flex h-auto w-full px-12 py-8 flex-col items-center justify-start bg-background md:shadow-xl">
-          <FlipText
-      className="text-4xl font-bold -tracking-widest mt-6 mb-12 text-blue-500 md:text-7xl md:leading-[5rem]"
+      <div>
+    <div className="flex animate-on-scroll flex-col md:flex-row justify-center items-center gap-5 p-5 w-full bg-background">
+    <FlipText
+      className="text-4xl font-bold -tracking-widest text-blue-500 md:text-7xl md:leading-[5rem]"
       word="Highlights"
     />
+    </div>
+        <div className="relative pt-0 pb-0 flex h-auto w-full px-12 py-8 flex-col items-center justify-start bg-background md:shadow-xl">
       <BentoGrid>
         {features.map((feature) => (
           <BentoCard key={feature.name} {...feature} />
         ))}
       </BentoGrid>
+        </div>
         </div>
     );
 

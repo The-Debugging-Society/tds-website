@@ -67,10 +67,12 @@ const ReviewCard = ({ img, name, username, body }) => {
 const MarqueeDemo = () => {
   return (
     <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden bg-background md:shadow-xl">
-                <FlipText
-              className="text-4xl font-bold -tracking-widest mt-12 mb-12 text-blue-500 md:text-7xl md:leading-[5rem]"
-              word="Reviews"
-            />
+    <div className="flex animate-on-scroll flex-col md:flex-row justify-center items-center gap-5 p-5 w-full bg-background">
+    <FlipText
+      className="text-4xl font-bold -tracking-widest text-blue-500 md:text-7xl md:leading-[5rem]"
+      word="Reviews"
+    />
+    </div>
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review) => (
           <ReviewCard key={review.username} {...review} />
