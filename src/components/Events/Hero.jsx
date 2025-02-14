@@ -4,11 +4,11 @@ export default function HeroOfEvent() {
     const [imageIndex, setImageIndex] = useState(0);
     const intervalRef = useRef(null);
     const images = [
-        "../../../public/event1.jpg",
-        "../../../public/event2.jpg",
-        "../../../public/event3.jpg",
-        "../../../public/event4.jpg",
-        "../../../public/event5.jpg",
+        "/public/event1.jpg",
+        "/public/event2.jpg",
+        "/public/event3.jpg",
+        "/public/event4.jpg",
+        "/public/event5.jpg",
       ];
 
     const handleHover = () => {
