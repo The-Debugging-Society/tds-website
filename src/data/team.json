@@ -1,0 +1,72 @@
+[
+  {
+    "photo": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739006407/WhatsApp_Image_2025-02-08_at_14.49.31_e641d0c3_ept4uw.jpg",
+    "name": "Nikhil",
+    "position": "President",
+    "description": "A dynamic leader with a vision to drive innovation and excellence.",
+    "linkedinUrl": "https://www.linkedin.com/in/nikhil-nsut?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+  },
+  {
+    "photo": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003223/WhatsApp_Image_2025-02-06_at_20.47.13_c8834e60_t28kec.jpg",
+    "name": "Ashwajeet",
+    "position": "Vice President",
+    "description": "A dedicated leader committed to fostering innovation and teamwork.",
+    "linkedinUrl": "https://www.linkedin.com/in/ashwajeetbhatia/"
+  },
+  {
+    "photo": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003216/WhatsApp_Image_2025-02-06_at_20.04.41_da938446_pnz23k.jpg",
+    "name": "Daksh",
+    "position": "Managing Director",
+    "description": "A strategic thinker focused on driving growth and efficiency.",
+    "linkedinUrl": "https://www.linkedin.com/in/daksh-b0a820263/"
+  },
+  {
+    "photo": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003210/WhatsApp_Image_2025-02-06_at_20.04.08_abbbfb4e_ujqwny.jpg",
+    "name": "Anjali",
+    "position": "Treasurer",
+    "description": "A Treasurer who ensures our finances stay on point and our team spirit stays high.",
+    "linkedinUrl": "https://www.linkedin.com/in/anjali-longre-573953258/ "
+  },
+  {
+    "photo": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003213/WhatsApp_Image_2025-02-06_at_20.04.25_87b34146_xqrnxm.jpg",
+    "name": "Ritesh",
+    "position": "Web Dev Lead",
+    "description": "A creative coder passionate about building impactful web applications.",
+    "linkedinUrl": "https://www.linkedin.com/in/riteshwadhwani?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+  },
+  {
+    "photo": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003220/WhatsApp_Image_2025-02-06_at_20.05.44_7c8b1ddd_rmuegc.jpg",
+    "name": "Saneh",
+    "position": "ML Lead",
+    "description": "A machine learning enthusiast passionate about AI-driven solutions.",
+    "linkedinUrl": "https://www.linkedin.com/in/saneh-mahrolia-5801a3257/"
+  },
+  {
+    "photo": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003190/WhatsApp_Image_2025-02-06_at_20.01.48_85855272_hgerm2.jpg",
+    "name": "Harsh",
+    "position": "DSA Lead",
+    "description": "A problem-solving enthusiast with a keen interest in data structures and algorithms.",
+    "linkedinUrl": "https://www.linkedin.com/in/harsh-aggarwal-b331821b5/"
+  },
+  {
+    "photo": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739006520/WhatsApp_Image_2025-02-08_at_14.51.44_fc7d27a8_tx7jyx.jpg",
+    "name": "Ayushmaan Bari",
+    "position": "General Secretary",
+    "description": "An energetic and passionate individual dedicated to fostering collaboration.",
+    "linkedinUrl": "https://www.linkedin.com/in/ayushman-bari-49145a27a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app "
+  },
+  {
+    "photo": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003203/WhatsApp_Image_2025-02-06_at_20.03.48_bc6bf5a5_omtnjl.jpg",
+    "name": "Ayush",
+    "position": "General Secretary",
+    "description": "An energetic and passionate individual dedicated to fostering collaboration.",
+    "linkedinUrl": "https://www.linkedin.com/in/ayush-dewangan-133b28259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app9"
+  },
+  {
+    "photo": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739006535/WhatsApp_Image_2025-02-08_at_14.51.45_890968f5_lr6qxk.jpg",
+    "name": "Ishita",
+    "position": "Operational Lead",
+    "description": "An energetic and passionate individual dedicated to fostering collaboration.",
+    "linkedinUrl": "https://www.linkedin.com/company/thedebuggingsocietynsut/mycompany/"
+  }
+]
