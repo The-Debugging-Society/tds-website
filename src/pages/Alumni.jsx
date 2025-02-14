@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import AlumniCard from '@/components/AlumniCard'
 import FlipText from '@/components/ui/flip-text'
-import alumniData from '@/alumni'
+import alumniData from '@/data/alumni'
 
 const Alumni = () => {
   const [selectedYear, setSelectedYear] = useState('All');
@@ -22,7 +22,7 @@ const Alumni = () => {
           word="Our Alumni"
         />
       </div>
-      <div className="flex justify-center space-x-4 my-4">
+      <div className="flex flex-wrap justify-center gap-2 md:gap-4 my-4 px-5">
         {['All', '2026', '2025', '2024', '2023', '2022'].map(year => (
           <button 
             key={year} 
