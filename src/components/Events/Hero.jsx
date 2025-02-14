@@ -44,7 +44,7 @@ export default function HeroOfEvent() {
                             <h2 className="text-white uppercase tracking-wider text-lg font-medium">EVENTS</h2>
                             <h1 className="text-white text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">JOIN US IRL</h1>
                         </div>
-                        <p className="text-gray-400 text-lg sm:text-xl leading-relaxed max-w-2xl">
+                        <p className="text-gray-400 text-lg sm:text-xl leading-relaxed">
                             We pride ourselves on meeting and hanging out with our community in real life. Come join us at a number of
                             conferences and hangouts throughout the year.
                         </p>
