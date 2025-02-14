@@ -1,45 +1,18 @@
+import { useState } from 'react';
 import AlumniCard from '@/components/AlumniCard'
 import FlipText from '@/components/ui/flip-text'
+import alumniData from '@/alumni'
 
 const Alumni = () => {
-  const alumniData = [
-    {
-      name: 'John Doe',
-      passoutYear: '2022',
-      company: 'Google',
-      linkedin: 'https://linkedin.com/johndoe',
-    },
-    {
-      name: 'John Doe',
-      passoutYear: '2022',
-      company: 'Google',
-      linkedin: 'https://linkedin.com/johndoe',
-    },
-    {
-      name: 'John Doe',
-      passoutYear: '2022',
-      company: 'Google',
-      linkedin: 'https://linkedin.com/johndoe',
-    },
-    {
-      name: 'John Doe',
-      passoutYear: '2022',
-      company: 'Google',
-      linkedin: 'https://linkedin.com/johndoe',
-    },
-    {
-      name: 'John Doe',
-      passoutYear: '2022',
-      company: 'Google',
-      linkedin: 'https://linkedin.com/johndoe',
-    },
-    {
-      name: 'John Doe',
-      passoutYear: '2022',
-      company: 'Google',
-      linkedin: 'https://linkedin.com/johndoe',
-    },
-  ]
+  const [selectedYear, setSelectedYear] = useState('All');
+
+  const handleYearChange = (year) => {
+    setSelectedYear(year);
+  };
+
+  const filteredAlumni = selectedYear === 'All' 
+    ? alumniData 
+    : alumniData.filter(alumni => alumni.yearOfGraduation === selectedYear);
 
   return (
     <div className='w-full mx-auto'>
@@ -49,14 +22,25 @@ const Alumni = () => {
           word="Our Alumni"
         />
       </div>
-      <div className="w-full flex flex-wrap items-center justify-center gap-6 py-10">
-        {alumniData.map((alumni, i) => (
+      <div className="flex justify-center space-x-4 my-4">
+        {['All', '2026', '2025', '2024', '2023', '2022'].map(year => (
+          <button 
+            key={year} 
+            onClick={() => handleYearChange(year)} 
+            className={`px-4 py-2 rounded ${selectedYear === year ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-700'}`}
+          >
+            {year}
+          </button>
+        ))}
+      </div>
+      <div className="w-full flex flex-wrap items-center justify-center gap-4 py-10">
+        {filteredAlumni.map((alumni, i) => (
           <AlumniCard
             key={i}
             name={alumni.name}
-            passoutYear={alumni.passoutYear}
-            company={alumni.company}
-            linkedin={alumni.linkedin}
+            passoutYear={alumni.yearOfGraduation}
+            company={alumni.currentCompany || 'In College'}
+            linkedin={alumni.linkedIn || 'https://www.linkedin.com/'}
           />
         ))}
       </div>
