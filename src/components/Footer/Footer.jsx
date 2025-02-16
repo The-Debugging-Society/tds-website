@@ -52,9 +52,15 @@ const Footer = () => {
             Stay connected with us on social media.
           </p>
           <div className="flex gap-4 text-gray-400">
-            <IconBrandInstagram className="hover:text-gray-200" />
-            <IconBrandLinkedin className="hover:text-gray-200" />
-            <IconBrandWhatsapp className="hover:text-gray-200" />
+            <Link to="https://www.instagram.com/thedebuggingsocietynsut/">
+              <IconBrandInstagram className="hover:text-gray-200" />
+            </Link>
+            <Link to="https://www.linkedin.com/company/thedebuggingsocietynsut/">
+              <IconBrandLinkedin className="hover:text-gray-200" />
+            </Link>
+            <Link to="https://chat.whatsapp.com/GQThHbXdSpT68iHm2nT8Dx">
+              <IconBrandWhatsapp className="hover:text-gray-200" />
+            </Link>
           </div>
         </div>
       </div>

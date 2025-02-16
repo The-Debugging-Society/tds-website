@@ -12,21 +12,21 @@ const Navbar = () => {
     <div className="sticky top-0 bg-black z-50 flex justify-between items-center p-5">
       <div>
         <Link to="/">
-          <img src="https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739019866/logo_zlscnv.jpg" alt="TDS Logo" className="h-12 w-12" />
+          <img src="logo.jpeg" alt="TDS Logo" className="h-12 w-12" />
         </Link>
         </div>
          {/* Menu bar bar for mobile */}
         <div className="lg:hidden">
           <label onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            <div className="w-9 h-10 cursor-pointer flex flex-col items-center justify-center">
+            <div className="w-9 h-10 cursor-pointer flex flex-col items-center justify-center font-bold">
               <Menu className='text-blue-500' size={24} />
             </div>
           </label>
         </div>
         {/* navbar links for large screen */}
-        <div className="hidden lg:flex justify-end items-center gap-8 font-semibold text-lg text-blue-500">
+        <div className="hidden lg:flex justify-end items-center gap-8 font-semibold text-lg text-blue-500/85">
           {links.map((link, index) => (
-            <Link key={index} to={`/${link.toLocaleLowerCase()}`} className="hover:underline">
+            <Link key={index} to={`/${link.toLocaleLowerCase()}`} className='hover:text-blue-500'>
               <HyperText animateOnHover={false} className={'text-lg'}>{link}</HyperText>
             </Link>
           ))}
