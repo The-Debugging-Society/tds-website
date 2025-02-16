@@ -52,7 +52,7 @@ const About = () => {
         }}>
           <img style={{
             marginBottom: "200px",
-          }} src="/about_hero.png" alt={"About Hero"}/>
+          }} src="https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739477715/about_hero_hnbjb2.png" alt={"About Hero"}/>
           <p className="text-xl md:text-2xl mx-auto text-left text-gray-300 mt-8 tracking-wide" style={{
             position: "absolute",
             bottom: "0",

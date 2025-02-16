@@ -4,11 +4,15 @@ export default function HeroOfEvent() {
     const [imageIndex, setImageIndex] = useState(0);
     const intervalRef = useRef(null);
     const images = [
-        "/event1.jpg",
-        "/event2.jpg",
-        "/event3.jpg",
-        "/event4.jpg",
-        "/event5.jpg",
+        "/pic01.jpg",
+        "/pic02.jpg",
+        "/pic03.jpg",
+        "/pic04.jpg",
+        "/pic05.jpg",
+        "/pic06.JPG",
+        "/pic07.JPG",
+        "/pic08.JPG",
+        "/pic09.JPG",
       ];
 
     const handleHover = () => {
@@ -54,7 +58,7 @@ export default function HeroOfEvent() {
                             onMouseEnter={handleHover}
                             onMouseLeave={handleHoverLeave}
                             src={images[imageIndex]}
-                            className="rounded-lg lg:w-[600px] lg:h-[400px] md:px-8 lg:p-0 sm:px-6 transform transition duration-300 scale-105 hover:scale-100 hover:shadow-xl"
+                            className="rounded-lg lg:w-[600px] lg:h-[400px] md:w-[750px] md:h-[500px] sm:w-[600px] sm:h-[400px] md:px-8 lg:p-0 sm:px-6 transform transition duration-300 scale-105 hover:scale-100 hover:shadow-xl"
                             alt="Event visuals"
                         />
                     </div>

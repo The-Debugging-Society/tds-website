@@ -1,7 +1,7 @@
-import { MagicCard } from "../ui/magic-card";
+import { EventCard } from "./UpcomingEventCard";
 import React from "react";
 
-function UpcomingEvents() {
+function PastEvents() {
     const events = [
         {
             title: "CTRL+ALT+HACK",
@@ -26,34 +26,32 @@ function UpcomingEvents() {
     ];
 
     return (
-        events.length > 0 ? <div
+        <div className="mx-4">
+        <div
             className="flex rounded-3xl animate-on-scroll m-auto flex-col justify-center items-center gap-5 pt-0 text-center"
             style={{
                 boxShadow: "0px 0px 14px 1px #5e5e5e inset",
                 boxSizing: "border-box",
                 padding: "50px",
                 maxWidth: "1320px",
-                width: "fit-content",
                 margin: "40px auto",
                 backgroundColor: "#121212"
             }}>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
                 {events.map((card, index) => (
-                    <div key={index} className="w-full">
-                        <MagicCard
-                            className="w-full h-full"
+                    <div key={index} className="w-full flex">
+                        <EventCard
                             title={card.title}
-                            body={card.description}
+                            description={card.description}
                             image={card.image}
+                            style={{ height: "100%" }}
                         />
                     </div>
                 ))}
             </div>
-        </div> :
-        <>
-        <h1>No event found</h1>
-        </>
+        </div>
+        </div>
     );
 }
 
-export default UpcomingEvents;
+export default PastEvents;
