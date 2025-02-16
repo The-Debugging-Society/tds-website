@@ -17,7 +17,7 @@ const EventsNavigation = () => {
     }, [pathname]);
 
     return (
-        <div className="">
+        <div className="mx-4">
             <div className="bg-black p-4 md:p-8">
                 <div className="flex flex-col items-center sm:flex-row sm:gap-2 md:gap-4 mb-12 justify-center">
                     <Link to="/events/upcoming" className="w-full sm:w-[474px] h-[50px] mb-4 sm:mb-0">

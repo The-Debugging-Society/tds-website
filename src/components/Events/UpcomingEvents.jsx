@@ -26,7 +26,6 @@ function PastEvents() {
     ];
 
     return (
-        <div className="mx-4">
         <div
             className="flex rounded-3xl animate-on-scroll m-auto flex-col justify-center items-center gap-5 pt-0 text-center"
             style={{
@@ -49,7 +48,6 @@ function PastEvents() {
                     </div>
                 ))}
             </div>
-        </div>
         </div>
     );
 }
