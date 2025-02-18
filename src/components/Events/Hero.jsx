@@ -43,7 +43,7 @@ export default function HeroOfEvent() {
         <section className="bg-black flex items-center">
             <div className="max-w-[1480px] mx-auto px-4 sm:px-6 py-20">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-6 ">
+                    <div className="space-y-6">
                         <div className="space-y-2">
                             <h2 className="text-white uppercase tracking-wider text-xl font-medium">EVENTS</h2>
                             <h1 className="text-white text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tight">JOIN US IRL</h1>
@@ -58,12 +58,12 @@ export default function HeroOfEvent() {
                             onMouseEnter={handleHover}
                             onMouseLeave={handleHoverLeave}
                             src={images[imageIndex]}
-                            className="rounded-lg lg:w-[600px] lg:ml-16 lg:h-[400px] md:w-[750px] md:h-[500px] sm:w-[600px] sm:h-[400px] md:px-8 lg:p-0 sm:px-6 transform transition duration-300 scale-105 hover:scale-100 hover:shadow-xl"
+                            className="event-image"
                             alt="Event visuals"
                         />
                     </div>
                 </div>
             </div>
         </section>
-    )
+    );
 }

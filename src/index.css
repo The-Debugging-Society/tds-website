@@ -211,3 +211,41 @@
     font-size: 1rem;
   }
 }
+
+/* Styles for the event image */
+.event-image {
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.event-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 320px) {
+  .event-image {
+    width: 600px;
+    height: 400px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  .event-image {
+    width: 750px;
+    height: 500px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 1377px) {
+  .event-image {
+    width: 600px;
+    height: 450px;
+    margin-left: 64px;
+    padding: 0;
+  }
+}
