@@ -70,3 +70,144 @@
 * {
   font-family: 'Manrope', sans-serif;
 }
+
+/* Styles for the alumni heading */
+.alumni-heading {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #3b82f6;
+  text-align: center;
+}
+
+@media (max-width: 868px) and (min-width:776px) {
+  .alumni-heading {
+    font-size: 3.25rem;
+  }
+}
+
+@media (min-width: 868px) and (max-width: 886px) {
+  .alumni-heading {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 776px) and (min-width: 691px) {
+  .alumni-heading {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width:691px) and (min-width:618px) {
+  .alumni-heading {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width:618px) and (min-width:546px) {
+  .alumni-heading {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width:546px) and (min-width:440px){
+  .alumni-heading {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width:440px) and (min-width:396px){
+  .alumni-heading {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width:396px) and (min-width:376px){
+  .alumni-heading {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width:376px) and (min-width:365px){
+  .alumni-heading {
+    font-size: 1rem;
+  }
+}
+
+
+/* Styles for the select container */
+.select-container {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0;
+}
+
+@media (min-width: 768px) {
+  .select-container {
+    margin: 0;
+  }
+}
+
+/* Styles for the select dropdown */
+.year-select {
+  padding: 8px;
+  margin: 0 auto;
+  font-size: 4.5rem;
+  font-weight: bold;
+  outline: none;
+  background-color: black;
+  color: #3b82f6;
+}
+
+@media (max-width: 868px) and (min-width:776px) {
+  .year-select {
+    font-size: 3.55rem;
+  }
+}
+
+@media (min-width: 868px) and (max-width: 886px) {
+  .year-select {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 776px) and (min-width: 691px) {
+  .year-select {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width:691px) and (min-width:618px) {
+  .year-select {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width:618px) and (min-width:546px) {
+  .year-select {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width:546px) {
+  .year-select {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width:440px) and (min-width:396px){
+  .year-select {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width:396px)and (min-width:376px){
+  .year-select {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width:376px){
+  .alumni-heading {
+    font-size: 1rem;
+  }
+}

@@ -21,7 +21,7 @@ export default function HeroOfEvent() {
         }
         intervalRef.current = setInterval(() => {
             setImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 250);
+        }, 500);
     };
 
     const handleHoverLeave = () => {
@@ -58,7 +58,7 @@ export default function HeroOfEvent() {
                             onMouseEnter={handleHover}
                             onMouseLeave={handleHoverLeave}
                             src={images[imageIndex]}
-                            className="rounded-lg lg:w-[600px] lg:h-[400px] md:w-[750px] md:h-[500px] sm:w-[600px] sm:h-[400px] md:px-8 lg:p-0 sm:px-6 transform transition duration-300 scale-105 hover:scale-100 hover:shadow-xl"
+                            className="rounded-lg lg:w-[600px] lg:ml-16 lg:h-[400px] md:w-[750px] md:h-[500px] sm:w-[600px] sm:h-[400px] md:px-8 lg:p-0 sm:px-6 transform transition duration-300 scale-105 hover:scale-100 hover:shadow-xl"
                             alt="Event visuals"
                         />
                     </div>
