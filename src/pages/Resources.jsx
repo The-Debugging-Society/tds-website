@@ -36,6 +36,15 @@ const Resources = () => {
           className="max-w-sm"
         />
       </div>
+      {/* <div className="flex animate-on-scroll flex-col md:flex-row justify-center items-center gap-5 p-5 w-full bg-background">
+          <FlipText
+            className="text-4xl font-bold -tracking-widest text-blue-500 md:text-5xl md:leading-[5rem]"
+            word="Challenges"
+          />
+      </div>
+      <div className="text-center p-5 text-lg max-w-2xl mx-auto">
+        <div className="text-blue-500 text-3xl font-bold">75 Day Challenge</div> to improve your problem-solving skills.
+      </div> */}
     </div>
   )
 }
