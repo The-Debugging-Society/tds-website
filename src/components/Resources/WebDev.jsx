@@ -3,7 +3,7 @@ import { MagicCard } from '../ui/magic-card'
 
 const WebDev = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center gap-5 p-4 h-auto w-full bg-background">
+    <div className="flex flex-col md:flex-row justify-center items-center gap-5 p-4 h-auto w-full">
       <Link
         target="_blank"
         to="https://www.youtube.com/"

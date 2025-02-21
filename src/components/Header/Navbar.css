@@ -9,15 +9,23 @@
     transition: all .5s cubic-bezier(0.85, 0, 0.15, 1);
 }
 
+@media (max-width:1025px) {
+    #mobileCr1, #mobileCr2, #mobileCr3 {
+        position: absolute;
+        top:0;
+        left:0;
+        width:100vw;
+        height: 100vh;
+        transform: translateY(-100vh);
+        transition: all .5s cubic-bezier(0.85, 0, 0.15, 1);
+        transition-delay: 400ms;
+    }
+}
+
 #mobileCr1, #mobileCr2, #mobileCr3 {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    transform: translateY(-100vh);
-    transition: all .5s cubic-bezier(0.85, 0, 0.15, 1);
-    transition-delay: 400ms;
+    top:0;
+    left:0;
 }
 
 #mobileNav.expanded {

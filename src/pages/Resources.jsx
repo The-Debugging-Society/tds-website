@@ -15,7 +15,7 @@ const Resources = () => {
 
   return (
     <div>
-      <div className="flex animate-on-scroll flex-col md:flex-row justify-center items-center p-8 w-full bg-background">
+      <div className="flex animate-on-scroll flex-col md:flex-row justify-center items-center p-8 w-full">
         <FlipText
           className="text-4xl font-bold -tracking-[6px] text-blue-500 md:text-7xl md:leading-[5rem]"
           word="Resources"
