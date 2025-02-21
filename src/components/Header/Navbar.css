@@ -1,0 +1,56 @@
+#mobileNav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 300;
+    background-color: hwb(0 0% 100%);
+    transition: all .5s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+#mobileCr1, #mobileCr2, #mobileCr3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transform: translateY(-100vh);
+    transition: all .5s cubic-bezier(0.85, 0, 0.15, 1);
+    transition-delay: 400ms;
+}
+
+#mobileNav.expanded {
+    transition-delay: 700ms;
+}
+
+#mobileCr1 {
+    background-color: #a5c6ff;
+    z-index: 120;
+    transition-delay: 100ms;
+}
+#mobileCr2 {
+    background-color: #3968e0;
+    z-index: 110;
+    transition-delay: 250ms;
+}
+#mobileCr3 {
+    background-color: #364384;
+    z-index: 100;
+    transition-delay: 400ms;
+}
+
+#mobileCr1.expanded , #mobileCr2.expanded, #mobileCr3.expanded {
+    transform: translateY(0vh);
+}
+
+
+#mobileCr1.expanded {
+    transition-delay: 600ms;
+}
+#mobileCr2.expanded {
+    transition-delay: 500ms;
+}
+#mobileCr3.expanded {
+    transition-delay: 400ms;
+}
