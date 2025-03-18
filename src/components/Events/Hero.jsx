@@ -4,15 +4,11 @@ export default function HeroOfEvent() {
     const [imageIndex, setImageIndex] = useState(0);
     const intervalRef = useRef(null);
     const images = [
-        "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739714351/anwi_11_hgbgt1.jpg",
         "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739714352/anwi_9_mj0xd4.jpg",
         "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739714350/anwi_3_m3gmn5.jpg",
         "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739714901/vc7fyaepggtdkrf50qrm.jpg",
         "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739715224/pu7foul8u6gvuajffgxa.jpg",
         "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739715224/z0euzmks9lnigun1nyo0.jpg",
-        "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739715241/jlowtlejb9zcrme5xrqh.jpg",
-        "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739715242/kta9yziokzg1fdsvc31p.jpg",
-        "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739715397/nvxakcubabeuwrnfulne.jpg",
     ];
 
     const handleHover = () => {
