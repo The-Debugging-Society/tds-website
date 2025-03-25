@@ -41,7 +41,7 @@ export const TeamCard = ({
           )}
           {instaUrl && (
             <a
-              href={xUrl}
+              href={instaUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-red-500 transition-colors duration-300"
