@@ -3,6 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 export default function HeroOfEvent() {
     const [imageIndex, setImageIndex] = useState(0);
     const intervalRef = useRef(null);
+    const [imagesLoaded, setImagesLoaded] = useState(false);
+    
     const images = [
         "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739714352/anwi_9_mj0xd4.jpg",
         "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739714350/anwi_3_m3gmn5.jpg",
@@ -11,7 +13,27 @@ export default function HeroOfEvent() {
         "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739715224/z0euzmks9lnigun1nyo0.jpg",
     ];
 
+    useEffect(() => {
+        const loadImages = async () => {
+            const promises = images.map((src) => {
+                return new Promise((resolve) => {
+                    const img = new Image();
+                    img.src = src;
+                    img.onload = resolve;
+                    img.onerror = resolve; // In case an image fails to load, resolve anyway
+                });
+            });
+
+            await Promise.all(promises);
+            setImagesLoaded(true);
+        };
+
+        loadImages();
+    }, []);
+
     const handleHover = () => {
+        if (!imagesLoaded) return; // Prevent starting the effect if images are not loaded
+
         if (intervalRef.current) {
             clearInterval(intervalRef.current);
         }
@@ -50,13 +72,17 @@ export default function HeroOfEvent() {
                         </p>
                     </div>
                     <div className="relative md:col-span-2 lg:col-span-1">
-                        <img
-                            onMouseEnter={handleHover}
-                            onMouseLeave={handleHoverLeave}
-                            src={images[imageIndex]}
-                            className="event-image"
-                            alt="Event visuals"
-                        />
+                        {!imagesLoaded ? (
+                            <div className="w-full h-[300px] flex items-center justify-center text-gray-500">Loading images...</div>
+                        ) : (
+                            <img
+                                onMouseEnter={handleHover}
+                                onMouseLeave={handleHoverLeave}
+                                src={images[imageIndex]}
+                                className="event-image"
+                                alt="Event visuals"
+                            />
+                        )}
                     </div>
                 </div>
             </div>

@@ -45,7 +45,7 @@ const AboutSection = () => {
         {/* Right Side */}
         <div className="md:w-1/2 flex justify-center relative">
           <BoxReveal boxColor={"#0077B6"} duration={0.2}>
-            <img src="about.jpg" alt="About Us" className="w-full h-full object-cover rounded-lg" />
+            <img src="https://res.cloudinary.com/dqvwf3z2c/image/upload/v1742307728/tds_group_photo_oosqdt.jpg" alt="About Us" className="w-full h-full object-cover rounded-lg" />
           </BoxReveal>
         </div>
       </div>
