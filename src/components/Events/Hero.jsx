@@ -13,6 +13,8 @@ export default function HeroOfEvent() {
         "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739715224/z0euzmks9lnigun1nyo0.jpg",
     ];
 
+    const placeholderImage = "https://via.placeholder.com/600x400?text=Loading+Image"; // Replace with your placeholder image
+
     useEffect(() => {
         const loadImages = async () => {
             const promises = images.map((src) => {
@@ -20,7 +22,7 @@ export default function HeroOfEvent() {
                     const img = new Image();
                     img.src = src;
                     img.onload = resolve;
-                    img.onerror = resolve; // In case an image fails to load, resolve anyway
+                    img.onerror = resolve;
                 });
             });
 
@@ -32,7 +34,7 @@ export default function HeroOfEvent() {
     }, []);
 
     const handleHover = () => {
-        if (!imagesLoaded) return; // Prevent starting the effect if images are not loaded
+        if (!imagesLoaded) return;
 
         if (intervalRef.current) {
             clearInterval(intervalRef.current);
@@ -72,17 +74,13 @@ export default function HeroOfEvent() {
                         </p>
                     </div>
                     <div className="relative md:col-span-2 lg:col-span-1">
-                        {!imagesLoaded ? (
-                            <div className="w-full h-[300px] flex items-center justify-center text-gray-500">Loading images...</div>
-                        ) : (
-                            <img
-                                onMouseEnter={handleHover}
-                                onMouseLeave={handleHoverLeave}
-                                src={images[imageIndex]}
-                                className="event-image"
-                                alt="Event visuals"
-                            />
-                        )}
+                        <img
+                            onMouseEnter={handleHover}
+                            onMouseLeave={handleHoverLeave}
+                            src={imagesLoaded ? images[imageIndex] : placeholderImage}
+                            className="event-image"
+                            alt="Event visuals"
+                        />
                     </div>
                 </div>
             </div>
