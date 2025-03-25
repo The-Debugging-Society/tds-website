@@ -1,6 +1,5 @@
 import RetroGrid from "../ui/retro-grid";
 import TypingAnimation from "../ui/typing-animation";
-import { TextAnimate } from "../ui/text-animate";
 import Particles from "../ui/particles";
 
 import React from 'react'
@@ -11,6 +10,7 @@ function Hero() {
       <span className="z-10 whitespace-pre-wrap bg-gradient-to-b from-blue-300 via-blue-500 to-blue-700 bg-clip-text text-center sm:text-3xl md:text-8xl t text-4xl font-bold leading-none tracking-tighter text-transparent"
       style={{
         opacity:0.7,
+        paddingBottom: "20px",
       }}
       >
         The Debugging Society
