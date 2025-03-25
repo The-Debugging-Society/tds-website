@@ -1,4 +1,4 @@
-import { IconBrandLinkedin } from '@tabler/icons-react'
+import { IconBrandInstagram, IconBrandLinkedin, IconBrandX } from '@tabler/icons-react'
 
 export const TeamCard = ({
   photoUrl,
@@ -6,6 +6,8 @@ export const TeamCard = ({
   position,
   description,
   linkedinUrl,
+  xUrl,
+  instaUrl,
 }) => {
   return (
     <div className=" rounded-lg p-5 overflow-hidden shadow-lg bg-[#0a0a0a] text-white border border-[#1f1f1f] transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-105">
@@ -24,7 +26,27 @@ export const TeamCard = ({
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-blue-700 transition-colors duration-300"
             >
-              <IconBrandLinkedin className="h-7 w-7" />
+              <IconBrandLinkedin className="size-7" />
+            </a>
+          )}
+          {xUrl && (
+            <a
+              href={xUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-gray-500 transition-colors duration-300"
+            >
+              <IconBrandX className="size-7" />
+            </a>
+          )}
+          {instaUrl && (
+            <a
+              href={xUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-red-500 transition-colors duration-300"
+            >
+              <IconBrandInstagram className="size-7" />
             </a>
           )}
         </div>

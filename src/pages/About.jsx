@@ -101,6 +101,8 @@ const About = () => {
                     position={member.position}
                     description={member.description}
                     linkedinUrl={member.linkedinUrl}
+                    xUrl={member.xUrl}
+                    instaUrl={member.instaUrl}
                 />
             ))}
           </div>
