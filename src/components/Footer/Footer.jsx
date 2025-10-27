@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row space-y-8 md:justify-between mb-6 px-8">
         <div className="flex items-center space-x-2">
           <Link to="/">
-            <img src="https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739019866/logo_zlscnv.jpg" alt="Logo" className="w-12 h-12" />
+            <img src="/logo.jpeg" alt="Logo" className="w-12 h-12" />
           </Link>
           <div>
             <h2 className="text-lg font-semibold">TDS NSUT</h2>
