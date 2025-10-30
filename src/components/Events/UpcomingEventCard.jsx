@@ -5,10 +5,10 @@ export const EventCard = ({
 }) => {
 
   return (
-    <div className=" rounded-lg p-5 overflow-hidden shadow-lg bg-[#0a0a0a] text-white border border-[#1f1f1f] transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-105">
+    <div className=" rounded-lg p-5 overflow-hidden shadow-lg bg-[#0a0a0a] text-white border border-[#1f1f1f]">
       <div className="overflow-hidden">
         <img
-          className={`w-full rounded-lg h-64 object-cover object-center transition-transform duration-300 ease-in-out hover:scale-110` }
+          className={`w-full rounded-lg h-64 object-cover object-center` }
           src={image}
           alt={`${title} event photo`}
         />
