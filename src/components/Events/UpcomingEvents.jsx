@@ -6,7 +6,7 @@ function UpcomingEvent() {
   const events = [
     {
       title: "Tech4Impact 2025",
-      image: "https://d8it4huxumps7.cloudfront.net/uploads/images/opportunity/banner/68efbd6ed278c_tech4impact-2025.png?d=1920x557",
+      image: "https://res.cloudinary.com/dh6u0utj8/image/upload/v1761826113/Website_banner_d9ju3a.png",
       link: "https://unstop.com/hackathons/tech4impact-2025-innovision25-netaji-subhas-university-of-technology-nsut-delhi-1574739"
     },   
   ];
