@@ -1,73 +1,74 @@
 [
   {
-    "photo": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739006407/WhatsApp_Image_2025-02-08_at_14.49.31_e641d0c3_ept4uw.jpg",
-    "name": "Nikhil",
+    "photo": "https://media.licdn.com/dms/image/v2/D5603AQFlCLIUrmlBXQ/profile-displayphoto-scale_400_400/B56ZtlbAZzKEAg-/0/1766933138123?e=1769644800&v=beta&t=X3ksfdVE3l71gUGl_3SF3wpnjJf1FkXArv3P444Cutk",
+    "name": "Kanik Chawla",
     "position": "President",
     "description": "A dynamic leader with a vision to drive innovation and excellence.",
-    "linkedinUrl": "https://www.linkedin.com/in/nikhil-nsut?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    "linkedinUrl": "https://www.linkedin.com/in/kanik-chawla/"
   },
   {
-    "photo": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003223/WhatsApp_Image_2025-02-06_at_20.47.13_c8834e60_t28kec.jpg",
-    "name": "Ashwajeet",
+    "photo": "https://media.licdn.com/dms/image/v2/D5603AQE6SwLLFcgk4A/profile-displayphoto-scale_400_400/B56Zus6wGDHcAg-/0/1768132643185?e=1769644800&v=beta&t=CQZVtMsJPConAUg1_taDlscF8IuxA2JAy_e4vfUAc-E",
+    "name": "Aman Mishra",
     "position": "Vice President",
     "description": "A dedicated leader committed to fostering innovation and teamwork.",
-    "linkedinUrl": "https://www.linkedin.com/in/ashwajeetbhatia/"
+    "linkedinUrl": "https://www.linkedin.com/in/aman-mishra-896a8a23b/",
+    "instaUrl": "https://www.instagram.com/jam_mr.perfect_007/"
   },
   {
-    "photo": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1742302270/WhatsApp_Image_2025-03-18_at_18.19.00_6c3e4616_gwvgka.jpg",
-    "name": "Daksh",
-    "position": "Managing Director",
+    "photo": "https://media.licdn.com/dms/image/v2/D4D03AQFgP0CadmaQvg/profile-displayphoto-shrink_400_400/B4DZdkITmSGUAk-/0/1749731589995?e=1769644800&v=beta&t=gApZyxv2waDKhFzPBh3faMH7t_mXUq1QctYYuC1VqnI",
+    "name": "Dhruv Garg Saria",
+    "position": "Vice President",
     "description": "A strategic thinker focused on driving growth and efficiency.",
-    "linkedinUrl": "https://www.linkedin.com/in/daksh-b0a820263/",
-    "instaUrl": "https://www.instagram.com/cheese_burgershii?igsh=cXMyeDF0bTRpZXc="
+    "linkedinUrl": "https://www.linkedin.com/in/dhruvsaria/"
   },
   {
-    "photo": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003210/WhatsApp_Image_2025-02-06_at_20.04.08_abbbfb4e_ujqwny.jpg",
-    "name": "Anjali",
-    "position": "Treasurer",
+    "photo": "https://media.licdn.com/dms/image/v2/D5603AQEro4BP4_c4lA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1724753169471?e=1769644800&v=beta&t=_rE7LuvGEBGgaLdoB9FfbJHzyxBELiNXxG4QiEbYWao",
+    "name": "Aryaman Aggarwal",
+    "position": "Managing Director",
+    "description": "An energetic and passionate individual dedicated to fostering collaboration.",
+    "linkedinUrl": "https://www.linkedin.com/in/aryaman-agarwal-5b5a821b2/"
+  },
+  {
+    "photo": "https://media.licdn.com/dms/image/v2/D5603AQHvgiNZs1BXJg/profile-displayphoto-scale_400_400/B56Zgmmc3YG0Ag-/0/1752994272448?e=1769644800&v=beta&t=mPS9caLImK0aMbkWJf86Pe2gctDTjiK8Bihe87RPSzs",
+    "name": "Vaibhav Rajput",
+    "position": "Managing Director",
+    "description": "An energetic and passionate individual dedicated to fostering collaboration.",
+    "linkedinUrl": "https://www.linkedin.com/in/vaibhav-rajput06/"
+  },
+  {
+    "photo": "https://media.licdn.com/dms/image/v2/D5635AQFVVhyConlo4Q/profile-framedphoto-shrink_400_400/B56ZkeKNa5HUAc-/0/1757147617296?e=1768741200&v=beta&t=PTExkFqdRtYee9CZgl1HPKea5y5aPfBrEyDwO1ay__Q",
+    "name": "Devraj Saini",
+    "position": "Director of Finance",
     "description": "A Treasurer who ensures our finances stay on point and our team spirit stays high.",
-    "linkedinUrl": "https://www.linkedin.com/in/anjali-longre-573953258/ "
+    "linkedinUrl": "https://www.linkedin.com/in/devraj-s0202/"
   },
   {
-    "photo": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003213/WhatsApp_Image_2025-02-06_at_20.04.25_87b34146_xqrnxm.jpg",
-    "name": "Ritesh",
-    "position": "Web Dev Lead",
+    "photo": "https://media.licdn.com/dms/image/v2/D5603AQERAmaTGueUFw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1723132686619?e=1769644800&v=beta&t=Un06WtDThfONOqfME_lPY_yj39sr5Z0DdHITIDK33_g",
+    "name": "Tanmay Gupta",
+    "position": "Director of Development",
     "description": "A creative coder passionate about building impactful web applications.",
-    "linkedinUrl": "https://www.linkedin.com/in/riteshwadhwani?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+    "linkedinUrl": "https://www.linkedin.com/in/devtanmay/"
   },
   {
-    "photo": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003220/WhatsApp_Image_2025-02-06_at_20.05.44_7c8b1ddd_rmuegc.jpg",
-    "name": "Saneh",
-    "position": "ML Lead",
+    "photo": "",
+    "name": "Hariom Singh",
+    "position": "Director of Tech",
     "description": "A machine learning enthusiast passionate about AI-driven solutions.",
-    "linkedinUrl": "https://www.linkedin.com/in/saneh-mahrolia-5801a3257/",
-    "xUrl": "https://x.com/Saneh2912?t=De4U44UI4unX0Nc3SA488g&s=09"
+    "linkedinUrl": "https://www.linkedin.com/in/hariom-singh-77a3a9290/"
   },
   {
-    "photo": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003190/WhatsApp_Image_2025-02-06_at_20.01.48_85855272_hgerm2.jpg",
-    "name": "Harsh",
-    "position": "DSA Lead",
+    "photo": "https://media.licdn.com/dms/image/v2/D5603AQFdgcXPgGvSbQ/profile-displayphoto-scale_400_400/B56Zpjo2W1JYAk-/0/1762608245031?e=1769644800&v=beta&t=MIcrtTw7EoAz2Xaa-DlzEYrsdd1odPJGRycQs6W5ZSw",
+    "name": "Umesh Kashyap",
+    "position": "Director of Growth & Outreach",
     "description": "A problem-solving enthusiast with a keen interest in data structures and algorithms.",
-    "linkedinUrl": "https://www.linkedin.com/in/harsh-aggarwal-b331821b5/"
+    "linkedinUrl": "https://www.linkedin.com/in/umesh-kashyap-60a34028b/"
   },
+
   {
-    "photo": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739006520/WhatsApp_Image_2025-02-08_at_14.51.44_fc7d27a8_tx7jyx.jpg",
-    "name": "Ayushmaan Bari",
-    "position": "General Secretary",
+    "photo": "",
+    "name": "Akshit Ranjan",
+    "position": "Director of Operations",
     "description": "An energetic and passionate individual dedicated to fostering collaboration.",
-    "linkedinUrl": "https://www.linkedin.com/in/ayushman-bari-49145a27a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app "
-  },
-  {
-    "photo": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003203/WhatsApp_Image_2025-02-06_at_20.03.48_bc6bf5a5_omtnjl.jpg",
-    "name": "Ayush",
-    "position": "General Secretary",
-    "description": "An energetic and passionate individual dedicated to fostering collaboration.",
-    "linkedinUrl": "https://www.linkedin.com/in/ayush-dewangan-133b28259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app9"
-  },
-  {
-    "photo": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739006535/WhatsApp_Image_2025-02-08_at_14.51.45_890968f5_lr6qxk.jpg",
-    "name": "Ishita",
-    "position": "Operational Lead",
-    "description": "An energetic and passionate individual dedicated to fostering collaboration."
+    "linkedinUrl": "https://www.linkedin.com/in/akshit-ranjan-491591287/"
   }
 ]

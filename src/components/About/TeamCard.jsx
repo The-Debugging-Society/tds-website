@@ -1,4 +1,8 @@
-import { IconBrandInstagram, IconBrandLinkedin, IconBrandX } from '@tabler/icons-react'
+import {
+  IconBrandInstagram,
+  IconBrandLinkedin,
+  IconBrandX,
+} from "@tabler/icons-react";
 
 export const TeamCard = ({
   photoUrl,
@@ -11,11 +15,17 @@ export const TeamCard = ({
 }) => {
   return (
     <div className=" rounded-lg p-5 overflow-hidden shadow-lg bg-[#0a0a0a] text-white border border-[#1f1f1f] transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-105">
-      <img
-        className="w-full rounded-lg h-48 md:h-64 object-cover object-center"
-        src={photoUrl}
-        alt={`${name}'s profile`}
-      />
+      {photoUrl ? (
+        <img
+          className="w-full rounded-lg h-48 md:h-64 object-cover object-center"
+          src={photoUrl}
+          alt={`${name}'s profile`}
+        />
+      ) : (
+        <div className="w-full h-65 rounded-lg bg-blue-900/20 border-2 border-blue-500/30 flex items-center justify-center text-4xl font-bold text-blue-400 group-hover:border-blue-500 transition-colors duration-300">
+          {name[0]}
+        </div>
+      )}
       <div className="px-2 py-4">
         <div className="flex items-center gap-2">
           <h3 className="font-bold text-2xl mb-1 text-white">{name}</h3>
@@ -54,5 +64,5 @@ export const TeamCard = ({
         <p className="text-gray-400 text-sm leading-relaxed">{description}</p>
       </div>
     </div>
-  )
-}
+  );
+};

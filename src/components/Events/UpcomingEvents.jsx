@@ -3,13 +3,7 @@ import React from "react";
 import { CalendarPlus } from "lucide-react";
 
 function UpcomingEvent() {
-  const events = [
-    {
-      title: "Tech4Impact 2025",
-      image: "https://res.cloudinary.com/dh6u0utj8/image/upload/v1761826113/Website_banner_d9ju3a.png",
-      link: "https://unstop.com/hackathons/tech4impact-2025-innovision25-netaji-subhas-university-of-technology-nsut-delhi-1574739"
-    },   
-  ];
+  const events = [];
 
   return events.length > 0 ? (
     <div
@@ -21,7 +15,11 @@ function UpcomingEvent() {
     >
       <div>
         {events.map((card, index) => (
-          <div key={index} className="w-full cursor-pointer" onClick={() => window.open(card.link, "_blank")}>
+          <div
+            key={index}
+            className="w-full cursor-pointer"
+            onClick={() => window.open(card.link, "_blank")}
+          >
             <EventCard
               title={card.title}
               description={card.description}

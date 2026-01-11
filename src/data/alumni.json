@@ -1,5 +1,129 @@
 [
   {
+    "yearOfGraduation": "2026",
+    "name": "Nikhil Kumar",
+    "por": "President",
+    "image": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739006407/WhatsApp_Image_2025-02-08_at_14.49.31_e641d0c3_ept4uw.jpg",
+    "linkedIn": "https://www.linkedin.com/in/nikhil-nsut?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    "email": "",
+    "currentCompany": "ZS"
+  },
+  {
+    "yearOfGraduation": "2026",
+    "name": "Ashwajeet Bhatia",
+    "por": "Vice President",
+    "image": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003223/WhatsApp_Image_2025-02-06_at_20.47.13_c8834e60_t28kec.jpg",
+    "linkedIn": "https://www.linkedin.com/in/ashwajeetbhatia/",
+    "email": "",
+    "currentCompany": "Zomato"
+  },
+  {
+    "yearOfGraduation": "2026",
+    "name": "Ayushmaan Bari",
+    "por": "General Secretary",
+    "image": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739006520/WhatsApp_Image_2025-02-08_at_14.51.44_fc7d27a8_tx7jyx.jpg",
+    "linkedIn": "https://www.linkedin.com/in/ayushman-bari-49145a27a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app ",
+    "email": "",
+    "currentCompany": ""
+  },
+  {
+    "yearOfGraduation": "2026",
+    "name": "Ayush Dewangan",
+    "por": "General Secretary",
+    "image": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003203/WhatsApp_Image_2025-02-06_at_20.03.48_bc6bf5a5_omtnjl.jpg",
+    "linkedIn": "https://www.linkedin.com/in/ayush-dewangan-133b28259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app9",
+    "email": "",
+    "currentCompany": ""
+  },
+  {
+    "yearOfGraduation": "2026",
+    "name": "Anjali",
+    "por": "Treasurer",
+    "image": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003210/WhatsApp_Image_2025-02-06_at_20.04.08_abbbfb4e_ujqwny.jpg",
+    "linkedIn": "https://www.linkedin.com/in/anjali-longre-573953258/ ",
+    "email": "",
+    "currentCompany": "Amazon"
+  },
+  {
+    "yearOfGraduation": "2026",
+    "name": "Daksh",
+    "por": "Managing Director",
+    "image": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1742302270/WhatsApp_Image_2025-03-18_at_18.19.00_6c3e4616_gwvgka.jpg",
+    "linkedIn": "https://www.linkedin.com/in/daksh-b0a820263/",
+    "email": "",
+    "currentCompany": ""
+  },
+  {
+    "yearOfGraduation": "2026",
+    "name": "Saneh",
+    "por": "Managing Director",
+    "image": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003220/WhatsApp_Image_2025-02-06_at_20.05.44_7c8b1ddd_rmuegc.jpg",
+    "linkedIn": "https://www.linkedin.com/in/saneh-mahrolia-5801a3257/",
+    "email": "",
+    "currentCompany": "Salesforces"
+  },
+  {
+    "yearOfGraduation": "2026",
+    "name": "Ishita",
+    "por": "Director of Operations",
+    "image": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739006535/WhatsApp_Image_2025-02-08_at_14.51.45_890968f5_lr6qxk.jpg",
+    "linkedIn": "",
+    "email": "",
+    "currentCompany": ""
+  },
+  {
+    "yearOfGraduation": "2026",
+    "name": "Ritesh Wadhwani",
+    "por": "Director of Social Media",
+    "image": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003213/WhatsApp_Image_2025-02-06_at_20.04.25_87b34146_xqrnxm.jpg",
+    "linkedIn": "https://www.linkedin.com/in/riteshwadhwani?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    "email": "",
+    "currentCompany": "Salesforces"
+  },
+  {
+    "yearOfGraduation": "2026",
+    "name": "Harsh",
+    "por": "Director of DSA & WebDev",
+    "image": "https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739003190/WhatsApp_Image_2025-02-06_at_20.01.48_85855272_hgerm2.jpg",
+    "linkedIn": "https://www.linkedin.com/in/harsh-aggarwal-b331821b5/",
+    "email": "",
+    "currentCompany": "StudyCoin"
+  },
+  {
+    "yearOfGraduation": "2025",
+    "name": "Ojasvi Sethi",
+    "por": "President",
+    "image": "/alumni/ojasvi-sethi.jpg",
+    "linkedIn": "https://www.linkedin.com/in/ojasvi-sethi-58810622b",
+    "email": "ojasvisethi2407@gmail.com",
+    "currentCompany": "MakeMyTrip"
+  },
+  {
+    "yearOfGraduation": "2025",
+    "name": "Divyam Singh",
+    "por": "Vice President",
+    "linkedIn": "https://www.linkedin.com/in/divyam-singh-090577249",
+    "email": "divyam.singh.2875@gmail.com",
+    "currentCompany": "SaiSatwik"
+  },
+  {
+    "yearOfGraduation": "2025",
+    "name": "Tanishq Dawar",
+    "por": "Treasurer",
+    "linkedIn": "https://www.linkedin.com/in/tanishq-dawar",
+    "email": "dawar.tanishq.21@gmail.com",
+    "currentCompany": "Porter"
+  },
+  {
+    "yearOfGraduation": "2025",
+    "name": "Anoushka Aggarwal",
+    "image": "/alumni/anoushka-aggarwal.jpg",
+    "por": "WebDev Lead",
+    "linkedIn": "https://www.linkedin.com/in/anoushka-aggarwal-a82b23238",
+    "email": "aggarwal.anoushka15@gmail.com",
+    "currentCompany": "Microsoft"
+  },
+  {
     "yearOfGraduation": "2024",
     "name": "Parul",
     "por": "President",
