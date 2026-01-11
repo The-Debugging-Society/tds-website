@@ -42,7 +42,7 @@ export function MagicCard({
     <div
       ref={cardRef}
       className={cn(
-        "group relative flex flex-col items-center p-4 rounded-xl shadow-lg bg-white",
+        "group relative flex flex-col items-center p-4 rounded-xl shadow-lg bg-black/40 border border-white/10 backdrop-blur-sm",
         className
       )}
       onMouseMove={handleMouseMove}
