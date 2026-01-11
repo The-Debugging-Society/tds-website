@@ -36,7 +36,7 @@ const About = () => {
 
   return (
     <div>
-      <div className="flex flex-col items-center justify-center backdrop-blur-lg bg-opacity-50 bg-black px-5">
+      <div className="flex flex-col items-center justify-center backdrop-blur-lg bg-black/50 px-5">
         <div id="aboutHero" className="rounded-3xl" style={{
           overflow: "hidden",
           position: "relative",
@@ -79,7 +79,7 @@ const About = () => {
               {missions.map((mission, index) => (
                   <Card
                       key={index}
-                      className="bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 rounded-lg p-6 space-y-4 shadow-lg"
+                      className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg p-6 space-y-4 shadow-lg"
                   >
                     <h3 className="text-xl font-semibold text-white text-left">{mission.title}</h3>
                     <p className="text-gray-400 leading-relaxed text-left">{mission.description}</p>
