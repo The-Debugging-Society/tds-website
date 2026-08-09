@@ -14,6 +14,7 @@ import { CandidateInfoForm } from '../components/Recruitment/CandidateInfoForm';
 import { DepartmentQuestionnaire } from '../components/Recruitment/DepartmentQuestionnaire';
 import { FormProgress } from '../components/Recruitment/FormProgress';
 import { SubmissionSuccess } from '../components/Recruitment/SubmissionSuccess';
+import { DeadlineTimer } from '../components/Recruitment/DeadlineTimer';
 import { Sparkles, ArrowLeft, ArrowRight, AlertCircle, CheckCircle2 } from 'lucide-react';
 
 export default function Recruit() {
@@ -284,6 +285,8 @@ export default function Recruit() {
           <p className="text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
             Select your department to begin.
           </p>
+
+          <DeadlineTimer />
 
           {appliedDepts.length > 0 && (
             <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono">
