@@ -17,7 +17,7 @@ export function CandidateInfoForm({ formData, onChangeField, onBlurStudentId, ro
           id="fullName"
           label="Full Name"
           required
-          placeholder="e.g. Rahul Sharma"
+          placeholder="e.g. Saransh verma"
           value={formData.fullName}
           onChange={(val) => onChangeField('fullName', val)}
         />
@@ -28,7 +28,7 @@ export function CandidateInfoForm({ formData, onChangeField, onBlurStudentId, ro
           type="email"
           label="Email Address"
           required
-          placeholder="e.g. rahul@example.com"
+          placeholder="e.g. saransh@example.com"
           value={formData.email}
           onChange={(val) => onChangeField('email', val)}
           helperText="Used for interview updates & response verification."
@@ -39,9 +39,9 @@ export function CandidateInfoForm({ formData, onChangeField, onBlurStudentId, ro
           id="studentId"
           label="Roll Number / Student ID (2026 Batch Only)"
           required
-          placeholder="e.g. 2026CS1042"
+          placeholder="e.g. 2026UIC3640"
           value={formData.studentId}
-          onChange={(val) => onChangeField('studentId', val.toUpperCase())}
+          onChange={(val) => onChangeField('studentId', val)}
           onBlur={onBlurStudentId}
           error={rollNoError}
           helperText="Must start with '2026' (Primary ID)."
@@ -53,7 +53,7 @@ export function CandidateInfoForm({ formData, onChangeField, onBlurStudentId, ro
           type="tel"
           label="WhatsApp Phone Number"
           required
-          placeholder="+91 9876543210"
+          placeholder="+91 8505895636"
           value={formData.phone}
           onChange={(val) => onChangeField('phone', val)}
         />
