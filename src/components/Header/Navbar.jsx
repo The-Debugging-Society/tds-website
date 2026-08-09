@@ -7,7 +7,7 @@ import HyperText from '../ui/hyper-text';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const links = ['Home', 'About','Events', 'Alumni', 'Resources'];
+  const links = ['Home', 'About', 'Events', 'Alumni', 'Resources', 'Recruit'];
 
   return (
       <div className="sticky top-0 bg-black z-50 flex justify-between items-center p-5">

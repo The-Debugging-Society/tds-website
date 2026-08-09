@@ -7,6 +7,8 @@ import Blogs from "./Blogs";
 import Eventspage from "./Events";
 import Layout from "./Layout";
 import Resources from "./Resources";
+import Recruit from "./Recruit";
+import RecruitAdmin from "./RecruitAdmin";
 
 export {
   Home,
@@ -18,4 +20,6 @@ export {
   NotFound,
   Blogs,
   Resources,
+  Recruit,
+  RecruitAdmin,
 };
