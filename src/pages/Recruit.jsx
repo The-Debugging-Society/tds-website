@@ -67,16 +67,25 @@ export default function Recruit() {
     });
   }, []);
 
-  // Fetch applied departments whenever studentId or email changes
+  // Fetch applied departments whenever studentId or email changes (debounced)
   useEffect(() => {
     const sId = formData.studentId.trim();
     const sEmail = formData.email.trim();
 
-    if ((sId && sId.length >= 4) || (sEmail && sEmail.includes('@'))) {
-      getAppliedDepartments(sId, sEmail).then(depts => {
-        setAppliedDepts(depts);
-      });
-    }
+    const handler = setTimeout(() => {
+      if ((sId && sId.length >= 4) || (sEmail && sEmail.includes('@'))) {
+        getAppliedDepartments(sId, sEmail).then(depts => {
+          setAppliedDepts(prev => {
+            if (prev.length !== depts.length) return depts;
+            const pSorted = [...prev].sort();
+            const dSorted = [...depts].sort();
+            return pSorted.every((v, i) => v === dSorted[i]) ? prev : depts;
+          });
+        });
+      }
+    }, 500);
+
+    return () => clearTimeout(handler);
   }, [formData.studentId, formData.email]);
 
   // Save draft to localStorage as user types in Step 2 (debounced 500ms)
@@ -317,7 +326,7 @@ export default function Recruit() {
             exit={{ opacity: 0, y: -15 }}
             className="bg-zinc-900/90 border border-zinc-800 rounded-3xl p-6 sm:p-10 backdrop-blur-xl shadow-2xl space-y-8"
           >
-            <div className="flex items-center justify-between border-b border-zinc-800 pb-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-zinc-800 pb-4 gap-4">
               <div>
                 <button
                   type="button"
@@ -329,12 +338,12 @@ export default function Recruit() {
                 >
                   &larr; Change Department
                 </button>
-                <h2 className="text-2xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-xl sm:text-2xl font-bold text-white flex flex-wrap items-center gap-x-2">
                   Applying for <span className="text-blue-400">{selectedDept.fullName || selectedDept.name}</span>
                 </h2>
               </div>
 
-              <span className="text-xs font-mono px-3 py-1.5 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700">
+              <span className="text-[10px] sm:text-xs font-mono px-3 py-1.5 rounded-full bg-zinc-800 text-zinc-300 border border-zinc-700 w-fit self-start sm:self-auto shrink-0">
                 1 Submission per role
               </span>
             </div>
@@ -375,14 +384,14 @@ export default function Recruit() {
               />
 
               {/* SUBMIT ACTIONS */}
-              <div className="pt-6 border-t border-zinc-800 flex items-center justify-between gap-4">
+              <div className="pt-6 border-t border-zinc-800 flex flex-col-reverse sm:flex-row items-center justify-between gap-4">
                 <button
                   type="button"
                   onClick={() => {
                     if (parentDept) setStep(1.5);
                     else setStep(1);
                   }}
-                  className="px-6 py-3 rounded-xl border border-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors text-sm font-semibold"
+                  className="w-full sm:w-auto px-6 py-3 rounded-xl border border-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors text-sm font-semibold"
                 >
                   Back
                 </button>
@@ -390,7 +399,7 @@ export default function Recruit() {
                 <button
                   type="submit"
                   disabled={isSubmitting || !!rollNoError || isCurrentDeptAlreadySubmitted}
-                  className={`px-8 py-3.5 rounded-xl font-bold text-sm transition-all duration-200 flex items-center gap-2 active:scale-[0.98] ${
+                  className={`w-full sm:w-auto px-6 sm:px-8 py-3.5 rounded-xl font-bold text-sm transition-all duration-200 flex items-center justify-center gap-2 active:scale-[0.98] ${
                     isCurrentDeptAlreadySubmitted
                       ? 'bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 cursor-not-allowed'
                       : 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg disabled:opacity-50 disabled:cursor-not-allowed'
