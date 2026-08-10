@@ -85,5 +85,61 @@ USING (true);
 -- To add phone length check:
 -- ALTER TABLE public.recruitment_submissions ADD CONSTRAINT check_phone_length CHECK (char_length(phone) BETWEEN 7 AND 20);
 
--- To add name length check:
 -- ALTER TABLE public.recruitment_submissions ADD CONSTRAINT check_full_name_length CHECK (char_length(full_name) <= 200);
+
+-- =======================================================
+-- ANTI-SPAM: IP Rate Limiting Trigger
+-- =======================================================
+
+CREATE TABLE IF NOT EXISTS public.ip_rate_limits (
+    ip TEXT PRIMARY KEY,
+    submission_count INT DEFAULT 1,
+    last_submission TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE OR REPLACE FUNCTION check_rate_limit()
+RETURNS trigger AS $$
+DECLARE
+  client_ip text;
+  record_exists boolean;
+  current_count int;
+  last_time timestamptz;
+BEGIN
+  -- Get IP from headers (Supabase proxies pass x-forwarded-for)
+  client_ip := current_setting('request.headers', true)::json->>'x-forwarded-for';
+  
+  -- If we can't find an IP, allow it to prevent breaking normal usage
+  IF client_ip IS NULL THEN
+    RETURN NEW;
+  END IF;
+
+  client_ip := split_part(client_ip, ',', 1);
+
+  SELECT EXISTS(SELECT 1 FROM public.ip_rate_limits WHERE ip = client_ip) INTO record_exists;
+  
+  IF record_exists THEN
+    SELECT submission_count, last_submission INTO current_count, last_time FROM public.ip_rate_limits WHERE ip = client_ip;
+    
+    -- Reset count if older than 1 hour
+    IF NOW() - last_time > interval '1 hour' THEN
+      UPDATE public.ip_rate_limits SET submission_count = 1, last_submission = NOW() WHERE ip = client_ip;
+    ELSE
+      -- Block if more than 50 submissions in an hour
+      IF current_count >= 50 THEN
+        RAISE EXCEPTION 'Rate limit exceeded. Too many submissions from this IP.';
+      END IF;
+      UPDATE public.ip_rate_limits SET submission_count = submission_count + 1, last_submission = NOW() WHERE ip = client_ip;
+    END IF;
+  ELSE
+    INSERT INTO public.ip_rate_limits (ip, submission_count, last_submission) VALUES (client_ip, 1, NOW());
+  END IF;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS enforce_rate_limit ON public.recruitment_submissions;
+CREATE TRIGGER enforce_rate_limit
+BEFORE INSERT ON public.recruitment_submissions
+FOR EACH ROW
+EXECUTE FUNCTION check_rate_limit();
