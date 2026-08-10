@@ -99,7 +99,8 @@ CREATE TABLE IF NOT EXISTS public.ip_rate_limits (
 
 CREATE OR REPLACE FUNCTION check_rate_limit()
 RETURNS trigger
-SET search_path = ''
+SECURITY DEFINER
+SET search_path = public
 AS $$
 DECLARE
   client_ip text;
