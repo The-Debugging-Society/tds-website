@@ -127,8 +127,8 @@ BEGIN
     IF NOW() - last_time > interval '1 hour' THEN
       UPDATE public.ip_rate_limits SET submission_count = 1, last_submission = NOW() WHERE ip = client_ip;
     ELSE
-      -- Block if more than 50 submissions in an hour
-      IF current_count >= 50 THEN
+      -- Block if more than 200 submissions in an hour (to handle large shared campus networks)
+      IF current_count >= 200 THEN
         RAISE EXCEPTION 'Rate limit exceeded. Too many submissions from this IP.';
       END IF;
       UPDATE public.ip_rate_limits SET submission_count = submission_count + 1, last_submission = NOW() WHERE ip = client_ip;
