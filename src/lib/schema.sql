@@ -42,6 +42,7 @@ ALTER TABLE public.recruitment_submissions ENABLE ROW LEVEL SECURITY;
 
 -- Policy 1: Allow public candidate submissions (Insert only)
 -- The CHECK constraints above enforce valid data at the database level.
+DROP POLICY IF EXISTS "Allow public submissions" ON public.recruitment_submissions;
 CREATE POLICY "Allow public submissions" 
 ON public.recruitment_submissions 
 FOR INSERT 
@@ -49,9 +50,8 @@ WITH CHECK (true);
 
 -- Policy 2: Restricted SELECT - anonymous users can ONLY check if a specific
 -- student_id+department combination exists (for duplicate detection).
--- They must supply a student_id filter in their query. Without it, RLS blocks the read.
--- This prevents bulk data scraping while still allowing the duplicate check to work.
-CREATE POLICY "Allow check existing submission" 
+DROP POLICY IF EXISTS "Allow public to check existing submissions" ON public.recruitment_submissions;
+CREATE POLICY "Allow public to check existing submissions" 
 ON public.recruitment_submissions 
 FOR SELECT 
 USING (true);
@@ -98,7 +98,9 @@ CREATE TABLE IF NOT EXISTS public.ip_rate_limits (
 );
 
 CREATE OR REPLACE FUNCTION check_rate_limit()
-RETURNS trigger AS $$
+RETURNS trigger
+SET search_path = ''
+AS $$
 DECLARE
   client_ip text;
   record_exists boolean;
