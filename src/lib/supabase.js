@@ -265,10 +265,11 @@ export async function submitApplication(payload) {
   // 3. Submit to Supabase if configured
   if (supabase) {
     try {
-      const { data, error } = await supabase
+      // Note: no .select() after insert — anon role only has column-level SELECT
+      // on (student_id, department, email) for security, so reading back full rows would fail.
+      const { error } = await supabase
         .from('recruitment_submissions')
-        .insert([submissionData])
-        .select();
+        .insert([submissionData]);
 
       if (error) {
         // Postgres error 23505 is primary key / unique violation
@@ -285,14 +286,13 @@ export async function submitApplication(payload) {
           delete fallbackData.branch;
           fallbackData.year_branch = payload.branch ? sanitizeInput(payload.branch.trim(), 200) : '';
 
-          const { data: retryData, error: retryError } = await supabase
+          const { error: retryError } = await supabase
             .from('recruitment_submissions')
-            .insert([fallbackData])
-            .select();
+            .insert([fallbackData]);
 
-          if (!retryError && retryData) {
+          if (!retryError) {
             localStorage.removeItem(`tds_recruitment_draft_${department}`);
-            return { success: true, data: retryData[0] };
+            return { success: true, data: submissionData };
           }
         }
         throw error;
@@ -300,7 +300,7 @@ export async function submitApplication(payload) {
 
       // Clear draft for this department
       localStorage.removeItem(`tds_recruitment_draft_${department}`);
-      return { success: true, data: data[0] };
+      return { success: true, data: submissionData };
     } catch (err) {
       console.error('Supabase submit error:', err);
       return { 
