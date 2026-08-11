@@ -4,6 +4,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, User, Mail, Phone, GraduationCap, Github, Linkedin, ExternalLink, Calendar, HelpCircle, CheckCircle2 } from 'lucide-react';
 import { GENERAL_QUESTIONS, DEPARTMENTS } from '../../data/recruitmentData.js';
 
+// Sanitize URLs to prevent javascript: protocol injection (security fix C2)
+function safeHref(url) {
+  if (!url) return null;
+  try {
+    const parsed = new URL(url);
+    if (parsed.protocol === 'http:' || parsed.protocol === 'https:') return url;
+  } catch {}
+  return null;
+}
+
 // Helper to look up human-readable question text by question ID
 function getQuestionLabel(qKey) {
   for (const q of GENERAL_QUESTIONS) {
@@ -127,13 +137,13 @@ export function ViewSubmissionModal({ submission, onClose }) {
               </div>
 
               {/* LINKS */}
-              {(submission.github_url || submission.linkedin_url || submission.portfolio_url) && (
+              {(safeHref(submission.github_url) || safeHref(submission.linkedin_url) || safeHref(submission.portfolio_url)) && (
                 <div className="pt-3 border-t border-zinc-800/60 flex flex-wrap items-center gap-3 text-xs">
-                  {submission.github_url && (
+                  {safeHref(submission.github_url) && (
                     <a
-                      href={submission.github_url}
+                      href={safeHref(submission.github_url)}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-blue-400 hover:text-white transition-colors flex items-center gap-1.5 font-medium"
                     >
                       <Github className="w-3.5 h-3.5" />
@@ -142,11 +152,11 @@ export function ViewSubmissionModal({ submission, onClose }) {
                     </a>
                   )}
 
-                  {submission.linkedin_url && (
+                  {safeHref(submission.linkedin_url) && (
                     <a
-                      href={submission.linkedin_url}
+                      href={safeHref(submission.linkedin_url)}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-cyan-400 hover:text-white transition-colors flex items-center gap-1.5 font-medium"
                     >
                       <Linkedin className="w-3.5 h-3.5" />
@@ -155,11 +165,11 @@ export function ViewSubmissionModal({ submission, onClose }) {
                     </a>
                   )}
 
-                  {submission.portfolio_url && (
+                  {safeHref(submission.portfolio_url) && (
                     <a
-                      href={submission.portfolio_url}
+                      href={safeHref(submission.portfolio_url)}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-indigo-400 hover:text-white transition-colors flex items-center gap-1.5 font-medium"
                     >
                       <User className="w-3.5 h-3.5" />

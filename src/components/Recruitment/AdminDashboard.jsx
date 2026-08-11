@@ -4,6 +4,16 @@ import { fetchSubmissions, exportToCSV } from '../../lib/supabase.js';
 import { DEPARTMENTS } from '../../data/recruitmentData.js';
 import { ViewSubmissionModal } from './ViewSubmissionModal.jsx';
 
+// Sanitize URLs to prevent javascript: protocol injection (security fix C2)
+function safeHref(url) {
+  if (!url) return null;
+  try {
+    const parsed = new URL(url);
+    if (parsed.protocol === 'http:' || parsed.protocol === 'https:') return url;
+  } catch {}
+  return null;
+}
+
 export function AdminDashboard() {
   const [adminPass, setAdminPass] = useState('');
   const [isUnlocked, setIsUnlocked] = useState(false);
@@ -200,14 +210,14 @@ export function AdminDashboard() {
                     {sub.branch || sub.year_branch}
                   </td>
                   <td className="p-4 space-x-2" onClick={(e) => e.stopPropagation()}>
-                    {sub.github_url && (
-                      <a href={sub.github_url} target="_blank" rel="noreferrer" className="text-blue-400 hover:underline">GitHub</a>
+                    {safeHref(sub.github_url) && (
+                      <a href={safeHref(sub.github_url)} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">GitHub</a>
                     )}
-                    {sub.linkedin_url && (
-                      <a href={sub.linkedin_url} target="_blank" rel="noreferrer" className="text-cyan-400 hover:underline">LinkedIn</a>
+                    {safeHref(sub.linkedin_url) && (
+                      <a href={safeHref(sub.linkedin_url)} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">LinkedIn</a>
                     )}
-                    {sub.portfolio_url && (
-                      <a href={sub.portfolio_url} target="_blank" rel="noreferrer" className="text-indigo-400 hover:underline">Portfolio</a>
+                    {safeHref(sub.portfolio_url) && (
+                      <a href={safeHref(sub.portfolio_url)} target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:underline">Portfolio</a>
                     )}
                   </td>
                   <td className="p-4 font-mono text-zinc-500 text-[11px]">
