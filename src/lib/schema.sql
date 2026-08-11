@@ -28,7 +28,11 @@ CREATE TABLE IF NOT EXISTS public.recruitment_submissions (
     ),
     CONSTRAINT check_full_name_length CHECK (char_length(full_name) <= 200),
     CONSTRAINT check_email_format CHECK (email ~* '^[^@]+@[^@]+\.[^@]+$'),
-    CONSTRAINT check_phone_length CHECK (char_length(phone) BETWEEN 7 AND 20)
+    CONSTRAINT check_phone_length CHECK (char_length(phone) BETWEEN 7 AND 20),
+    CONSTRAINT check_answers_size CHECK (pg_column_size(answers) <= 50000),
+    CONSTRAINT check_github_url_protocol CHECK (github_url IS NULL OR github_url ~* '^https?://'),
+    CONSTRAINT check_linkedin_url_protocol CHECK (linkedin_url IS NULL OR linkedin_url ~* '^https?://'),
+    CONSTRAINT check_portfolio_url_protocol CHECK (portfolio_url IS NULL OR portfolio_url ~* '^https?://')
 );
 
 -- Index for fast department filtering, email, and roll number lookups
@@ -56,12 +60,26 @@ ON public.recruitment_submissions
 FOR SELECT 
 USING (true);
 
--- NOTE: The SELECT policy above is USING(true) because Supabase anon key queries
--- go through PostgREST which always applies the .eq()/.ilike() filters from the client.
--- For additional protection:
---   1. Do NOT expose a service_role key in the frontend
---   2. Consider adding a Supabase Edge Function for admin reads that authenticates first
---   3. The admin dashboard should ideally use Supabase Auth + RLS role checks
+-- Policy 3: Explicitly DENY updates from anonymous users
+DROP POLICY IF EXISTS "Deny public updates" ON public.recruitment_submissions;
+CREATE POLICY "Deny public updates"
+ON public.recruitment_submissions
+FOR UPDATE
+USING (false);
+
+-- Policy 4: Explicitly DENY deletes from anonymous users
+DROP POLICY IF EXISTS "Deny public deletes" ON public.recruitment_submissions;
+CREATE POLICY "Deny public deletes"
+ON public.recruitment_submissions
+FOR DELETE
+USING (false);
+
+-- CRITICAL: Restrict which columns the anon role can SELECT.
+-- This prevents anyone from dumping full PII (names, phones, answers) via the public API key.
+-- The anon role can only see student_id, department, and email (needed for duplicate detection).
+-- Admin reads should use the service_role key (never exposed in frontend).
+REVOKE SELECT ON public.recruitment_submissions FROM anon;
+GRANT SELECT (student_id, department, email) ON public.recruitment_submissions TO anon;
 
 -- =======================================================
 -- MIGRATION COMMANDS (Run these if table already exists):

@@ -28,6 +28,18 @@ function sanitizeInput(value, maxLength = 5000) {
   return value.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '').slice(0, maxLength);
 }
 
+// Sanitize a URL: only allow http/https protocols to prevent javascript: injection
+function sanitizeUrl(value, maxLength = 500) {
+  if (!value || typeof value !== 'string') return null;
+  const cleaned = sanitizeInput(value.trim(), maxLength);
+  if (!cleaned) return null;
+  try {
+    const parsed = new URL(cleaned);
+    if (parsed.protocol === 'http:' || parsed.protocol === 'https:') return cleaned;
+  } catch {}
+  return null;
+}
+
 /**
  * Checks if a candidate has already submitted an application for a specific department.
  */
@@ -238,9 +250,9 @@ export async function submitApplication(payload) {
     email: email,
     phone: sanitizeInput(payload.phone.trim(), 20),
     branch: sanitizeInput(payload.branch ? payload.branch.trim() : (payload.yearBranch ? payload.yearBranch.trim() : ''), 200),
-    github_url: payload.githubUrl ? sanitizeInput(payload.githubUrl.trim(), 500) : null,
-    linkedin_url: payload.linkedinUrl ? sanitizeInput(payload.linkedinUrl.trim(), 500) : null,
-    portfolio_url: payload.portfolioUrl ? sanitizeInput(payload.portfolioUrl.trim(), 500) : null,
+    github_url: sanitizeUrl(payload.githubUrl),
+    linkedin_url: sanitizeUrl(payload.linkedinUrl),
+    portfolio_url: sanitizeUrl(payload.portfolioUrl),
     answers: sanitizedAnswers,
     created_at: new Date().toISOString()
   };
