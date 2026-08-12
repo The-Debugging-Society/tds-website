@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
-import { Home, About, Community, Layout, Alumni, NotFound, Blogs, Eventspage, Resources, Recruit, RecruitAdmin } from './pages/index.js';
+import { Home, About, Community, Layout, Alumni, NotFound, Blogs, Eventspage, Resources } from './pages/index.js';
 import { UpcomingEvents, PastEvents, PastWorkshops } from './components/Events/index.js';
 
 const router = createBrowserRouter(
@@ -14,9 +14,6 @@ const router = createBrowserRouter(
                 <Route path="/community" element={<Community />} />
                 <Route path="/blogs" element={<Blogs />} />
                 <Route path="/alumni" element={<Alumni />} />
-                <Route path="/recruit" element={<Recruit />} />
-                <Route path="/apply" element={<Recruit />} />
-                <Route path="/recruitment-admin" element={<RecruitAdmin />} />
                 <Route path="/events" element={<Eventspage />}>
                     <Route path="" element={<UpcomingEvents />} />
                     <Route path="upcoming" element={<UpcomingEvents />} />
