@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import TextReveal from "../ui/text-reveal";
+import SectionLabel from "../ui/section-label";
 import eventsData from "../../data/events.json";
 
 gsap.registerPlugin(useGSAP);
@@ -57,6 +58,7 @@ export default function HeroOfEvent() {
       className="grid grid-cols-12 items-end gap-[4vw] px-[4vw] pb-[6vw] pt-[6vw] max-[1025px]:grid-cols-1 max-[1025px]:gap-[8vw] max-[1025px]:px-[5vw] max-[1025px]:pt-[12vw]"
     >
       <div className="col-span-6 max-[1025px]:col-span-1">
+        <SectionLabel path="events" animateOnScroll={false} className="mb-[1.5vw] max-[1025px]:mb-[3vw]" />
         <TextReveal stagger={0.015} animateOnScroll={false}>
           <h1 className="text-[10vw] font-semibold leading-[0.95] tracking-tight max-[1025px]:text-[16vw] max-md:text-[20vw]">
             Events
@@ -77,7 +79,7 @@ export default function HeroOfEvent() {
           ref={frameRef}
           onMouseEnter={startFlip}
           onMouseLeave={stopFlip}
-          className="relative aspect-[5/4] w-full overflow-hidden rounded-xl bg-[#111a3a]"
+          className="relative aspect-[5/4] w-full overflow-hidden rounded-xl bg-[#080c1a]"
         >
           {photos.map((src, i) => (
             <img

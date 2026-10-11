@@ -9,7 +9,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 function EventCard({ event }) {
   return (
     <li data-event-card className="group flex flex-col">
-      <div className="relative aspect-[5/6] w-full overflow-hidden rounded-xl bg-[linear-gradient(180deg,#16224a_0%,#0f1838_100%)] ring-1 ring-inset ring-white/5">
+      <div className="relative aspect-[5/6] w-full overflow-hidden rounded-xl bg-[linear-gradient(180deg,#0b1124_0%,#060914_100%)] ring-1 ring-inset ring-white/5">
         {event.image ? (
           <img
             src={event.image}

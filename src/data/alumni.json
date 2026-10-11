@@ -1,5 +1,50 @@
 [
   {
+    "yearOfGraduation": "2027",
+    "name": "Kanik Chawla",
+    "por": "President",
+    "image": "/alumni/2027/kanik.jpg",
+    "linkedIn": "https://www.linkedin.com/in/kanik-chawla/",
+    "email": "",
+    "currentCompany": "Apple"
+  },
+  {
+    "yearOfGraduation": "2027",
+    "name": "Aman Mishra",
+    "por": "Vice President",
+    "image": "/alumni/2027/aman.jpg",
+    "linkedIn": "https://www.linkedin.com/in/aman-mishra-896a8a23b/",
+    "email": "",
+    "currentCompany": "Wattmatch"
+  },
+  {
+    "yearOfGraduation": "2027",
+    "name": "Dhruv Garg Saria",
+    "por": "Vice President",
+    "image": "/alumni/2027/dhruv.jpg",
+    "linkedIn": "https://www.linkedin.com/in/dhruvsaria/",
+    "email": "",
+    "currentCompany": "Bain"
+  },
+  {
+    "yearOfGraduation": "2027",
+    "name": "Aryaman Aggarwal",
+    "por": "Managing Director",
+    "image": "/alumni/2027/aryaman.jpg",
+    "linkedIn": "https://www.linkedin.com/in/aryaman-agarwal-5b5a821b2/",
+    "email": "",
+    "currentCompany": "BlackRock"
+  },
+  {
+    "yearOfGraduation": "2027",
+    "name": "Vaibhav Rajput",
+    "por": "Managing Director",
+    "image": "/alumni/2027/vaibhav.jpg",
+    "linkedIn": "https://www.linkedin.com/in/vaibhav-rajput06/",
+    "email": "",
+    "currentCompany": "NatWest"
+  },
+  {
     "yearOfGraduation": "2026",
     "name": "Nikhil Kumar",
     "por": "President",

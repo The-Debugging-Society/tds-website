@@ -11,8 +11,8 @@ export default function PillButton({
   href,
   children,
   bgColor = "#ffffff",
-  textColor = "#0a1128",
-  fillColor = "#0a1128",
+  textColor = "#03050c",
+  fillColor = "#3b82f6",
   hoverTextColor = "#ffffff",
   className = "",
 }) {

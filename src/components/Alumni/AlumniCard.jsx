@@ -13,7 +13,7 @@ const AlumniCard = ({ name, image, por, company, linkedin }) => {
 
   return (
     <li data-alumni-card className="group flex flex-col">
-      <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-[linear-gradient(180deg,#16224a_0%,#0f1838_100%)] ring-1 ring-inset ring-white/5">
+      <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-[linear-gradient(180deg,#0b1124_0%,#060914_100%)] ring-1 ring-inset ring-white/5">
         {image && !failed ? (
           <img
             src={optimise(image)}

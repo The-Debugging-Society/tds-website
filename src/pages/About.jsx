@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import TextReveal from '../components/ui/text-reveal'
+import SectionLabel from "../components/ui/section-label";
 import TeamRoster from '../components/About/TeamRoster'
 import team from '../data/team.json'
 
@@ -35,7 +36,7 @@ const About = () => {
   )
 
   return (
-    <div ref={pageRef} className="w-full bg-[#0a1128] text-white">
+    <div ref={pageRef} className="w-full bg-[#03050c] text-white">
       {/* Hero: the team photo full-bleed, with the intro set over its darkened lower half */}
       <section
         ref={heroRef}
@@ -49,10 +50,11 @@ const About = () => {
         />
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,17,40,0.3)_0%,rgba(10,17,40,0.1)_25%,rgba(10,17,40,0.8)_58%,#0a1128_100%)]"
+          className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,5,12,0.3)_0%,rgba(3,5,12,0.1)_25%,rgba(3,5,12,0.8)_58%,#03050c_100%)]"
         />
         <div className="absolute inset-x-[4vw] bottom-[4vw] grid grid-cols-12 items-end gap-[4vw] max-[1025px]:inset-x-[5vw] max-[1025px]:bottom-[8vw] max-[1025px]:grid-cols-1 max-[1025px]:gap-[5vw]">
           <div className="col-span-6 max-[1025px]:col-span-1">
+            <SectionLabel path="about" animateOnScroll={false} className="mb-[1.5vw] max-[1025px]:mb-[3vw]" />
             <TextReveal stagger={0.015} animateOnScroll={false}>
               <h1 className="text-[8vw] font-semibold leading-[1] tracking-tight max-[1025px]:text-[12vw] max-md:text-[15vw]">
                 About Us

@@ -27,7 +27,7 @@ function Layout() {
       <ScrollToTop />
       <Navbar />
       {/* The navbar is fixed; Home's hero sits under it, every other page starts below it */}
-      {!isHome && <div aria-hidden="true" className="bg-[#0a1128]" style={{ height: NAV_HEIGHT }} />}
+      {!isHome && <div aria-hidden="true" className="bg-[#03050c]" style={{ height: NAV_HEIGHT }} />}
       <Outlet />
       <Footer />
     </SmoothScroll>

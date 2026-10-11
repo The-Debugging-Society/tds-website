@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { IconCalendarRepeat, IconMessages, IconTrophy, IconUsersGroup } from "@tabler/icons-react";
 import TextReveal from "../ui/text-reveal";
+import SectionLabel from "../ui/section-label";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -81,6 +82,7 @@ export default function WhyJoin() {
         <div className="col-span-5 max-[1025px]:col-span-1">
           {/* Heading stays put while the reasons scroll past */}
           <div className="sticky top-[8vw] max-[1025px]:static">
+            <SectionLabel path="why-join" className="mb-[1.2vw] max-[1025px]:mb-[3vw]" />
             <TextReveal stagger={0.015}>
               <h2 className="text-[5.5vw] font-semibold leading-[1.05] tracking-tight max-[1025px]:text-[7vw] max-md:text-[11vw]">
                 Why Join TDS?

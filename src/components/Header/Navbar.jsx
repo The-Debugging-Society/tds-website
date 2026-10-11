@@ -76,7 +76,7 @@ const Navbar = () => {
         ref={headerRef}
         id="site-header"
         className={`fixed inset-x-0 top-0 z-50 flex items-center justify-between px-[4vw] text-white transition-[background-color,backdrop-filter] duration-500 ease-out max-[1025px]:px-[5vw] ${
-          solid ? "bg-[#0a1128]/80 backdrop-blur-lg" : "bg-transparent"
+          solid ? "bg-[#03050c]/80 backdrop-blur-lg" : "bg-transparent"
         }`}
         style={{ height: NAV_HEIGHT }}
       >
@@ -85,7 +85,7 @@ const Navbar = () => {
         </Link>
 
         <nav aria-label="Main" className="max-lg:hidden">
-          <ul className="flex items-center gap-[2.5vw] text-[15px] font-medium">
+          <ul className="flex items-center gap-[2.2vw] font-mono text-[13px] uppercase tracking-[0.08em]">
             {links.map((link) => (
               <li key={link.name}>
                 <NavLink

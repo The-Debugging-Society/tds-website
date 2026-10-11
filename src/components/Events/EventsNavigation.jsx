@@ -34,7 +34,7 @@ const EventsNavigation = () => {
                       />
                     )}
                     <span
-                      className={`relative z-10 transition-colors duration-300 ${active ? "text-[#0a1128]" : "text-white/70 hover:text-white"}`}
+                      className={`relative z-10 transition-colors duration-300 ${active ? "text-[#03050c]" : "text-white/70 hover:text-white"}`}
                     >
                       {tab.label}
                     </span>

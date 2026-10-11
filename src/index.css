@@ -147,8 +147,8 @@
 }
 
 .string-line-hit:hover {
-  top: -75px;
-  height: 150px;
+  top: -50px;
+  height: 100px;
 }
 
 /* Team roster: while the list is hovered, every name but the active one dims (desktop only) */
@@ -186,7 +186,7 @@
    so stacked sections never show a seam.
    ------------------------------------------------------------------ */
 .surface {
-  background-color: #0a1128;
+  background-color: #03050c;
   background-image: radial-gradient(
     var(--glow-size, 55% 45%) at var(--glow-pos, 50% 35%),
     rgba(59, 130, 246, var(--glow-alpha, 0.1)),
@@ -197,32 +197,32 @@
 /* Brand-blue panels that sit edge to edge (events band + panel): light varies only left to right,
    so pieces of different heights still meet seamlessly */
 .surface-blue-band {
-  background-color: #0b64d0;
-  background-image: linear-gradient(90deg, #0a58bd 0%, #0b64d0 45%, #1673e0 100%);
+  background-color: #05153a;
+  background-image: linear-gradient(90deg, #030b22 0%, #05153a 45%, #071c4c 100%);
 }
 
 /* The pinned events panel: the band gradient plus a soft light behind the poster and a darker
    lower edge. Both fade out before the top edge, so the panel still meets the band seamlessly. */
 .surface-blue-panel {
-  background-color: #0b64d0;
+  background-color: #05153a;
   background-image:
-    radial-gradient(38% 42% at 50% 58%, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0) 100%),
-    radial-gradient(120% 55% at 50% 115%, rgba(4, 22, 70, 0.55), rgba(4, 22, 70, 0) 100%),
-    linear-gradient(90deg, #0a58bd 0%, #0b64d0 45%, #1673e0 100%);
+    radial-gradient(38% 42% at 50% 58%, rgba(59, 130, 246, 0.22), rgba(59, 130, 246, 0) 100%),
+    radial-gradient(120% 55% at 50% 115%, rgba(1, 4, 16, 0.55), rgba(1, 4, 16, 0) 100%),
+    linear-gradient(90deg, #030b22 0%, #05153a 45%, #071c4c 100%);
 }
 
 /* Self-contained blue blocks (footer card, card fills): lit from the top right */
 .surface-blue-card {
-  background-color: #0b64d0;
+  background-color: #082b6e;
   background-image:
     radial-gradient(70% 90% at 88% 0%, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0) 60%),
-    linear-gradient(135deg, #0e6ad8 0%, #0a59bf 100%);
+    linear-gradient(135deg, #0a347f 0%, #061f52 100%);
 }
 
 /* Dark cards: slightly lighter at the top with a hairline highlight, like a lit edge */
 .surface-card {
-  background-color: #111a3a;
-  background-image: linear-gradient(180deg, #16224a 0%, #0f1838 100%);
+  background-color: #080c1a;
+  background-image: linear-gradient(180deg, #0b1124 0%, #060914 100%);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
@@ -242,7 +242,7 @@ body::after {
 /* Page background: navy everywhere, so overscroll at the top or bottom never flashes white */
 html,
 body {
-  background-color: #0a1128;
+  background-color: #03050c;
 }
 
 /* Loader: logo breathes in, line fills across over the 2s the loader is shown */
@@ -271,3 +271,40 @@ body {
     animation: none;
   }
 }
+
+/* Terminal cursor after the hero headline */
+.term-cursor {
+  display: inline-block;
+  width: 0.08em;
+  height: 0.82em;
+  margin-left: 0.08em;
+  vertical-align: -0.04em;
+  background: #3b82f6;
+  animation: term-blink 1.05s steps(1) infinite;
+}
+
+@keyframes term-blink {
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .term-cursor { animation: none; }
+}
+
+/* Glow only, no fill: for layers that sit on top of a .surface (e.g. a pinned panel) */
+.surface-glow {
+  background-image: radial-gradient(
+    var(--glow-size, 55% 45%) at var(--glow-pos, 50% 35%),
+    rgba(59, 130, 246, var(--glow-alpha, 0.1)),
+    rgba(59, 130, 246, 0) 100%
+  );
+}
+
+/* Home hero: near-black with a deep blue glow behind the logo (the dot grid is a canvas, see interactive-dots.jsx) */
+.hero-bg {
+  background-color: #03050c;
+  background-image:
+    radial-gradient(42% 52% at 50% 50%, rgba(11, 61, 150, 0.45), rgba(11, 61, 150, 0) 100%),
+    linear-gradient(180deg, #050a1c 0%, #03050c 100%);
+}
+

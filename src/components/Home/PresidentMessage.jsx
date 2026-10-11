@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import TextReveal from "../ui/text-reveal";
+import SectionLabel from "../ui/section-label";
 import president from "../../data/presidentMessage.json";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -63,7 +64,7 @@ export default function PresidentMessage() {
     >
       <div className="grid grid-cols-12 items-center gap-[5vw] max-[1025px]:grid-cols-1 max-[1025px]:gap-[10vw]">
         <div className="col-span-5 max-[1025px]:col-span-1 max-[1025px]:w-[60%] max-md:w-[80%]">
-          <div ref={frameRef} className="relative aspect-[4/5] overflow-hidden rounded-xl bg-[#111a3a]">
+          <div ref={frameRef} className="relative aspect-[4/5] overflow-hidden rounded-xl bg-[#080c1a]">
             {president.photo ? (
               <img
                 ref={photoRef}
@@ -83,6 +84,7 @@ export default function PresidentMessage() {
         </div>
 
         <div className="col-span-7 max-[1025px]:col-span-1">
+          <SectionLabel path="president" className="mb-[1.2vw] max-[1025px]:mb-[3vw]" />
           <TextReveal stagger={0.015}>
             <h2 className="text-[4vw] font-semibold leading-[1.1] tracking-tight max-[1025px]:text-[7vw] max-md:text-[9vw]">
               From the President
