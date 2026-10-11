@@ -1,129 +1,123 @@
-import {
-  IconBrandInstagram,
-  IconBrandLinkedin,
-  IconBrandWhatsapp,
-} from '@tabler/icons-react'
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import Particles from '../ui/particles'
-import HyperText from '../ui/hyper-text'
+import { IconBrandInstagram, IconBrandLinkedin, IconBrandWhatsapp } from '@tabler/icons-react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGSAP } from '@gsap/react'
+import PillButton from '../ui/pill-button'
+import { WHATSAPP_URL } from '../../lib/constants'
+
+gsap.registerPlugin(useGSAP, ScrollTrigger)
+
+const links = [
+  { name: 'About Us', path: '/about' },
+  { name: 'Events', path: '/events' },
+  { name: 'Alumni', path: '/alumni' },
+  { name: 'Resources', path: '/resources' },
+]
+
+const socials = [
+  { icon: IconBrandInstagram, href: 'https://www.instagram.com/thedebuggingsocietynsut/', label: 'Instagram' },
+  { icon: IconBrandLinkedin, href: 'https://www.linkedin.com/company/thedebuggingsocietynsut/', label: 'LinkedIn' },
+  { icon: IconBrandWhatsapp, href: WHATSAPP_URL, label: 'WhatsApp' },
+]
 
 const Footer = () => {
   const year = new Date().getFullYear()
-  
+  const footerRef = useRef(null)
+  const cardRef = useRef(null)
+
+  // Desktop: the card rises into place as the footer scrolls in
+  useGSAP(
+    () => {
+      if (window.innerWidth <= 1025 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+      gsap.fromTo(
+        cardRef.current,
+        { yPercent: 20 },
+        {
+          yPercent: 0,
+          ease: 'power1.out',
+          scrollTrigger: { trigger: footerRef.current, start: 'top 60%', end: 'bottom bottom', scrub: true },
+        }
+      )
+    },
+    { scope: footerRef }
+  )
+
   return (
-    <footer className="relative w-full overflow-hidden border-t border-white/10 bg-black text-white">
-      {/* Background Particles */}
-      <Particles
-        className="absolute inset-0 z-0"
-        quantity={60}
-        ease={80}
-        color="#ffffff"
-        refresh
-      />
-
-      {/* Large Cut Text */}
-      <div className="absolute -bottom-0 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none z-0 select-none overflow-hidden">
-        <h1 className="text-[10rem] md:text-[16rem] font-black tracking-tighter text-white/[0.2] whitespace-nowrap leading-none translate-y-1/3">
-        TDS<span className="hidden md:inline"> NSUT</span>
-        </h1>
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
-          
-          {/* Brand Section - Spans 5 columns */}
-          <div className="md:col-span-5 space-y-6">
-            <Link to="/" className="flex items-center gap-4 group">
-              <div className="relative overflow-hidden rounded-xl border border-white/10 p-1 bg-white/5 transition-transform duration-300 group-hover:scale-105">
-                <img 
-                  src="https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739019866/logo_zlscnv.jpg" 
-                  alt="Logo" 
-                  className="w-16 h-16 rounded-lg object-cover" 
-                />
-              </div>
-              <div className="flex flex-col">
-                <HyperText 
-                  className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600"
-                  text="TDS NSUT"
-                >
-                  TDS NSUT
-                </HyperText>
-                <span className="text-sm text-gray-400 tracking-wider uppercase font-medium mt-1">
-                  The Debugging Society
-                </span>
-              </div>
-            </Link>
-            
-            <p className="text-gray-400 leading-relaxed max-w-sm">
-              We foster a community of developers, innovators, and problem solvers. 
-              Join us to learn, code, and compete at the highest level.
+    <footer
+      ref={footerRef}
+      style={{ '--glow-pos': '50% 65%', '--glow-size': '60% 55%', '--glow-alpha': 0.16 }}
+      className="surface w-full overflow-hidden px-[4vw] pt-[4vw] text-white max-[1025px]:px-[5vw] max-md:pt-[10vw]"
+    >
+      <div
+        ref={cardRef}
+        className="surface-blue-card flex flex-col gap-[6vw] rounded-[2rem] px-12 py-12 max-[1025px]:gap-12 max-[1025px]:px-8 max-[1025px]:py-14 max-md:px-6 max-md:py-10"
+      >
+        <div className="flex items-start justify-between gap-[6vw] max-[1025px]:flex-col-reverse max-[1025px]:items-center max-[1025px]:gap-12">
+          <Link to="/" aria-label="The Debugging Society home" className="shrink-0">
+            {/* Logo rendered as a white silhouette so it reads on the brand blue */}
+            <img
+              src="/tds-logo-transparent.png"
+              alt="The Debugging Society logo"
+              loading="lazy"
+              className="w-[14vw] [filter:brightness(0)_invert(1)] max-[1025px]:w-[30vw] max-md:w-[44vw]"
+            />
+          </Link>
+          <div className="flex flex-col items-end gap-[2vw] max-[1025px]:items-center max-[1025px]:gap-8 max-[1025px]:text-center">
+            <p className="w-[80%] text-end text-[3.4vw] font-semibold leading-[1.1] tracking-tight max-[1025px]:w-full max-[1025px]:text-center max-[1025px]:text-[6vw] max-md:text-[8vw]">
+              Ready to code with us?
             </p>
+            <PillButton href={WHATSAPP_URL} fillColor="#0a1128">
+              Join the community
+            </PillButton>
           </div>
+        </div>
 
-          {/* Quick Links - Spans 3 columns */}
-          <div className="md:col-span-3 space-y-6">
-            <h3 className="text-lg font-semibold text-white relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-blue-500 after:rounded-full">
-              Explore
-            </h3>
-            <ul className="space-y-3">
-              {[
-                { name: 'About Us', path: '/about' },
-                { name: 'Our Events', path: '/events/upcoming' },
-                { name: 'Alumni Network', path: '/alumni' },
-                { name: 'Resources', path: '/resources' },
-              ].map((link) => (
+        <div className="flex items-end justify-between gap-12 max-[1025px]:flex-col max-[1025px]:items-center max-[1025px]:text-center">
+          <nav aria-label="Footer">
+            <p className="mb-4 font-mono text-[1vw] font-medium text-white/70 max-[1025px]:text-[2.4vw] max-md:text-[4vw]">Explore</p>
+            <ul className="flex flex-wrap gap-x-[2.5vw] gap-y-2 text-[1.25vw] max-[1025px]:justify-center max-[1025px]:gap-x-6 max-[1025px]:text-[2.6vw] max-md:text-[4.2vw]">
+              {links.map((link) => (
                 <li key={link.name}>
-                  <Link 
-                    to={link.path} 
-                    className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center gap-2 group"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-gray-600 group-hover:bg-blue-400 transition-colors"></span>
+                  <Link to={link.path} className="link-underline pb-0.5">
                     {link.name}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
-          {/* Socials & Contact - Spans 4 columns */}
-          <div className="md:col-span-4 space-y-6">
-            <h3 className="text-lg font-semibold text-white relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-purple-500 after:rounded-full">
-              Connect With Us
-            </h3>
-            <p className="text-gray-400">
-              Stay updated with the latest hackathons, workshops, and tech talks.
-            </p>
-            <div className="flex gap-4">
-              {[
-                { icon: IconBrandInstagram, href: 'https://www.instagram.com/thedebuggingsocietynsut/', color: 'hover:text-pink-500', label: 'Instagram' },
-                { icon: IconBrandLinkedin, href: 'https://www.linkedin.com/company/thedebuggingsocietynsut/', color: 'hover:text-blue-600', label: 'LinkedIn' },
-                { icon: IconBrandWhatsapp, href: 'https://chat.whatsapp.com/GQThHbXdSpT68iHm2nT8Dx', color: 'hover:text-green-500', label: 'WhatsApp' },
-              ].map((social, idx) => (
+          <ul className="flex gap-4">
+            {socials.map(({ icon: Icon, href, label }) => (
+              <li key={label}>
                 <a
-                  key={idx}
-                  href={social.href}
+                  href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className={`p-3 rounded-lg bg-white/5 border border-white/10 text-gray-400 transition-all duration-300 hover:scale-110 hover:bg-white/10 ${social.color}`}
+                  aria-label={label}
+                  className="group relative flex size-12 items-center justify-center overflow-hidden rounded-full border border-white/40 transition-transform duration-300 ease-in-out hover:[transform:scale(0.95)]"
                 >
-                  <social.icon size={24} stroke={1.5} />
+                  {/* White disc grows from the centre and the icon flips to brand blue */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 rounded-full bg-white transition-transform duration-300 ease-in-out [transform:scale(0)] group-hover:[transform:scale(1)]"
+                  />
+                  <Icon
+                    size={20}
+                    stroke={1.6}
+                    className="relative text-white transition-colors duration-300 group-hover:text-[#0b64d0]"
+                  />
                 </a>
-              ))}
-            </div>
-          </div>
+              </li>
+            ))}
+          </ul>
         </div>
+      </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-sm">
-            &copy; {year} TDS NSUT. Built with ❤️ by the Tech Team.
-          </p>
-          <div className="flex gap-6 text-sm text-gray-500">
-            <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-          </div>
-        </div>
+      <div className="flex justify-between gap-2 py-8 text-sm text-white/60 max-md:flex-col max-md:items-center max-md:py-6 max-md:text-center">
+        <p>&copy; {year} The Debugging Society, NSUT</p>
+        <p>Built by the TDS Tech Team</p>
       </div>
     </footer>
   )

@@ -1,74 +1,81 @@
-[
-  {
-    "photo": "https://media.licdn.com/dms/image/v2/D5603AQH8LRwF18_LMA/profile-displayphoto-crop_800_800/B56Z3iRo6jH4AI-/0/1777617771106?e=1782345600&v=beta&t=KdIo3XTB7zedcPeHfn0X79ap_fCArIJAe_Co3OTXv7g",
-    "name": "Kanik Chawla",
-    "position": "President",
-    "description": "A dynamic leader with a vision to drive innovation and excellence.",
-    "linkedinUrl": "https://www.linkedin.com/in/kanik-chawla/"
-  },
-  {
-    "photo": "https://media.licdn.com/dms/image/v2/D5603AQE6SwLLFcgk4A/profile-displayphoto-crop_800_800/B56Zus6wGDHcAI-/0/1768132643083?e=1782345600&v=beta&t=LVtVtlityTefnLZwkayF1qBO2tBWrgKk2nekFi3VV9I",
-    "name": "Aman Mishra",
-    "position": "Vice President",
-    "description": "A dedicated leader committed to fostering innovation and teamwork.",
-    "linkedinUrl": "https://www.linkedin.com/in/aman-mishra-896a8a23b/",
-    "instaUrl": "https://www.instagram.com/jam_mr.perfect_007/"
-  },
-  {
-    "photo": "https://media.licdn.com/dms/image/v2/D4D03AQFgP0CadmaQvg/profile-displayphoto-shrink_800_800/B4DZdkITmSGUAg-/0/1749731589995?e=1782345600&v=beta&t=2XVAx6AKrdu9d0pK_eymNxRZoQmjPk6T4qJ9TYDV9cM",
-    "name": "Dhruv Garg Saria",
-    "position": "Vice President",
-    "description": "A strategic thinker focused on driving growth and efficiency.",
-    "linkedinUrl": "https://www.linkedin.com/in/dhruvsaria/"
-  },
-  {
-    "photo": "https://media.licdn.com/dms/image/v2/D5603AQEro4BP4_c4lA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1724753169525?e=1782345600&v=beta&t=i8ucTZoLQCJXwX1gkciv5rCxR-qPiuN_kt1_ZJHgVUc",
-    "name": "Aryaman Aggarwal",
-    "position": "Managing Director",
-    "description": "An energetic and passionate individual dedicated to fostering collaboration.",
-    "linkedinUrl": "https://www.linkedin.com/in/aryaman-agarwal-5b5a821b2/"
-  },
-  {
-    "photo": "https://media.licdn.com/dms/image/v2/D5603AQHvgiNZs1BXJg/profile-displayphoto-crop_800_800/B56Zgmmc3YG0AI-/0/1752994272362?e=1782345600&v=beta&t=yu1vmbtDVsFzHk24NKd_VRTT8ghnc11aNC0X4QFTjUQ",
-    "name": "Vaibhav Rajput",
-    "position": "Managing Director",
-    "description": "An energetic and passionate individual dedicated to fostering collaboration.",
-    "linkedinUrl": "https://www.linkedin.com/in/vaibhav-rajput06/"
-  },
-  {
-    "photo": "https://media.licdn.com/dms/image/v2/D5635AQE3O-TLzWNNLQ/profile-framedphoto-shrink_800_800/B56ZwVRgY0I4Ag-/0/1769883436906?e=1781600400&v=beta&t=hQZgS4d9HI4MBMbHi9r9D1Ul-GnsVTKLJp2ONwLLolI",
-    "name": "Devraj Saini",
-    "position": "Director of Finance",
-    "description": "A Treasurer who ensures our finances stay on point and our team spirit stays high.",
-    "linkedinUrl": "https://www.linkedin.com/in/devraj-s0202/"
-  },
-  {
-    "photo": "https://media.licdn.com/dms/image/v2/D5603AQERAmaTGueUFw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1723132686642?e=1782345600&v=beta&t=mKuHlgLE691mf5_EY7RIPe0lLZpA-m9_Wzfze7TBw8I",
-    "name": "Tanmay Gupta",
-    "position": "Director of Development",
-    "description": "A creative coder passionate about building impactful web applications.",
-    "linkedinUrl": "https://www.linkedin.com/in/devtanmay/"
-  },
-  {
-    "photo": "https://media.licdn.com/dms/image/v2/D5603AQFCNng3-Wpifw/profile-displayphoto-crop_800_800/B56Zuwn_zYHkAI-/0/1768194839112?e=1782345600&v=beta&t=NQXiyrXl_quVASMC0J2Ax3uDLVSa_xzLsdPGQEaF5uM",
-    "name": "Hariom Singh",
-    "position": "Director of Tech",
-    "description": "A machine learning enthusiast passionate about AI-driven solutions.",
-    "linkedinUrl": "https://www.linkedin.com/in/hariom-singh-77a3a9290/"
-  },
-  {
-    "photo": "https://media.licdn.com/dms/image/v2/D5603AQFdgcXPgGvSbQ/profile-displayphoto-crop_800_800/B56Zpjo2W1JYAM-/0/1762608244943?e=1782345600&v=beta&t=dzsmKBEPQ_DU5Yx1SfBcDeeu-mLxqLYAq1Benk04fLI",
-    "name": "Umesh Kashyap",
-    "position": "Director of Growth & Outreach",
-    "description": "A problem-solving enthusiast with a keen interest in data structures and algorithms.",
-    "linkedinUrl": "https://www.linkedin.com/in/umesh-kashyap-60a34028b/"
-  },
-
-  {
-    "photo": "",
-    "name": "Akshit Ranjan",
-    "position": "Director of Operations",
-    "description": "An energetic and passionate individual dedicated to fostering collaboration.",
-    "linkedinUrl": "https://www.linkedin.com/in/akshit-ranjan-491591287/"
-  }
-]
+{
+  "officeBearers": [
+    {
+      "name": "Komal Gupta",
+      "role": "President",
+      "photo": "/team/komal.jpeg"
+    },
+    {
+      "name": "Saransh",
+      "role": "Vice President",
+      "photo": "/team/Saransh.png"
+    },
+    {
+      "name": "Riya Shukla",
+      "role": "Vice President",
+      "photo": "/team/Riya.jpeg"
+    },
+    {
+      "name": "Siddharth",
+      "role": "General Secretary",
+      "photo": ""
+    },
+    {
+      "name": "Tanmay Agarwal",
+      "role": "General Secretary",
+      "photo": "/team/Tanmay.jpg"
+    },
+    {
+      "name": "Mayank Kumar Jha",
+      "role": "Joint General Secretary",
+      "photo": ""
+    },
+    {
+      "name": "Bhoomi Gupta",
+      "role": "Joint General Secretary",
+      "photo": ""
+    },
+    {
+      "name": "Kartik Gahlot",
+      "role": "Treasurer",
+      "photo": ""
+    },
+    {
+      "name": "Anshul Yadav",
+      "role": "Treasurer",
+      "photo": ""
+    }
+  ],
+  "directors": [
+    {
+      "name": "Jay Singh Sikarwar",
+      "role": "Director of Design",
+      "photo": ""
+    },
+    {
+      "name": "Manan",
+      "role": "Director of Development",
+      "photo": ""
+    },
+    {
+      "name": "Aayush",
+      "role": "Director of Tech",
+      "photo": ""
+    },
+    {
+      "name": "Shreyansh",
+      "role": "Director of Operations",
+      "photo": ""
+    },
+    {
+      "name": "Mohit",
+      "role": "Director of Sponsorship",
+      "photo": ""
+    },
+    {
+      "name": "Harshit",
+      "role": "Director of PR",
+      "photo": ""
+    }
+  ]
+}

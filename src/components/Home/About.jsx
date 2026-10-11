@@ -1,67 +1,74 @@
-import { Link } from "react-router-dom";
-import BoxReveal from "../ui/box-reveal";
-import FlickeringGrid from "../ui/flickering-grid";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
+import { useGSAP } from "@gsap/react";
+import TextReveal from "../ui/text-reveal";
+import PillButton from "../ui/pill-button";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText);
+
+const prefersReducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const AboutSection = () => {
+  const sectionRef = useRef(null);
+  const statementRef = useRef(null);
+
+  // Statement brightens word by word as it scrolls through, so it reads at the visitor's pace
+  useGSAP(
+    (_, contextSafe) => {
+      if (prefersReducedMotion()) return;
+      document.fonts.ready.then(
+        contextSafe(() => {
+          if (!statementRef.current) return;
+          const split = SplitText.create(statementRef.current, { type: "words" });
+          gsap.fromTo(
+            split.words,
+            { opacity: 0.18 },
+            {
+              opacity: 1,
+              ease: "none",
+              stagger: 0.1,
+              scrollTrigger: { trigger: statementRef.current, start: "top 80%", end: "bottom 45%", scrub: true },
+            }
+          );
+        })
+      );
+    },
+    { scope: sectionRef }
+  );
+
   return (
-    <section className="relative bg-gradient-to-b from-gray-900 to-black text-white py-16 px-8 overflow-hidden">
-      <FlickeringGrid
-        className="absolute inset-0 z-0 [mask-image:radial-gradient(450px_circle_at_left,white,transparent)]"
-        squareSize={4}
-        gridGap={6}
-        color="#60A5FA"
-        maxOpacity={0.5}
-        flickerChance={0.1}
-        height={1000}
-        width={800}
-      />
+    <section
+      ref={sectionRef}
+      id="about"
+      style={{ "--glow-pos": "72% 55%", "--glow-size": "50% 60%" }}
+      className="surface w-full px-[4vw] py-[9vw] text-white max-[1025px]:px-[5vw] max-[1025px]:py-[16vw]"
+    >
+      <TextReveal stagger={0.015}>
+        <h2 className="text-[4vw] font-semibold leading-[1.1] tracking-tight max-[1025px]:text-[7vw] max-md:text-[9vw]">
+          About Us
+        </h2>
+      </TextReveal>
 
-      {/* Content */}
-      <div className="relative z-10 container mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-        {/* Left Side */}
-        <div className="md:w-1/2">
-          <BoxReveal boxColor={"#0077B6"} duration={0.3}>
-            <h2 className="text-4xl md:text-6xl font-bold text-blue-400 mb-4">
-              About Us
-            </h2>
-          </BoxReveal>
-          <BoxReveal boxColor={"#0077B6"} duration={0.3}>
-            <h3 className="text-3xl md:text-4xl font-extrabold leading-snug mb-4">
-              The Debugging society
-            </h3>
-          </BoxReveal>
-          <BoxReveal boxColor={"#0077B6"} duration={0.3}>
-            <p className="text-gray-300 leading-relaxed mb-6">
-              The Debugging Society has been initiated with the purpose to
-              develop a passion for coding throught regular assignments,weekly
-              quizzes and create a network of like-minded individuals who are
-              passionate about coding and technology.
-            </p>
-            <p className="text-gray-300 leading-relaxed mb-6">
-              Specialties
-              <br />
-              DATA STRUCTUE AND ALGORITHIMS, COMPETITIVE PROGRAMMING, WEB
-              DEVELOPMENT, INTERVIEW PREPARATION, ANDROID DEVELOPMENT, C++ and
-              JAVA
-            </p>
-          </BoxReveal>
-          <BoxReveal boxColor={"#0077B6"} duration={0.3}>
-            <button className="bg-blue-400 text-white py-2 px-4 rounded-md hover:bg-blue-500">
-              <Link to="/about">Learn More</Link>
-            </button>
-          </BoxReveal>
-        </div>
+      <p
+        ref={statementRef}
+        className="mt-[3vw] w-[85%] text-[3.4vw] font-medium leading-[1.2] tracking-tight max-[1025px]:mt-[6vw] max-[1025px]:w-full max-[1025px]:text-[5.6vw] max-md:text-[7.4vw]"
+      >
+        The Debugging Society is a coding society at NSUT, started to develop a passion for coding through
+        regular assignments, weekly quizzes and a network of people who care about technology.
+      </p>
 
-        {/* Right Side */}
-        <div className="md:w-1/2 flex justify-center relative">
-          <BoxReveal boxColor={"#0077B6"} duration={0.2}>
-            <img
-              src="/tds26.jpg"
-              alt="About Us"
-              className="w-full h-full object-cover rounded-lg"
-            />
-          </BoxReveal>
+      <div className="mt-[4vw] flex items-end justify-between gap-[4vw] max-[1025px]:mt-[8vw] max-[1025px]:flex-col max-[1025px]:items-start max-[1025px]:gap-[6vw]">
+        <div className="w-[40%] max-[1025px]:w-[80%] max-md:w-full">
+          <TextReveal splitBy="lines">
+            <p className="text-[1.25vw] leading-[1.6] text-white/75 max-[1025px]:text-[2.6vw] max-md:text-[4.2vw]">
+              From DSA and competitive programming to web and Android development, we teach, code and compete
+              together.
+            </p>
+          </TextReveal>
         </div>
+        <PillButton to="/about">More about us</PillButton>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@import '@fontsource-variable/host-grotesk';
+@import '@fontsource-variable/jetbrains-mono';
 
 @import 'tailwindcss';
 @layer base {
@@ -57,185 +58,216 @@
   }
 }
 
-* {
-  font-family: 'Manrope', sans-serif;
+/* Type: Host Grotesk for everything, JetBrains Mono (Tailwind's font-mono) for small labels */
+@theme {
+  --font-sans: 'Host Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
 }
 
-/* Styles for the alumni heading */
-.alumni-heading {
-  font-size: 4rem;
-  font-weight: bold;
-  color: #3b82f6;
-  text-align: center;
+
+/* Hero: diagonal mask reveal driven by the --reveal custom property */
+.hero-mask-reveal {
+  -webkit-mask-image: linear-gradient(to top left, black var(--reveal, 0%), transparent calc(var(--reveal, 0%) + 25%));
+  mask-image: linear-gradient(to top left, black var(--reveal, 0%), transparent calc(var(--reveal, 0%) + 25%));
 }
 
-@media (max-width: 868px) and (min-width:776px) {
-  .alumni-heading {
-    font-size: 3.25rem;
+/* Hero: endless vertical image columns. Each column holds two copies of its list, so -50% loops seamlessly */
+.hero-marquee-1 {
+  will-change: transform;
+  animation: hero-marquee-y 10s linear infinite;
+}
+
+.hero-marquee-2 {
+  will-change: transform;
+  animation: hero-marquee-y 18s linear infinite;
+}
+
+@keyframes hero-marquee-y {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-marquee-1,
+  .hero-marquee-2 {
+    animation: none;
   }
 }
 
-@media (min-width: 868px) and (max-width: 886px) {
-  .alumni-heading {
-    font-size: 3.5rem;
+/* What We Teach cards: colour fill that grows from the centre, driven by --reveal */
+.card-fill-mask {
+  --reveal: -40%;
+  -webkit-mask-image: radial-gradient(circle at center, black var(--reveal), transparent min(calc(var(--reveal) + 18%), 100%));
+  mask-image: radial-gradient(circle at center, black var(--reveal), transparent min(calc(var(--reveal) + 18%), 100%));
+}
+
+/* Footer links: underline grows in from the left on hover */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.6s cubic-bezier(.16, 1, .3, 1);
+}
+
+.link-underline:hover,
+.link-underline:focus-visible {
+  background-size: 100% 1px;
+}
+
+/* String line divider (components/ui/string-line.jsx): a 1px row whose SVG overflows 50px each way */
+.string-line {
+  position: relative;
+  width: 100%;
+  height: 1px;
+}
+
+.string-line svg {
+  position: absolute;
+  top: -50px;
+  width: 100%;
+  height: 100px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.string-line svg path {
+  fill: none;
+}
+
+/* Invisible hover zone around the line; grows while hovered so a bent string keeps tracking */
+.string-line-hit {
+  position: absolute;
+  left: 0;
+  top: -20px;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 40px;
+}
+
+.string-line-hit:hover {
+  top: -75px;
+  height: 150px;
+}
+
+/* Team roster: while the list is hovered, every name but the active one dims (desktop only) */
+@media (hover: hover) and (min-width: 1026px) {
+  .team-roster [data-row] h3 {
+    transition: opacity 0.3s ease;
+  }
+
+  .team-roster:hover [data-row]:not([data-active]) h3 {
+    opacity: 0.35;
   }
 }
 
-@media (max-width: 776px) and (min-width: 691px) {
-  .alumni-heading {
-    font-size: 3rem;
+/* Alumni page: company names drift sideways; two copies of the list make -50% loop seamlessly */
+.alumni-marquee {
+  will-change: transform;
+  animation: alumni-marquee-x 60s linear infinite;
+}
+
+@keyframes alumni-marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alumni-marquee {
+    animation: none;
   }
 }
 
-@media (max-width:691px) and (min-width:618px) {
-  .alumni-heading {
-    font-size: 2.5rem;
-  }
+/* ------------------------------------------------------------------
+   Surfaces: depth for the flat colour areas.
+   One soft blue light per section, positioned per section with
+   --glow-pos / --glow-size, fading out well before the section edges
+   so stacked sections never show a seam.
+   ------------------------------------------------------------------ */
+.surface {
+  background-color: #0a1128;
+  background-image: radial-gradient(
+    var(--glow-size, 55% 45%) at var(--glow-pos, 50% 35%),
+    rgba(59, 130, 246, var(--glow-alpha, 0.1)),
+    rgba(59, 130, 246, 0) 100%
+  );
 }
 
-@media (max-width:618px) and (min-width:546px) {
-  .alumni-heading {
-    font-size: 2rem;
-  }
+/* Brand-blue panels that sit edge to edge (events band + panel): light varies only left to right,
+   so pieces of different heights still meet seamlessly */
+.surface-blue-band {
+  background-color: #0b64d0;
+  background-image: linear-gradient(90deg, #0a58bd 0%, #0b64d0 45%, #1673e0 100%);
 }
 
-@media (max-width:546px) and (min-width:440px){
-  .alumni-heading {
-    font-size: 1.5rem;
-  }
+/* The pinned events panel: the band gradient plus a soft light behind the poster and a darker
+   lower edge. Both fade out before the top edge, so the panel still meets the band seamlessly. */
+.surface-blue-panel {
+  background-color: #0b64d0;
+  background-image:
+    radial-gradient(38% 42% at 50% 58%, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0) 100%),
+    radial-gradient(120% 55% at 50% 115%, rgba(4, 22, 70, 0.55), rgba(4, 22, 70, 0) 100%),
+    linear-gradient(90deg, #0a58bd 0%, #0b64d0 45%, #1673e0 100%);
 }
 
-@media (max-width:440px) and (min-width:396px){
-  .alumni-heading {
-    font-size: 1.3rem;
-  }
+/* Self-contained blue blocks (footer card, card fills): lit from the top right */
+.surface-blue-card {
+  background-color: #0b64d0;
+  background-image:
+    radial-gradient(70% 90% at 88% 0%, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0) 60%),
+    linear-gradient(135deg, #0e6ad8 0%, #0a59bf 100%);
 }
 
-@media (max-width:396px) and (min-width:376px){
-  .alumni-heading {
-    font-size: 1.15rem;
-  }
+/* Dark cards: slightly lighter at the top with a hairline highlight, like a lit edge */
+.surface-card {
+  background-color: #111a3a;
+  background-image: linear-gradient(180deg, #16224a 0%, #0f1838 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
-@media (max-width:376px) and (min-width:365px){
-  .alumni-heading {
-    font-size: 1rem;
-  }
+/* Fine film grain over the whole site: breaks up gradient banding on dark blues.
+   Fixed and non-interactive so it never repaints on scroll. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-
-/* Styles for the select container */
-.select-container {
-  display: flex;
-  justify-content: center;
-  margin: 16px 0;
+/* Page background: navy everywhere, so overscroll at the top or bottom never flashes white */
+html,
+body {
+  background-color: #0a1128;
 }
 
-@media (min-width: 768px) {
-  .select-container {
-    margin: 0;
-  }
+/* Loader: logo breathes in, line fills across over the 2s the loader is shown */
+.loader-logo {
+  animation: loader-logo 1.2s cubic-bezier(.16, 1, .3, 1) both;
 }
 
-/* Styles for the select dropdown */
-.year-select {
-  padding: 8px;
-  margin: 0 auto;
-  font-size: 4.5rem;
-  font-weight: bold;
-  outline: none;
-  background-color: black;
-  color: #3b82f6;
+.loader-bar {
+  transform-origin: left center;
+  animation: loader-bar 1.9s cubic-bezier(.65, 0, .35, 1) both;
 }
 
-@media (max-width: 868px) and (min-width:776px) {
-  .year-select {
-    font-size: 3.55rem;
-  }
+@keyframes loader-logo {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
 }
 
-@media (min-width: 868px) and (max-width: 886px) {
-  .year-select {
-    font-size: 4rem;
-  }
+@keyframes loader-bar {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 
-@media (max-width: 776px) and (min-width: 691px) {
-  .year-select {
-    font-size: 3.5rem;
-  }
-}
-
-@media (max-width:691px) and (min-width:618px) {
-  .year-select {
-    font-size: 3rem;
-  }
-}
-
-@media (max-width:618px) and (min-width:546px) {
-  .year-select {
-    font-size: 2.5rem;
-  }
-}
-
-@media (max-width:546px) {
-  .year-select {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width:440px) and (min-width:396px){
-  .year-select {
-    font-size: 1.7rem;
-  }
-}
-
-@media (max-width:396px)and (min-width:376px){
-  .year-select {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width:376px){
-  .alumni-heading {
-    font-size: 1rem;
-  }
-}
-
-/* Styles for the event image */
-.event-image {
-  border-radius: 10px;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.event-image:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-@media (min-width: 320px) {
-  .event-image {
-    width: 600px;
-    height: 400px;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-}
-
-@media (min-width: 768px) {
-  .event-image {
-    width: 750px;
-    height: 500px;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-}
-
-@media (min-width: 1377px) {
-  .event-image {
-    width: 600px;
-    height: 450px;
-    margin-left: 64px;
-    padding: 0;
+@media (prefers-reduced-motion: reduce) {
+  .loader-logo,
+  .loader-bar {
+    animation: none;
   }
 }

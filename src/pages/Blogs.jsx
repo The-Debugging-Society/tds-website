@@ -1,11 +1,7 @@
-import React from 'react'
+import ComingSoon from './ComingSoon'
 
 function Blogs() {
-  return (
-    <div>
-      Blogs
-    </div>
-  )
+  return <ComingSoon title="Blogs" />
 }
 
 export default Blogs

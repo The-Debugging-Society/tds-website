@@ -1,13 +1,13 @@
-import { Hero, AboutSection, BentoDemo, MagicCardDemo, MarqueeDemo, VelocityScrollText } from '../components/index.js'  
+import { Hero, EventsTimeline, WhyJoin, WhatWeTeach, AboutSection, PresidentMessage } from '../components/index.js'
 const Home = () => {
   return (
     <>
       <Hero />
-      <VelocityScrollText />
+      <EventsTimeline />
+      <WhyJoin />
+      <WhatWeTeach />
       <AboutSection />
-      {/* <BentoDemo /> */}
-      <MagicCardDemo />
-      <MarqueeDemo />
+      <PresidentMessage />
     </>
   )
 }
