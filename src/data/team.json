@@ -33,17 +33,17 @@
     {
       "name": "Bhoomi Gupta",
       "role": "Joint General Secretary",
-      "photo": ""
+      "photo": "/team/Bhoomi.jpg"
     },
     {
       "name": "Kartik Gahlot",
       "role": "Treasurer",
-      "photo": ""
+      "photo": "/team/Kartik.jpg"
     },
     {
       "name": "Anshul Yadav",
       "role": "Treasurer",
-      "photo": ""
+      "photo": "/team/Anshul.png"
     }
   ],
   "directors": [
@@ -58,12 +58,12 @@
       "photo": ""
     },
     {
-      "name": "Aayush",
+      "name": "Aayush Bindal",
       "role": "Director of Tech",
-      "photo": ""
+      "photo": "/team/Aayush.jpg"
     },
     {
-      "name": "Shreyansh",
+      "name": "Shreeyansh Singh Sajwan",
       "role": "Director of Operations",
       "photo": ""
     },
@@ -73,9 +73,9 @@
       "photo": ""
     },
     {
-      "name": "Harshit",
+      "name": "Harshit Dagar",
       "role": "Director of PR",
-      "photo": ""
+      "photo": "/team/Harshit.jpg"
     }
   ]
 }

@@ -4,20 +4,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useLenis } from "lenis/react";
 import TextReveal from "../ui/text-reveal";
+import InteractiveDots from "../ui/interactive-dots";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 // Event posters only; muted in MarqueeColumn so the wall reads as texture behind the hero card
 const columnOne = ["/events/hackathon.jpeg", "/events/datasphere.jpeg", "/events/AIEthics.jpeg"];
 const columnTwo = ["/events/webthon.jpeg", "/events/aihorizon.jpeg", "/events/Matiks26.png"];
-
-// One plain TDS navy fade; the logo carries the colour
-const heroBackground = {
-  backgroundColor: "#0a1128",
-  backgroundImage: "linear-gradient(180deg, #1b2f6e 0%, #13235a 45%, #0a1128 100%)",
-};
-
-const PHOTO_OPACITY = 0.45;
 
 const prefersReducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -45,11 +38,9 @@ function Hero() {
   const logoRevealRef = useRef(null);
   const logoRef = useRef(null);
   const textRef = useRef(null);
-  const photoRef = useRef(null);
   const lenisRef = useRef(null);
   const introDone = useRef(false);
   const [reduceMotion] = useState(prefersReducedMotion);
-  const [showHeadline, setShowHeadline] = useState(reduceMotion);
   const [showLabels, setShowLabels] = useState(reduceMotion);
   const lenis = useLenis();
 
@@ -63,10 +54,8 @@ function Hero() {
   useGSAP(
     () => {
       const reveal = logoRevealRef.current;
-      const photo = photoRef.current;
       if (reduceMotion) {
         gsap.set(reveal, { "--reveal": "125%", opacity: 1 });
-        gsap.set(photo, { opacity: PHOTO_OPACITY });
         introDone.current = true;
         return;
       }
@@ -80,10 +69,8 @@ function Hero() {
       gsap.set(header, { yPercent: -50, autoAlpha: 0 });
       gsap
         .timeline()
-        .fromTo(photo, { opacity: 0 }, { opacity: PHOTO_OPACITY, duration: 2, ease: "power2.out" }, 0)
         .fromTo(reveal, { "--reveal": "-40%" }, { "--reveal": "125%", duration: 3.5, ease: "power2.out" }, 0)
         .fromTo(reveal, { opacity: 0 }, { opacity: 1, duration: 1.5, ease: "power2.out" }, 0)
-        .call(() => setShowHeadline(true), undefined, 1)
         .call(() => setShowLabels(true), undefined, 1.5)
         .to(header, { yPercent: 0, autoAlpha: 1, duration: 0.8, ease: "power3.out", onComplete: finishIntro }, 1.8);
 
@@ -112,7 +99,7 @@ function Hero() {
     { scope: sectionRef }
   );
 
-  // Mouse parallax (desktop only): three depths, photo < text < logo, all drifting away from the cursor
+  // Mouse parallax (desktop only): logo drifts further than the labels, both away from the cursor
   useEffect(() => {
     if (window.innerWidth <= 1024 || reduceMotion) return;
 
@@ -127,7 +114,6 @@ function Hero() {
       current.y += (target.y - current.y) * 0.08;
       gsap.set(logoRef.current, { x: current.x * 30, y: current.y * 30 });
       gsap.set(textRef.current, { x: current.x * 12, y: current.y * 12 });
-      gsap.set(photoRef.current, { x: current.x * 6, y: current.y * 6 });
     };
 
     window.addEventListener("mousemove", onMove);
@@ -139,54 +125,35 @@ function Hero() {
   }, [reduceMotion]);
 
   return (
-    <section ref={sectionRef} id="hero" className="relative h-[300vh] w-full bg-[#0a1128]">
+    <section ref={sectionRef} id="hero" className="relative h-[300vh] w-full bg-[#03050c]">
       <div
         ref={panelRef}
-        className="sticky top-0 z-[2] flex h-screen w-full items-center overflow-hidden px-[4vw] max-[1025px]:items-start max-[1025px]:px-[5vw] max-[1025px]:pt-[calc(72px+8vw)]"
-        style={heroBackground}
+        className="hero-bg sticky top-0 z-[2] flex h-screen w-full items-center overflow-hidden px-[4vw] max-[1025px]:items-start max-[1025px]:px-[5vw] max-[1025px]:pt-[calc(72px+8vw)]"
       >
-        {/* The 2026 team photo, tinted navy by blending its luminance into the panel background.
-            Slightly oversized so the parallax drift never shows an edge. */}
-        <img
-          ref={photoRef}
-          src="/hero-team.jpg"
-          alt=""
-          draggable={false}
-          className="pointer-events-none absolute -left-[2%] -top-[2%] h-[104%] w-[104%] max-w-none select-none object-cover opacity-0 mix-blend-luminosity"
-        />
-        {/* Scrim: keeps the headline and side labels readable over faces */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(10,17,40,0.85)_0%,rgba(10,17,40,0.35)_45%,rgba(10,17,40,0.35)_60%,rgba(10,17,40,0.8)_100%)]"
-        />
+        <InteractiveDots />
+
+        {/* Visually the logo is the title; the name stays in the markup for screen readers and search */}
+        <h1 className="sr-only">The Debugging Society</h1>
 
         <div
           ref={textRef}
-          className="relative z-[1] flex w-full justify-between max-[1025px]:flex-col max-[1025px]:gap-8"
+          className="absolute inset-x-[4vw] bottom-[3.5vw] z-[3] flex items-end justify-between font-mono text-[1.15vw] leading-[1.4] text-white/85 max-[1025px]:inset-x-[5vw] max-[1025px]:bottom-auto max-[1025px]:top-[calc(72px+6vw)] max-[1025px]:text-[2.6vw] max-md:text-[3.6vw]"
         >
-          <div className="w-[34%] max-[1025px]:w-[85%] max-md:w-full">
-            <TextReveal stagger={0.015} start={showHeadline} animateOnScroll={false}>
-              <h1 className="text-[6vw] font-semibold leading-[1.05] tracking-tight text-white max-[1025px]:text-[12.5vw] max-md:text-[15vw]">
-                The Debugging Society
-              </h1>
-            </TextReveal>
-          </div>
-          <div className="flex w-[18%] flex-col justify-between py-[1vw] text-end text-[1.6vw] leading-[1.25] text-white/90 max-[1025px]:w-[70%] max-[1025px]:gap-4 max-[1025px]:py-0 max-[1025px]:text-start max-[1025px]:text-[3.2vw] max-md:text-[4.5vw]">
-            <TextReveal splitBy="lines" start={showLabels} animateOnScroll={false}>
-              <p>
-                We Teach, Code
-                <br />
-                And Compete.
-              </p>
-            </TextReveal>
-            <TextReveal splitBy="lines" start={showLabels} animateOnScroll={false}>
-              <p>
-                DSA, CP &amp;
-                <br />
-                Development
-              </p>
-            </TextReveal>
-          </div>
+          <TextReveal splitBy="lines" start={showLabels} animateOnScroll={false}>
+            <p>
+              We Teach, Code
+              <br />
+              And Compete.
+              <span className="term-cursor" aria-hidden="true" />
+            </p>
+          </TextReveal>
+          <TextReveal splitBy="lines" start={showLabels} animateOnScroll={false} className="text-end">
+            <p>
+              DSA, CP &amp;
+              <br />
+              Development
+            </p>
+          </TextReveal>
         </div>
 
         {/* Centred with flex rather than translate(-50%) so it can't drift when a browser drops the translate property */}
@@ -208,7 +175,7 @@ function Hero() {
         </div>
       </div>
 
-      <div ref={wallRef} aria-hidden="true" className="absolute inset-0 bg-[#0a1128]">
+      <div ref={wallRef} aria-hidden="true" className="absolute inset-0 bg-[#03050c]">
         <div
           className="sticky top-0 flex h-screen w-full gap-[2.5vw] overflow-hidden px-[4vw]"
         >

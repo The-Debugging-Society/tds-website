@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
 import TextReveal from "../ui/text-reveal";
+import SectionLabel from "../ui/section-label";
 import PillButton from "../ui/pill-button";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText);
@@ -45,6 +46,7 @@ const AboutSection = () => {
       style={{ "--glow-pos": "72% 55%", "--glow-size": "50% 60%" }}
       className="surface w-full px-[4vw] py-[9vw] text-white max-[1025px]:px-[5vw] max-[1025px]:py-[16vw]"
     >
+      <SectionLabel path="about" className="mb-[1.2vw] max-[1025px]:mb-[3vw]" />
       <TextReveal stagger={0.015}>
         <h2 className="text-[4vw] font-semibold leading-[1.1] tracking-tight max-[1025px]:text-[7vw] max-md:text-[9vw]">
           About Us

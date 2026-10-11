@@ -4,6 +4,7 @@ import { useGSAP } from '@gsap/react'
 import { MotionConfig, motion } from 'motion/react'
 import { IconArrowUpRight } from '@tabler/icons-react'
 import TextReveal from '../components/ui/text-reveal'
+import SectionLabel from "../components/ui/section-label";
 import resources from '../data/resources.json'
 
 gsap.registerPlugin(useGSAP)
@@ -47,7 +48,7 @@ function ResourceRow({ item }) {
         </div>
         <span
           aria-hidden="true"
-          className="col-span-1 flex size-[3.4vw] items-center justify-center justify-self-end rounded-full border border-white/25 transition-colors duration-300 group-hover:border-white group-hover:bg-white group-hover:text-[#0a1128] max-[1025px]:absolute max-[1025px]:right-0 max-[1025px]:top-1/2 max-[1025px]:size-11 max-[1025px]:[transform:translateY(-50%)]"
+          className="col-span-1 flex size-[3.4vw] items-center justify-center justify-self-end rounded-full border border-white/25 transition-colors duration-300 group-hover:border-white group-hover:bg-white group-hover:text-[#03050c] max-[1025px]:absolute max-[1025px]:right-0 max-[1025px]:top-1/2 max-[1025px]:size-11 max-[1025px]:[transform:translateY(-50%)]"
         >
           <IconArrowUpRight size={20} stroke={1.6} />
         </span>
@@ -88,6 +89,7 @@ const Resources = () => {
       >
         <section className="grid grid-cols-12 items-end gap-[4vw] pb-[5vw] pt-[6vw] max-[1025px]:grid-cols-1 max-[1025px]:gap-[6vw] max-[1025px]:pt-[12vw]">
           <div className="col-span-7 max-[1025px]:col-span-1">
+            <SectionLabel path="resources" animateOnScroll={false} className="mb-[1.5vw] max-[1025px]:mb-[3vw]" />
             <TextReveal stagger={0.015} animateOnScroll={false}>
               <h1 className="text-[10vw] font-semibold leading-[0.95] tracking-tight max-[1025px]:text-[16vw] max-md:text-[18vw]">
                 Resources
@@ -123,7 +125,7 @@ const Resources = () => {
                       transition={{ type: 'spring', stiffness: 400, damping: 35 }}
                     />
                   )}
-                  <span className={`relative z-10 transition-colors duration-300 ${selected ? 'text-[#0a1128]' : 'text-white/70 hover:text-white'}`}>
+                  <span className={`relative z-10 transition-colors duration-300 ${selected ? 'text-[#03050c]' : 'text-white/70 hover:text-white'}`}>
                     {category}
                   </span>
                 </button>

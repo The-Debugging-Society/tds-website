@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { IconBinaryTree, IconBraces, IconBrandAndroid, IconBrowser, IconMessages, IconTrophy } from "@tabler/icons-react";
 import TextReveal from "../ui/text-reveal";
+import SectionLabel from "../ui/section-label";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -100,6 +101,7 @@ export default function WhatWeTeach() {
       style={{ "--glow-pos": "85% 14vw", "--glow-size": "55vw 32vw" }}
     >
       <div className="w-[60%] px-[4vw] pt-[6vw] max-[1025px]:w-[85%] max-[1025px]:px-[5vw] max-[1025px]:pt-[15vw] max-md:w-full">
+        <SectionLabel path="curriculum" className="mb-[1.2vw] max-[1025px]:mb-[3vw]" />
         <TextReveal stagger={0.015}>
           <h2 className="text-[5.5vw] font-semibold leading-[1.1] tracking-tight max-[1025px]:text-[7vw] max-md:text-[9vw]">
             What We Teach
@@ -120,7 +122,7 @@ export default function WhatWeTeach() {
         className={
           reduceMotion
             ? "px-[4vw] pb-[6vw] pt-[4vw] max-[1025px]:px-[5vw]"
-            : "surface flex h-screen items-center overflow-hidden"
+            : "surface-glow flex h-screen items-center overflow-hidden"
         }
         style={reduceMotion ? undefined : { "--glow-pos": "55% 55%", "--glow-size": "60% 45%" }}
       >

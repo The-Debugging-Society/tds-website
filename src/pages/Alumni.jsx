@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import AlumniCard from '@/components/Alumni/AlumniCard'
 import TextReveal from '@/components/ui/text-reveal'
+import SectionLabel from "@/components/ui/section-label";
 import alumniData from '@/data/alumni'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
@@ -38,6 +39,7 @@ const Alumni = () => {
       {/* Hero */}
       <section className="grid grid-cols-12 items-end gap-[4vw] px-[4vw] pb-[5vw] pt-[6vw] max-[1025px]:grid-cols-1 max-[1025px]:gap-[6vw] max-[1025px]:px-[5vw] max-[1025px]:pt-[12vw]">
         <div className="col-span-7 max-[1025px]:col-span-1">
+          <SectionLabel path="alumni" animateOnScroll={false} className="mb-[1.5vw] max-[1025px]:mb-[3vw]" />
           <TextReveal stagger={0.015} animateOnScroll={false}>
             <h1 className="text-[10vw] font-semibold leading-[0.95] tracking-tight max-[1025px]:text-[16vw] max-md:text-[20vw]">
               Alumni

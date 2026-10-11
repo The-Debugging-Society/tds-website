@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useLenis } from "lenis/react";
 import TextReveal from "../ui/text-reveal";
+import SectionLabel from "../ui/section-label";
 import StringLine from "../ui/string-line";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -15,7 +16,7 @@ const prefersReducedMotion = () => window.matchMedia("(prefers-reduced-motion: r
 // Shown in the floating card (and the mobile thumbnail) until someone's photo is added
 function PhotoPlaceholder({ compact = false }) {
   return (
-    <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(180deg,#16224a_0%,#0f1838_100%)]">
+    <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(180deg,#0b1124_0%,#060914_100%)]">
       <img
         src="/tds-logo-transparent.png"
         alt=""
@@ -118,6 +119,7 @@ export default function TeamRoster({ members }) {
       style={{ "--glow-pos": "85% 18vw", "--glow-size": "45vw 32vw" }}
       className="surface px-[4vw] pb-[8vw] pt-[8vw] max-[1025px]:px-[5vw] max-[1025px]:pb-[16vw] max-[1025px]:pt-[14vw]"
     >
+      <SectionLabel path="team" className="mb-[1.2vw] max-[1025px]:mb-[3vw]" />
       <TextReveal stagger={0.015}>
         <h2 className="text-[5.5vw] font-semibold leading-[1.1] tracking-tight max-[1025px]:text-[7vw] max-md:text-[9vw]">
           Meet the people
@@ -143,7 +145,7 @@ export default function TeamRoster({ members }) {
                   }}
                   className="origin-left"
                 >
-                  <StringLine />
+                  <StringLine note={i} />
                 </div>
               </li>
               <li
@@ -179,7 +181,7 @@ export default function TeamRoster({ members }) {
               }}
               className="origin-left"
             >
-              <StringLine />
+              <StringLine note={members.length} />
             </div>
           </li>
         </ol>
@@ -192,7 +194,7 @@ export default function TeamRoster({ members }) {
         >
           <div
             ref={cardInnerRef}
-            className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-[#111a3a] shadow-2xl will-change-transform"
+            className="relative aspect-[4/5] w-full overflow-hidden rounded-xl bg-[#080c1a] shadow-2xl will-change-transform"
           >
             {members.map((member, i) => (
               <div

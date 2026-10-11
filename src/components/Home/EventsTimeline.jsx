@@ -3,10 +3,11 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import TextReveal from "../ui/text-reveal";
+import SectionLabel from "../ui/section-label";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-const BRAND_BLUE = "#0b64d0";
+const BRAND_BLUE = "#082b6e";
 // Vertical spacing of timeline rows, in vw (desktop)
 const ROW_VW = 6;
 // Each event gets one unit of scroll: hold, transition, hold
@@ -140,6 +141,7 @@ export default function EventsTimeline() {
         className="surface-blue-panel sticky top-0 z-[3] flex h-screen w-full flex-col items-center justify-center gap-[4vw] overflow-hidden px-[4vw] max-[1025px]:gap-[6vw] max-[1025px]:px-[5vw]"
         
       >
+        <SectionLabel path="events" className="-mb-[2.5vw] text-center max-[1025px]:-mb-[3vw]" />
         <TextReveal stagger={0.015}>
           <h2 className="text-center text-[5.5vw] font-semibold leading-[1.1] tracking-tight max-[1025px]:text-[7vw] max-md:text-[9vw]">
             Events We&apos;ve Hosted

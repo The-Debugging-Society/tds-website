@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from "react";
+import { pluck } from "../../lib/pluck";
 
 // How far (px) the string may bend either way; keeps the curve inside its 100px-tall SVG
 const MAX_BEND = 45;
 
 /**
  * A 1px divider drawn as an SVG curve that behaves like a plucked string: moving the cursor
- * vertically across it bends it, and on leave it wobbles back to straight with a damped sine.
+ * vertically across it bends it, and on leave it wobbles back to straight with a damped sine
+ * and plays a plucked-string note (`note` picks the pitch).
  * A taller invisible hit area (the `.string-line-hit` element) keeps tracking while it is bent.
  */
-export default function StringLine({ color = "rgba(255,255,255,0.4)", strokeWidth = 1 }) {
+export default function StringLine({ color = "rgba(255,255,255,0.4)", strokeWidth = 1, note = 0, sound = true }) {
   const wrapRef = useRef(null);
   const pathRef = useRef(null);
   const amplitude = useRef(0);
@@ -55,6 +57,8 @@ export default function StringLine({ color = "rgba(255,255,255,0.4)", strokeWidt
   };
   const onLeave = () => {
     if (frame.current) cancelAnimationFrame(frame.current);
+    // Release: pluck sound, louder and brighter the further the string was bent
+    if (sound) pluck(note, Math.abs(amplitude.current) / MAX_BEND);
     phase.current = Math.PI / 2;
     frame.current = requestAnimationFrame(settle);
   };

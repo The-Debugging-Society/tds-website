@@ -48,7 +48,7 @@ const Footer = () => {
     <footer
       ref={footerRef}
       style={{ '--glow-pos': '50% 65%', '--glow-size': '60% 55%', '--glow-alpha': 0.16 }}
-      className="surface w-full overflow-hidden px-[4vw] pt-[4vw] text-white max-[1025px]:px-[5vw] max-md:pt-[10vw]"
+      className="surface w-full overflow-x-clip px-[4vw] pt-[4vw] text-white max-[1025px]:px-[5vw] max-md:pt-[10vw]"
     >
       <div
         ref={cardRef}
@@ -68,7 +68,7 @@ const Footer = () => {
             <p className="w-[80%] text-end text-[3.4vw] font-semibold leading-[1.1] tracking-tight max-[1025px]:w-full max-[1025px]:text-center max-[1025px]:text-[6vw] max-md:text-[8vw]">
               Ready to code with us?
             </p>
-            <PillButton href={WHATSAPP_URL} fillColor="#0a1128">
+            <PillButton href={WHATSAPP_URL}>
               Join the community
             </PillButton>
           </div>
@@ -106,7 +106,7 @@ const Footer = () => {
                   <Icon
                     size={20}
                     stroke={1.6}
-                    className="relative text-white transition-colors duration-300 group-hover:text-[#0b64d0]"
+                    className="relative text-white transition-colors duration-300 group-hover:text-[#082b6e]"
                   />
                 </a>
               </li>
