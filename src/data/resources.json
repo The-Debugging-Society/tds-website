@@ -1,0 +1,53 @@
+[
+  {
+    "category": "DSA",
+    "items": [
+      {
+        "platform": "LeetCode",
+        "title": "Problem of the Day",
+        "description": "Solve the daily LeetCode problem to keep your problem-solving sharp.",
+        "url": "https://leetcode.com/explore/"
+      },
+      {
+        "platform": "GeeksforGeeks",
+        "title": "Problem of the Day",
+        "description": "Tackle GeeksforGeeks' daily problem for steady coding practice.",
+        "url": "https://www.geeksforgeeks.org/problem-of-the-day"
+      },
+      {
+        "platform": "takeUforward",
+        "title": "Striver's A2Z DSA Sheet",
+        "description": "A complete, ordered path through data structures and algorithms.",
+        "url": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/"
+      }
+    ]
+  },
+  {
+    "category": "Web Development",
+    "items": [
+      {
+        "platform": "YouTube",
+        "title": "Lectures",
+        "description": "Free lectures covering web development from the basics up.",
+        "url": "https://www.youtube.com/"
+      }
+    ]
+  },
+  {
+    "category": "Machine Learning",
+    "items": [
+      {
+        "platform": "Coursera",
+        "title": "Machine Learning",
+        "description": "Andrew Ng's Machine Learning course, the classic place to start.",
+        "url": "https://www.coursera.org/learn/machine-learning"
+      },
+      {
+        "platform": "Kaggle",
+        "title": "Intro to Machine Learning",
+        "description": "Learn machine learning with short, hands-on exercises.",
+        "url": "https://www.kaggle.com/learn/intro-to-machine-learning"
+      }
+    ]
+  }
+]

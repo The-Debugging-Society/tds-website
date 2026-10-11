@@ -1,0 +1,60 @@
+{
+  "upcoming": [],
+  "past": [
+    {
+      "title": "Matiks League 2026",
+      "tags": ["Online league", "7 days"],
+      "description": "A seven-day online league of quick daily challenges that build logic, speed and focus, with prizes for the top players.",
+      "image": "/events/Matiks26.png",
+      "link": "https://www.instagram.com/thedebuggingsocietynsut/p/DSrilOOCY3i/"
+    },
+    {
+      "title": "Tech4Impact 2025",
+      "tags": ["Hackathon", "Innovision"],
+      "description": "Where tech innovation meets sustainable impact. Coders, creators and dreamers built frontends that matter, not just ones that look good.",
+      "image": "",
+      "link": "https://unstop.com/hackathons/tech4impact-2025-innovision25-netaji-subhas-university-of-technology-nsut-delhi-1574739"
+    },
+    {
+      "title": "CTRL+ALT+HACK",
+      "tags": ["Hackathon", "SpaceCon"],
+      "description": "SpaceCon's 24-hour hackathon. Teams ideated, designed and prototyped with Generative AI, machine learning and Web3.",
+      "image": "/events/hackathon.jpeg"
+    },
+    {
+      "title": "Data Sphere",
+      "tags": ["Data analytics", "SpaceCon"],
+      "description": "SpaceCon's data analytics event: draw insights from a real dataset, then present them as a story.",
+      "image": "/events/datasphere.jpeg"
+    },
+    {
+      "title": "Web-a-Thon",
+      "tags": ["Frontend", "SpaceCon"],
+      "description": "A frontend design challenge on space-themed problem statements, judged on design, creativity, responsiveness and code.",
+      "image": "/events/webthon.jpeg"
+    },
+    {
+      "title": "AI Horizon",
+      "tags": ["Generative AI", "SpaceCon"],
+      "description": "A generative AI challenge on AI's role in space exploration and storytelling, with workshops on the innovations shaping human spaceflight.",
+      "image": "/events/aihorizon.jpeg"
+    }
+  ],
+  "workshops": [
+    {
+      "title": "AI: Ethics & Security Conclave",
+      "tags": ["Conclave", "NSUT"],
+      "description": "Industry speakers and hands-on sessions for students who want to understand technology beyond just using it.",
+      "image": "/events/AIEthics.jpeg",
+      "imageStyle": { "transform": "scale(1.03)", "transformOrigin": "left center" },
+      "link": "https://www.instagram.com/p/DVDhQCgk5uc/"
+    }
+  ],
+  "photos": [
+    "https://res.cloudinary.com/dqvwf3z2c/image/upload/w_1600,q_auto,f_auto/v1739714352/anwi_9_mj0xd4.jpg",
+    "https://res.cloudinary.com/dqvwf3z2c/image/upload/w_1600,q_auto,f_auto/v1739714350/anwi_3_m3gmn5.jpg",
+    "https://res.cloudinary.com/dqvwf3z2c/image/upload/w_1600,q_auto,f_auto/v1739714901/vc7fyaepggtdkrf50qrm.jpg",
+    "https://res.cloudinary.com/dqvwf3z2c/image/upload/w_1600,q_auto,f_auto/v1739715224/pu7foul8u6gvuajffgxa.jpg",
+    "https://res.cloudinary.com/dqvwf3z2c/image/upload/w_1600,q_auto,f_auto/v1739715224/z0euzmks9lnigun1nyo0.jpg"
+  ]
+}

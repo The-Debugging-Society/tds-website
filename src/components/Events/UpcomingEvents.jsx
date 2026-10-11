@@ -1,59 +1,26 @@
-import { EventCard } from "./UpcomingEventCard";
-import React from "react";
-import { CalendarPlus } from "lucide-react";
+import EventGrid from "./EventGrid";
+import PillButton from "../ui/pill-button";
+import eventsData from "../../data/events.json";
+import { WHATSAPP_URL } from "../../lib/constants";
 
-function UpcomingEvent() {
-  const events = [];
+function UpcomingEvents() {
+  const events = eventsData.upcoming;
 
-  return events.length > 0 ? (
-    <div
-      className="flex rounded-3xl animate-on-scroll max-w-7xl w-full mx-auto flex-col justify-center items-center p-5 text-center"
-      style={{
-        boxShadow: "0px 0px 14px 1px #5e5e5e inset",
-        backgroundColor: "#121212",
-      }}
-    >
-      <div>
-        {events.map((card, index) => (
-          <div
-            key={index}
-            className="w-full cursor-pointer"
-            onClick={() => window.open(card.link, "_blank")}
-          >
-            <EventCard
-              title={card.title}
-              description={card.description}
-              image={card.image}
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  ) : (
-    <div
-      className="rounded-3xl animate-on-scroll m-auto"
-      style={{
-        boxShadow: "0px 0px 14px 1px #5e5e5e inset",
-        boxSizing: "border-box",
-        padding: "50px",
-        maxWidth: "1320px",
-        margin: "40px auto",
-        backgroundColor: "#121212",
-      }}
-    >
-      <div className="col-span-full flex min-h-[400px] flex-col items-center justify-center rounded-lg border border-dashed border-gray-700 p-8 text-center animate-in fade-in-50 w-full mx-auto">
-        <CalendarPlus className="mr-2 h-24 w-24" />
-        <h3 className="mt-6 text-2xl font-semibold text-white">
-          No upcoming events
-        </h3>
-        <p className="mt-2 mb-8 max-w-sm text-center text-gray-400">
-          There are no events scheduled at the moment.
-          <br />
-          Check back later.
-        </p>
+  if (events.length > 0) return <EventGrid events={events} />;
+
+  return (
+    <div className="flex flex-col items-center gap-[1.5vw] surface-card rounded-2xl border border-white/10 px-[4vw] py-[6vw] text-center max-[1025px]:gap-[4vw] max-[1025px]:py-[12vw]">
+      <p className="text-[3vw] font-semibold leading-tight tracking-tight max-[1025px]:text-[6vw] max-md:text-[8vw]">
+        Nothing scheduled right now
+      </p>
+      <p className="max-w-[46ch] text-[1.15vw] leading-[1.6] text-white/70 max-[1025px]:text-[2.6vw] max-md:text-[4vw]">
+        New events are announced in our WhatsApp community first. Join to hear about the next one.
+      </p>
+      <div className="mt-[1vw] max-[1025px]:mt-[2vw]">
+        <PillButton href={WHATSAPP_URL}>Join the community</PillButton>
       </div>
     </div>
   );
 }
 
-export default UpcomingEvent;
+export default UpcomingEvents;

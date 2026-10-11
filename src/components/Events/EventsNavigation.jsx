@@ -1,75 +1,56 @@
-import React, { useEffect, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { Button } from "../ui/button";
+import { MotionConfig, motion } from "motion/react";
 
+const tabs = [
+  { label: "Upcoming", to: "/events/upcoming", match: (path) => path === "/events" || path === "/events/upcoming" },
+  { label: "Past events", to: "/events/past", match: (path) => path === "/events/past" },
+  { label: "Workshops", to: "/events/past-workshop", match: (path) => path === "/events/past-workshop" },
+];
+
+// Tab switcher driven by the URL, so the active pill always matches the page being shown
 const EventsNavigation = () => {
-    const { pathname } = useLocation();
-    const [activeTab, setActiveTab] = useState("upcoming");
+  const { pathname } = useLocation();
+  const current = pathname.replace(/\/$/, "");
 
-    useEffect(() => {
-        const hash = pathname.split("/events/")[1];
-        if (hash) {
-            const section = document.getElementById(hash);
-            if (section) {
-                section.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
-        }
-    }, [pathname]);
+  return (
+    <MotionConfig reducedMotion="user">
+      <div className="px-[4vw] pb-[8vw] max-[1025px]:px-[5vw] max-[1025px]:pb-[16vw]">
+        <nav aria-label="Event categories" className="flex justify-center border-t border-white/15 pt-[4vw] max-[1025px]:pt-[8vw]">
+          <ul className="inline-flex rounded-full border border-white/15 bg-white/5 p-1">
+            {tabs.map((tab) => {
+              const active = tab.match(current);
+              return (
+                <li key={tab.to}>
+                  <Link
+                    to={tab.to}
+                    aria-current={active ? "page" : undefined}
+                    className="relative block rounded-full px-5 py-2.5 text-sm font-medium md:px-7 md:text-base"
+                  >
+                    {active && (
+                      <motion.span
+                        layoutId="events-tab-indicator"
+                        className="absolute inset-0 rounded-full bg-white"
+                        transition={{ type: "spring", stiffness: 400, damping: 35 }}
+                      />
+                    )}
+                    <span
+                      className={`relative z-10 transition-colors duration-300 ${active ? "text-[#0a1128]" : "text-white/70 hover:text-white"}`}
+                    >
+                      {tab.label}
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
 
-    return (
-        <div className="mx-4">
-            <div className="bg-black p-4 md:p-8">
-                <div className="flex flex-col items-center sm:flex-row sm:gap-2 md:gap-4 mb-12 justify-center">
-                    <Link to="/events/upcoming" className="w-full sm:w-[474px] h-[50px] mb-4 sm:mb-0">
-                        <Button
-                            variant="ghost"
-                            className={`rounded-full border-2 px-8 py-6 text-lg font-medium transition-colors w-full h-full
-                                ${
-                                    activeTab === "upcoming"
-                                        ? "border-transparent bg-white text-black md:hover:bg-gray-300"
-                                        : "border-gray-700 text-gray-400 md:hover:bg-gray-800 md:hover:text-white"
-                                }`}
-                            onClick={() => setActiveTab("upcoming")}
-                        >
-                            UPCOMING EVENTS
-                        </Button>
-                    </Link>
-                    <Link to="/events/past" className="w-full sm:w-[474px] h-[50px] mb-4 sm:mb-0">
-                        <Button
-                            variant="ghost"
-                            className={`rounded-full border-2 px-8 py-6 text-lg font-medium transition-colors w-full h-full
-                                ${
-                                    activeTab === "past"
-                                        ? "border-transparent bg-white text-black md:hover:bg-gray-300"
-                                        : "border-gray-700 text-gray-400 md:hover:bg-gray-800 md:hover:text-white"
-                                }`}
-                            onClick={() => setActiveTab("past")}
-                        >
-                            PAST EVENTS
-                        </Button>
-                    </Link>
-                    <Link to="/events/past-workshop" className="w-full sm:w-[474px] h-[50px]">
-                        <Button
-                            variant="ghost"
-                            className={`rounded-full border-2 px-8 py-6 text-lg font-medium transition-colors w-full h-full
-                                ${
-                                    activeTab === "past workshop"
-                                        ? "border-transparent bg-white text-black md:hover:bg-gray-300"
-                                        : "border-gray-700 text-gray-400 md:hover:bg-gray-800 md:hover:text-white"
-                                }`}
-                            onClick={() => setActiveTab("past workshop")}
-                        >
-                            PAST WORKSHOPS
-                        </Button>
-                    </Link>
-                </div>
-            </div>
-
-            <section>
-                <Outlet />
-            </section>
-        </div>
-    );
+        <section className="mt-[5vw] max-[1025px]:mt-[10vw]">
+          <Outlet />
+        </section>
+      </div>
+    </MotionConfig>
+  );
 };
 
 export default EventsNavigation;

@@ -1,113 +1,82 @@
-import FlipText from '@/components/ui/flip-text'
-import { TeamCard } from '@/components/About/TeamCard'
-import { Card } from "../components/ui/card"
-import "../css/About.css"
-import teamData from "../data/team"
+import { useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGSAP } from '@gsap/react'
+import TextReveal from '../components/ui/text-reveal'
+import TeamRoster from '../components/About/TeamRoster'
+import team from '../data/team.json'
+
+gsap.registerPlugin(useGSAP, ScrollTrigger)
+
+const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 const About = () => {
+  const pageRef = useRef(null)
+  const heroRef = useRef(null)
+  const heroImgRef = useRef(null)
 
-  const missions = [
-    {
-      title: "Empowering Innovators",
-      description: "We foster a community where tech enthusiasts can explore, innovate, and build impactful solutions.",
+  useGSAP(
+    () => {
+      if (prefersReducedMotion()) return
+
+      // Hero photo settles in from a slight zoom, then drifts against the scroll
+      gsap.fromTo(heroImgRef.current, { scale: 1.15 }, { scale: 1, duration: 2.2, ease: 'power3.out' })
+      gsap.fromTo(
+        heroImgRef.current,
+        { yPercent: 0 },
+        {
+          yPercent: 8,
+          ease: 'none',
+          scrollTrigger: { trigger: heroRef.current, start: 'top top', end: 'bottom top', scrub: true },
+        }
+      )
     },
-    {
-      title: "Hands-on Learning",
-      description: "Through projects, hackathons, and collaborative problem-solving, we bridge the gap between theory and real-world application.",
-    },
-    {
-      title: "Skill Development",
-      description: "We equip members with expertise in software development, AI, cybersecurity, and emerging technologies through workshops and mentorship.",
-    },
-    {
-      title: "Industry & Academia Connection",
-      description: "We provide exposure to industry trends, career opportunities, and networking with experts.",
-    },
-    {
-      title: "Technology for Impact",
-      description:
-        "We believe in using tech for social good, solving real-world challenges through open-source and community-driven initiatives.",
-    },
-    {
-      title: "A Culture of Curiosity",
-      description: "We encourage continuous learning, critical thinking, and debugging challenges—one solution at a time.",
-    },
-  ]
+    { scope: pageRef }
+  )
 
   return (
-    <div>
-      <div className="flex flex-col items-center justify-center backdrop-blur-lg bg-black/50 px-5">
-        <div id="aboutHero" className="rounded-3xl" style={{
-          overflow: "hidden",
-          position: "relative",
-          maxWidth: "1320px",
-          maxHeight: "calc(100vh - 108px)",
-          border: "2px solid rgba(33, 33, 33, 0.4)",
-        }}>
-          <img style={{
-            marginBottom: "200px",
-          }} src="https://res.cloudinary.com/dqvwf3z2c/image/upload/v1739477715/about_hero_hnbjb2.png" alt={"About Hero"}/>
-          <p className="text-xl md:text-2xl mx-auto text-left text-gray-300 mt-8 tracking-wide" style={{
-            position: "absolute",
-            bottom: "0",
-            width: "100%",
-            padding: "250px 60px 60px 60px",
-            backgroundImage: "linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1) 75%)",
-          }}>
-            TDS Alumni is a community dedicated to sharing knowledge, inspiring,
-            and connecting with aspiring software engineers from around the world.
-            We aim to foster a supportive and inclusive environment where
-            individuals can learn, grow, and excel.
-          </p>
-        </div>
+    <div ref={pageRef} className="w-full bg-[#0a1128] text-white">
+      {/* Hero: the team photo full-bleed, with the intro set over its darkened lower half */}
+      <section
+        ref={heroRef}
+        className="relative h-[85vh] min-h-[560px] w-full overflow-hidden max-md:h-[80vh]"
+      >
+        <img
+          ref={heroImgRef}
+          src="/hero-team.jpg"
+          alt="The Debugging Society team at NSUT"
+          className="absolute -top-[8%] left-0 h-[116%] w-full max-w-none object-cover"
+        />
         <div
-            className="flex rounded-3xl animate-on-scroll m-auto flex-col justify-center items-center gap-5 pt-0 text-center"
-            id={"aboutMission"}
-            style={{
-              padding: "50px",
-              maxWidth: "1320px",
-              width: "fit-content",
-              margin: "40px 0",
-            }}>
-            <FlipText
-                className="text-4xl font-bold -tracking-[6px] text-blue-500 md:text-6xl md:leading-[5rem]"
-                word="Our Mission"
-            />
-            <h2 className="text-xl text-left mt-1 mb-4 font-semibold text-gray-300 italic">&#34;Code with passion, innovate
-              with purpose, and create an impact that lasts!&#34;</h2>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
-              {missions.map((mission, index) => (
-                  <Card
-                      key={index}
-                      className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg p-6 space-y-4 shadow-lg"
-                  >
-                    <h3 className="text-xl font-semibold text-white text-left">{mission.title}</h3>
-                    <p className="text-gray-400 leading-relaxed text-left">{mission.description}</p>
-                  </Card>
-              ))}
+          aria-hidden="true"
+          className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,17,40,0.3)_0%,rgba(10,17,40,0.1)_25%,rgba(10,17,40,0.8)_58%,#0a1128_100%)]"
+        />
+        <div className="absolute inset-x-[4vw] bottom-[4vw] grid grid-cols-12 items-end gap-[4vw] max-[1025px]:inset-x-[5vw] max-[1025px]:bottom-[8vw] max-[1025px]:grid-cols-1 max-[1025px]:gap-[5vw]">
+          <div className="col-span-6 max-[1025px]:col-span-1">
+            <TextReveal stagger={0.015} animateOnScroll={false}>
+              <h1 className="text-[8vw] font-semibold leading-[1] tracking-tight max-[1025px]:text-[12vw] max-md:text-[15vw]">
+                About Us
+              </h1>
+            </TextReveal>
+          </div>
+          <div className="col-span-6 space-y-[1.2vw] max-[1025px]:col-span-1 max-[1025px]:space-y-[3vw]">
+            <TextReveal splitBy="lines" animateOnScroll={false} delay={0.3}>
+              <p className="text-[1.6vw] font-medium leading-[1.35] max-[1025px]:text-[3.4vw] max-md:text-[4.6vw]">
+                The Debugging Society is a coding society at NSUT, started to develop a passion for coding through
+                regular assignments, weekly quizzes and a network of people who care about technology.
+              </p>
+            </TextReveal>
+            <TextReveal splitBy="lines" animateOnScroll={false} delay={0.5}>
+              <p className="text-[1.1vw] leading-[1.6] text-white/75 max-[1025px]:text-[2.4vw] max-md:text-[3.8vw]">
+                We run events like CTRL+ALT+HACK, Data Sphere, Web-a-Thon and the AI: Ethics &amp; Security Conclave,
+                and teach everything from DSA and competitive programming to web and Android development.
+              </p>
+            </TextReveal>
           </div>
         </div>
-        <div className="w-full max-w-7xl">
-          <FlipText
-              className="text-4xl font-bold -tracking-[8px] text-blue-500 md:text-6xl md:leading-[5rem] text-center"
-              word="Our Team"
-          />
-          <div className="mt-5 mb-10 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-5">
-            {teamData.map((member, index) => (
-                <TeamCard
-                    key={index}
-                    photoUrl={member.photo}
-                    name={member.name}
-                    position={member.position}
-                    description={member.description}
-                    linkedinUrl={member.linkedinUrl}
-                    xUrl={member.xUrl}
-                    instaUrl={member.instaUrl}
-                />
-            ))}
-          </div>
-        </div>
-      </div>
+      </section>
+
+      <TeamRoster members={[...team.officeBearers, ...team.directors]} />
     </div>
   )
 }
