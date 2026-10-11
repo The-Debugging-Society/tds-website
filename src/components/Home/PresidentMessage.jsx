@@ -1,121 +1,138 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
-import TextReveal from "../ui/text-reveal";
 import SectionLabel from "../ui/section-label";
 import president from "../../data/presidentMessage.json";
 
-gsap.registerPlugin(useGSAP, ScrollTrigger);
+gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText);
 
 const prefersReducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const isQuote = (text) => /^[“"]/.test(text) && /[”"]$/.test(text);
 
-// Paragraphs are separated by a blank line in the JSON message
+// Split the message: an optional lead-in line with an opening quotation, then the letter body
 const paragraphs = president.message
   .split(/\n\s*\n/)
   .map((p) => p.trim())
   .filter(Boolean);
-// Longer messages get a smaller size so the block still fits beside the portrait
-const isLong = president.message.split(/\s+/).length > 90;
+
+let leadIn = null;
+let epigraph = null;
+const body = [...paragraphs];
+if (body.length) {
+  const [firstLine, ...rest] = body[0].split("\n");
+  const remainder = rest.join(" ").trim();
+  if (isQuote(remainder)) {
+    leadIn = firstLine.trim();
+    epigraph = remainder;
+    body.shift();
+  } else if (isQuote(body[0])) {
+    epigraph = body.shift();
+  } else if (body.length > 1 && isQuote(body[1])) {
+    // Lead-in and quotation written as separate paragraphs
+    leadIn = body.shift();
+    epigraph = body.shift();
+  }
+}
 
 export default function PresidentMessage() {
   const sectionRef = useRef(null);
-  const frameRef = useRef(null);
   const photoRef = useRef(null);
+  const letterRef = useRef(null);
 
   useGSAP(
-    () => {
+    (_, contextSafe) => {
       if (prefersReducedMotion()) return;
 
-      // Portrait wipes up into view, then drifts slightly against the scroll for depth
-      gsap.fromTo(
-        frameRef.current,
-        { clipPath: "inset(100% 0% 0% 0%)" },
-        {
-          clipPath: "inset(0% 0% 0% 0%)",
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: { trigger: frameRef.current, start: "top 80%", once: true },
-        }
-      );
+      // Portrait settles from a slight zoom as the section arrives
       gsap.fromTo(
         photoRef.current,
-        { yPercent: -5 },
-        {
-          yPercent: 5,
-          ease: "none",
-          scrollTrigger: { trigger: sectionRef.current, start: "top bottom", end: "bottom top", scrub: true },
-        }
+        { scale: 1.12 },
+        { scale: 1, ease: "none", scrollTrigger: { trigger: sectionRef.current, start: "top bottom", end: "top top", scrub: true } }
+      );
+
+      // Letter brightens word by word as it scrolls through, so it reads at the visitor's pace
+      document.fonts.ready.then(
+        contextSafe(() => {
+          if (!letterRef.current) return;
+          const split = SplitText.create(letterRef.current.querySelectorAll("[data-read]"), { type: "words" });
+          gsap.fromTo(
+            split.words,
+            { opacity: 0.2 },
+            {
+              opacity: 1,
+              ease: "none",
+              stagger: 0.05,
+              scrollTrigger: { trigger: letterRef.current, start: "top 75%", end: "bottom 60%", scrub: true },
+            }
+          );
+        })
       );
     },
     { scope: sectionRef }
   );
 
-  const quoteSize = isLong
-    ? "text-[1.6vw] max-[1025px]:text-[3.2vw] max-md:text-[4.4vw]"
-    : "text-[2vw] max-[1025px]:text-[4vw] max-md:text-[5.2vw]";
-
   return (
-    <section
-      ref={sectionRef}
-      id="president-message"
-      style={{ "--glow-pos": "22% 50%", "--glow-size": "40% 60%" }}
-      className="surface w-full px-[4vw] py-[8vw] text-white max-[1025px]:px-[5vw] max-[1025px]:py-[14vw]"
-    >
-      <div className="grid grid-cols-12 items-center gap-[5vw] max-[1025px]:grid-cols-1 max-[1025px]:gap-[10vw]">
-        <div className="col-span-5 max-[1025px]:col-span-1 max-[1025px]:w-[60%] max-md:w-[80%]">
-          <div ref={frameRef} className="relative aspect-[4/5] overflow-hidden rounded-xl bg-[#080c1a]">
-            {president.photo ? (
-              <img
-                ref={photoRef}
-                src={president.photo}
-                alt={`${president.name}, ${president.role}`}
-                className="absolute -top-[6%] left-0 h-[112%] w-full max-w-none object-cover"
-              />
-            ) : (
-              <div
-                ref={photoRef}
-                className="absolute inset-0 flex items-center justify-center text-[12vw] font-semibold text-white/10 max-[1025px]:text-[30vw]"
-              >
-                {president.name.charAt(0)}
+    <section ref={sectionRef} id="president-message" className="surface w-full text-white">
+      <div className="grid grid-cols-12 max-[1025px]:grid-cols-1">
+        {/* Portrait: a framed photo that stays put while the letter scrolls */}
+        <div className="col-span-5 max-[1025px]:col-span-1">
+          <div className="sticky top-0 flex h-screen items-center pl-[4vw] pr-[5vw] max-[1025px]:static max-[1025px]:h-auto max-[1025px]:px-[5vw] max-[1025px]:pt-[14vw]">
+            <figure className="w-[min(100%,56vh)] max-[1025px]:w-[55%] max-md:w-[70%]">
+              <div className="aspect-[4/5] overflow-hidden rounded-xl bg-[#080c1a]">
+                {president.photo && (
+                  <img
+                    ref={photoRef}
+                    src={president.photo}
+                    alt={`${president.name}, ${president.role}`}
+                    className="h-full w-full object-cover object-top"
+                  />
+                )}
               </div>
-            )}
+              <figcaption className="mt-[1.4vw] max-[1025px]:mt-[3vw]">
+                <p className="text-[1.9vw] font-semibold leading-none tracking-tight max-[1025px]:text-[5vw] max-md:text-[6.5vw]">
+                  {president.name}
+                </p>
+                <p className="mt-[0.6vw] font-mono text-[0.95vw] text-[#3b82f6] max-[1025px]:mt-[1.5vw] max-[1025px]:text-[2.4vw] max-md:text-[3.4vw]">
+                  {president.role}
+                </p>
+              </figcaption>
+            </figure>
           </div>
         </div>
 
-        <div className="col-span-7 max-[1025px]:col-span-1">
-          <SectionLabel path="president" className="mb-[1.2vw] max-[1025px]:mb-[3vw]" />
-          <TextReveal stagger={0.015}>
-            <h2 className="text-[4vw] font-semibold leading-[1.1] tracking-tight max-[1025px]:text-[7vw] max-md:text-[9vw]">
-              From the President
+        {/* Letter */}
+        <div
+          ref={letterRef}
+          className="col-span-7 py-[10vw] pr-[4vw] max-[1025px]:col-span-1 max-[1025px]:px-[5vw] max-[1025px]:py-[12vw]"
+        >
+          <SectionLabel path="president" className="mb-[2vw] max-[1025px]:mb-[4vw]" />
+          {leadIn && (
+            <p className="mb-[1vw] text-[1.2vw] text-white/50 max-[1025px]:mb-[2vw] max-[1025px]:text-[2.8vw] max-md:text-[4vw]">
+              {leadIn}
+            </p>
+          )}
+          {epigraph && (
+            <h2 className="text-[2.4vw] font-semibold leading-[1.2] tracking-tight max-[1025px]:text-[5.4vw] max-md:text-[6.6vw]">
+              {epigraph}
             </h2>
-          </TextReveal>
+          )}
 
-          <div className="mt-[2.5vw] max-[1025px]:mt-[5vw]">
-            {paragraphs.length > 0 ? (
-              <TextReveal splitBy="lines" className="space-y-[1.2vw] max-[1025px]:space-y-[3vw]">
-                {paragraphs.map((text, i) => (
-                  <p key={i} className={`${quoteSize} leading-[1.45] text-white/90`}>
-                    {i === 0 && "“"}
-                    {text}
-                    {i === paragraphs.length - 1 && "”"}
-                  </p>
-                ))}
-              </TextReveal>
+          <div className="mt-[4vw] space-y-6 max-[1025px]:mt-[8vw]">
+            {body.length === 0 ? (
+              <p className="italic text-white/40">The President&apos;s message will appear here.</p>
             ) : (
-              <p className="text-[1.25vw] italic text-white/40 max-[1025px]:text-[3vw] max-md:text-[4vw]">
-                The President&apos;s message will appear here.
-              </p>
+              body.map((text, i) => (
+                <p
+                  key={i}
+                  data-read
+                  className="whitespace-pre-line text-[clamp(17px,1.35vw,22px)] leading-[1.65] text-white"
+                >
+                  {text}
+                </p>
+              ))
             )}
-          </div>
-
-          <div className="mt-[3vw] border-t border-white/15 pt-[1.5vw] max-[1025px]:mt-[6vw] max-[1025px]:pt-[4vw]">
-            <p className="text-[1.6vw] font-medium text-[#3b82f6] max-[1025px]:text-[4vw] max-md:text-[5.5vw]">
-              {president.name}
-            </p>
-            <p className="mt-[0.3vw] text-[1.1vw] text-white/70 max-[1025px]:mt-[1vw] max-[1025px]:text-[2.6vw] max-md:text-[3.8vw]">
-              {president.role}
-            </p>
           </div>
         </div>
       </div>
