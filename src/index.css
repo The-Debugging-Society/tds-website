@@ -65,35 +65,6 @@
 }
 
 
-/* Hero: diagonal mask reveal driven by the --reveal custom property */
-.hero-mask-reveal {
-  -webkit-mask-image: linear-gradient(to top left, black var(--reveal, 0%), transparent calc(var(--reveal, 0%) + 25%));
-  mask-image: linear-gradient(to top left, black var(--reveal, 0%), transparent calc(var(--reveal, 0%) + 25%));
-}
-
-/* Hero: endless vertical image columns. Each column holds two copies of its list, so -50% loops seamlessly */
-.hero-marquee-1 {
-  will-change: transform;
-  animation: hero-marquee-y 10s linear infinite;
-}
-
-.hero-marquee-2 {
-  will-change: transform;
-  animation: hero-marquee-y 18s linear infinite;
-}
-
-@keyframes hero-marquee-y {
-  from { transform: translateY(0); }
-  to { transform: translateY(-50%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-marquee-1,
-  .hero-marquee-2 {
-    animation: none;
-  }
-}
-
 /* What We Teach cards: colour fill that grows from the centre, driven by --reveal */
 .card-fill-mask {
   --reveal: -40%;

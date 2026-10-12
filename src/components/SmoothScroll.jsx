@@ -19,6 +19,28 @@ export default function SmoothScroll({ children }) {
     return () => gsap.ticker.remove(update);
   }, []);
 
+  // Pinned sections cache their scroll positions. Re-measure whenever the page height changes
+  // (late fonts, images, content edits) so pins never start in the wrong place.
+  useEffect(() => {
+    let last = document.body.scrollHeight;
+    let timer;
+    const refresh = () => {
+      ScrollTrigger.refresh();
+      last = document.body.scrollHeight;
+    };
+    const observer = new ResizeObserver(() => {
+      if (Math.abs(document.body.scrollHeight - last) < 2) return;
+      clearTimeout(timer);
+      timer = setTimeout(refresh, 250);
+    });
+    observer.observe(document.body);
+    document.fonts?.ready.then(refresh);
+    return () => {
+      observer.disconnect();
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <ReactLenis root options={{ autoRaf: false }} ref={lenisRef}>
       {children}
