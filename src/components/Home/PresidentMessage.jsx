@@ -5,6 +5,7 @@ import { SplitText } from "gsap/SplitText";
 import { useGSAP } from "@gsap/react";
 import SectionLabel from "../ui/section-label";
 import president from "../../data/presidentMessage.json";
+import { photoUrl } from "../../lib/media";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText);
 
@@ -84,7 +85,7 @@ export default function PresidentMessage() {
                 {president.photo && (
                   <img
                     ref={photoRef}
-                    src={president.photo}
+                    src={photoUrl(president.photo, { width: 900 })}
                     alt={`${president.name}, ${president.role}`}
                     className="h-full w-full object-cover object-top"
                   />

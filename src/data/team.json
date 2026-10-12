@@ -3,54 +3,54 @@
     {
       "name": "Komal Gupta",
       "role": "President",
-      "photo": "/team/komal.jpeg"
+      "photo": "Komal"
     },
     {
       "name": "Saransh",
       "role": "Vice President",
-      "photo": "/team/Saransh.png"
+      "photo": "Saransh"
     },
     {
       "name": "Riya Shukla",
       "role": "Vice President",
-      "photo": "/team/Riya.jpeg"
+      "photo": "Riya"
     },
     {
       "name": "Siddharth",
       "role": "General Secretary",
-      "photo": "/team/Siddharth.png"
+      "photo": "Siddharth"
     },
     {
       "name": "Tanmay Agarwal",
       "role": "General Secretary",
-      "photo": "/team/Tanmay.jpg"
+      "photo": "Tanmay"
     },
     {
       "name": "Mayank Kumar Jha",
       "role": "Joint General Secretary",
-      "photo": ""
+      "photo": "Mayank"
     },
     {
       "name": "Bhoomi Gupta",
       "role": "Joint General Secretary",
-      "photo": "/team/Bhoomi.jpg"
+      "photo": "Bhoomi"
     },
     {
       "name": "Kartik Gahlot",
       "role": "Treasurer",
-      "photo": "/team/Kartik.jpg"
+      "photo": "Kartik"
     },
     {
       "name": "Anshul Yadav",
       "role": "Treasurer",
-      "photo": "/team/Anshul.png"
+      "photo": "Anshul"
     }
   ],
   "directors": [
     {
       "name": "Jay Singh Sikarwar",
       "role": "Director of Design",
-      "photo": ""
+      "photo": "Jay"
     },
     {
       "name": "Manan",
@@ -60,12 +60,12 @@
     {
       "name": "Aayush Bindal",
       "role": "Director of Tech",
-      "photo": "/team/Aayush.jpg"
+      "photo": "Aayush"
     },
     {
       "name": "Shreeyansh Singh Sajwan",
       "role": "Director of Operations",
-      "photo": ""
+      "photo": "Shreeyansh"
     },
     {
       "name": "Mohit",
@@ -75,7 +75,7 @@
     {
       "name": "Harshit Dagar",
       "role": "Director of PR",
-      "photo": "/team/Harshit.jpg"
+      "photo": "Harshit"
     }
   ]
 }

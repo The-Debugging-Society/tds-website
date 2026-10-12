@@ -6,6 +6,7 @@ import { useLenis } from "lenis/react";
 import TextReveal from "../ui/text-reveal";
 import SectionLabel from "../ui/section-label";
 import StringLine from "../ui/string-line";
+import { photoUrl } from "../../lib/media";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -158,7 +159,7 @@ export default function TeamRoster({ members }) {
                 {/* Mobile and tablet: no hover, so the photo sits in the row */}
                 <div className="hidden size-[14vw] shrink-0 overflow-hidden rounded-lg max-[1025px]:block max-md:size-[16vw]">
                   {member.photo ? (
-                    <img src={member.photo} alt="" loading="lazy" className="h-full w-full object-cover object-top" />
+                    <img src={photoUrl(member.photo, { width: 240, aspect: "1:1" })} alt="" loading="lazy" className="h-full w-full object-cover object-top" />
                   ) : (
                     <PhotoPlaceholder compact />
                   )}
@@ -205,7 +206,7 @@ export default function TeamRoster({ members }) {
                 className="absolute inset-0"
               >
                 {member.photo ? (
-                  <img src={member.photo} alt="" loading="lazy" className="h-full w-full object-cover object-top" />
+                  <img src={photoUrl(member.photo, { width: 700 })} alt="" loading="lazy" className="h-full w-full object-cover object-top" />
                 ) : (
                   <PhotoPlaceholder />
                 )}
