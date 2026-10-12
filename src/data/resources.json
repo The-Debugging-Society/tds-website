@@ -3,22 +3,86 @@
     "category": "DSA",
     "items": [
       {
+        "platform": "takeUforward",
+        "type": "Sheet",
+        "title": "Striver's A2Z DSA Sheet",
+        "description": "An ordered path through every core data structure and algorithm, with a video for each problem.",
+        "url": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/"
+      },
+      {
+        "platform": "NeetCode",
+        "type": "Roadmap",
+        "title": "NeetCode Roadmap",
+        "description": "The NeetCode 150, grouped by pattern into a roadmap, with clear video solutions.",
+        "url": "https://neetcode.io/roadmap"
+      },
+      {
         "platform": "LeetCode",
+        "type": "Practice",
         "title": "Problem of the Day",
-        "description": "Solve the daily LeetCode problem to keep your problem-solving sharp.",
-        "url": "https://leetcode.com/explore/"
+        "description": "One new problem every day. The simplest habit for staying sharp.",
+        "url": "https://leetcode.com/problemset/"
       },
       {
         "platform": "GeeksforGeeks",
+        "type": "Practice",
         "title": "Problem of the Day",
-        "description": "Tackle GeeksforGeeks' daily problem for steady coding practice.",
+        "description": "GFG's daily problem, with editorials when you get stuck.",
         "url": "https://www.geeksforgeeks.org/problem-of-the-day"
       },
       {
-        "platform": "takeUforward",
-        "title": "Striver's A2Z DSA Sheet",
-        "description": "A complete, ordered path through data structures and algorithms.",
-        "url": "https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/"
+        "platform": "VisuAlgo",
+        "type": "Visualiser",
+        "title": "VisuAlgo",
+        "description": "Animated walkthroughs of sorting, trees, graphs and more. Watch an algorithm run step by step.",
+        "url": "https://visualgo.net/en"
+      }
+    ]
+  },
+  {
+    "category": "Competitive Programming",
+    "items": [
+      {
+        "platform": "Codeforces",
+        "type": "Contests",
+        "title": "Codeforces",
+        "description": "Weekly rated contests and a huge problem archive. Where most CP ratings are built.",
+        "url": "https://codeforces.com/"
+      },
+      {
+        "platform": "CSES",
+        "type": "Problem set",
+        "title": "CSES Problem Set",
+        "description": "300 classic problems that cover the standard CP toolkit, in a sensible order.",
+        "url": "https://cses.fi/problemset/"
+      },
+      {
+        "platform": "CSES",
+        "type": "Book",
+        "title": "Competitive Programmer's Handbook",
+        "description": "A free book by Antti Laaksonen covering the techniques behind contest problems.",
+        "url": "https://cses.fi/book/book.pdf"
+      },
+      {
+        "platform": "CP-Algorithms",
+        "type": "Reference",
+        "title": "CP-Algorithms",
+        "description": "Clear write-ups of algorithms from number theory to graphs, with tested implementations.",
+        "url": "https://cp-algorithms.com/"
+      },
+      {
+        "platform": "USACO Guide",
+        "type": "Course",
+        "title": "USACO Guide",
+        "description": "A structured, free curriculum from Bronze to Platinum, with curated problems at each step.",
+        "url": "https://usaco.guide/"
+      },
+      {
+        "platform": "AtCoder",
+        "type": "Contests",
+        "title": "AtCoder Beginner Contests",
+        "description": "Weekend contests with clean, well-designed problems. Great for building speed.",
+        "url": "https://atcoder.jp/"
       }
     ]
   },
@@ -26,10 +90,46 @@
     "category": "Web Development",
     "items": [
       {
-        "platform": "YouTube",
-        "title": "Lectures",
-        "description": "Free lectures covering web development from the basics up.",
-        "url": "https://www.youtube.com/"
+        "platform": "MDN",
+        "type": "Docs",
+        "title": "MDN Learn Web Development",
+        "description": "The reference for HTML, CSS and JavaScript, with a beginner-friendly learning path.",
+        "url": "https://developer.mozilla.org/en-US/docs/Learn"
+      },
+      {
+        "platform": "The Odin Project",
+        "type": "Course",
+        "title": "The Odin Project",
+        "description": "A free, project-based full-stack curriculum. You build real things from week one.",
+        "url": "https://www.theodinproject.com/"
+      },
+      {
+        "platform": "javascript.info",
+        "type": "Tutorial",
+        "title": "The Modern JavaScript Tutorial",
+        "description": "JavaScript from the basics to closures, promises and the event loop, explained properly.",
+        "url": "https://javascript.info/"
+      },
+      {
+        "platform": "React",
+        "type": "Docs",
+        "title": "React: Learn",
+        "description": "The official React docs. Interactive and the best place to start with React.",
+        "url": "https://react.dev/learn"
+      },
+      {
+        "platform": "University of Helsinki",
+        "type": "Course",
+        "title": "Full Stack Open",
+        "description": "React, Node, databases and testing: a complete, free university course on modern web apps.",
+        "url": "https://fullstackopen.com/en/"
+      },
+      {
+        "platform": "freeCodeCamp",
+        "type": "Course",
+        "title": "freeCodeCamp",
+        "description": "Free certifications in responsive design, JavaScript and back-end development.",
+        "url": "https://www.freecodecamp.org/learn"
       }
     ]
   },
@@ -38,15 +138,137 @@
     "items": [
       {
         "platform": "Coursera",
-        "title": "Machine Learning",
-        "description": "Andrew Ng's Machine Learning course, the classic place to start.",
-        "url": "https://www.coursera.org/learn/machine-learning"
+        "type": "Course",
+        "title": "Machine Learning Specialization",
+        "description": "Andrew Ng's course, the classic starting point for machine learning.",
+        "url": "https://www.coursera.org/specializations/machine-learning-introduction"
+      },
+      {
+        "platform": "Google",
+        "type": "Course",
+        "title": "Machine Learning Crash Course",
+        "description": "A fast, practical introduction to ML concepts with interactive exercises.",
+        "url": "https://developers.google.com/machine-learning/crash-course"
       },
       {
         "platform": "Kaggle",
-        "title": "Intro to Machine Learning",
-        "description": "Learn machine learning with short, hands-on exercises.",
-        "url": "https://www.kaggle.com/learn/intro-to-machine-learning"
+        "type": "Practice",
+        "title": "Kaggle Learn",
+        "description": "Short hands-on courses in pandas, ML and deep learning, plus real datasets and competitions.",
+        "url": "https://www.kaggle.com/learn"
+      },
+      {
+        "platform": "fast.ai",
+        "type": "Course",
+        "title": "Practical Deep Learning",
+        "description": "A top-down course that has you training real models from the first lesson.",
+        "url": "https://course.fast.ai/"
+      },
+      {
+        "platform": "Andrej Karpathy",
+        "type": "Videos",
+        "title": "Neural Networks: Zero to Hero",
+        "description": "Build neural networks, and eventually a GPT, from scratch in code.",
+        "url": "https://karpathy.ai/zero-to-hero.html"
+      },
+      {
+        "platform": "3Blue1Brown",
+        "type": "Videos",
+        "title": "Neural Networks",
+        "description": "The visual intuition behind how neural networks learn.",
+        "url": "https://www.3blue1brown.com/topics/neural-networks"
+      }
+    ]
+  },
+  {
+    "category": "Android",
+    "items": [
+      {
+        "platform": "Google",
+        "type": "Course",
+        "title": "Android Basics with Compose",
+        "description": "Google's official free course for building Android apps with Kotlin and Jetpack Compose.",
+        "url": "https://developer.android.com/courses/android-basics-compose/course"
+      },
+      {
+        "platform": "Kotlin",
+        "type": "Docs",
+        "title": "Kotlin Getting Started",
+        "description": "The official Kotlin docs, the language Android is written in.",
+        "url": "https://kotlinlang.org/docs/getting-started.html"
+      },
+      {
+        "platform": "Android",
+        "type": "Docs",
+        "title": "Jetpack Compose",
+        "description": "Modern Android UI, with guides, samples and best practices.",
+        "url": "https://developer.android.com/compose"
+      }
+    ]
+  },
+  {
+    "category": "Interview Prep",
+    "items": [
+      {
+        "platform": "Tech Interview Handbook",
+        "type": "Guide",
+        "title": "Tech Interview Handbook",
+        "description": "Free guides on coding rounds, behavioural questions, resumes and negotiation.",
+        "url": "https://www.techinterviewhandbook.org/"
+      },
+      {
+        "platform": "GitHub",
+        "type": "Guide",
+        "title": "System Design Primer",
+        "description": "The most popular free resource for learning to design large-scale systems.",
+        "url": "https://github.com/donnemartin/system-design-primer"
+      },
+      {
+        "platform": "InterviewBit",
+        "type": "Practice",
+        "title": "InterviewBit",
+        "description": "Interview-style problems organised by topic, with a timer to practise under pressure.",
+        "url": "https://www.interviewbit.com/"
+      }
+    ]
+  },
+  {
+    "category": "Foundations",
+    "items": [
+      {
+        "platform": "Harvard",
+        "type": "Course",
+        "title": "CS50",
+        "description": "Harvard's introduction to computer science. The best first course there is.",
+        "url": "https://cs50.harvard.edu/x/"
+      },
+      {
+        "platform": "MIT",
+        "type": "Course",
+        "title": "The Missing Semester",
+        "description": "The command line, Git, editors and debugging: the tools no other course teaches.",
+        "url": "https://missing.csail.mit.edu/"
+      },
+      {
+        "platform": "Git",
+        "type": "Book",
+        "title": "Pro Git",
+        "description": "The free official book on Git, from first commit to branching workflows.",
+        "url": "https://git-scm.com/book/en/v2"
+      },
+      {
+        "platform": "LearnCpp",
+        "type": "Tutorial",
+        "title": "LearnCpp.com",
+        "description": "A thorough, free tutorial for modern C++, updated regularly.",
+        "url": "https://www.learncpp.com/"
+      },
+      {
+        "platform": "Oracle",
+        "type": "Tutorial",
+        "title": "Learn Java",
+        "description": "The official Java tutorials, from syntax to collections and streams.",
+        "url": "https://dev.java/learn/"
       }
     ]
   }

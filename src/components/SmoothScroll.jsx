@@ -6,6 +6,17 @@ import "lenis/dist/lenis.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Lenis tuning: a softer, longer glide than the default (lerp 0.1), slightly gentler wheel steps,
+// in-page #anchor links scroll smoothly too. Lenis turns itself off for reduced-motion users.
+const LENIS_OPTIONS = {
+  autoRaf: false, // driven by GSAP's ticker below, so ScrollTrigger and Lenis share one clock
+  lerp: 0.07,
+  wheelMultiplier: 0.9,
+  touchMultiplier: 1.4,
+  smoothWheel: true,
+  anchors: true,
+};
+
 // Site-wide Lenis smooth scroll, driven by GSAP's ticker so ScrollTrigger stays in sync
 export default function SmoothScroll({ children }) {
   const lenisRef = useRef(null);
@@ -42,7 +53,7 @@ export default function SmoothScroll({ children }) {
   }, []);
 
   return (
-    <ReactLenis root options={{ autoRaf: false }} ref={lenisRef}>
+    <ReactLenis root options={LENIS_OPTIONS} ref={lenisRef}>
       {children}
     </ReactLenis>
   );

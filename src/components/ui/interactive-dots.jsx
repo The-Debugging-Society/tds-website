@@ -7,6 +7,9 @@ const PUSH = 22; // how hard dots are pushed away from the cursor
 const DRAG = 0.35; // how much cursor movement drags dots along (the "wake")
 const SPRING = 0.06; // pull back to rest
 const DAMPING = 0.86; // < 1: settles with a little overshoot
+const PING_EVERY = [2600, 4200]; // ms between idle "debug pings" (random within this range)
+const PING_SPEED = 0.28; // px per ms the ping ring expands
+const PING_LIFE = 2200; // ms a ping lasts
 
 /**
  * Canvas dot grid that behaves like a fluid surface: dots near the pointer are pushed aside
@@ -25,6 +28,10 @@ export default function InteractiveDots({ className = "" }) {
     let height = 0;
     let visible = true;
     const pointer = { x: -9999, y: -9999, vx: 0, vy: 0, active: false };
+    // Idle motion: a slow wave of light across the grid, plus occasional ripples ("pings")
+    const pings = [];
+    let nextPing = performance.now() + 1500;
+    let now = performance.now();
 
     const build = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -59,8 +66,18 @@ export default function InteractiveDots({ className = "" }) {
       for (const d of dots) {
         const dx = d.x - pointer.x;
         const dy = d.y - pointer.y;
-        const near = pointer.active ? Math.max(0, 1 - Math.sqrt(dx * dx + dy * dy) / RADIUS) : 0;
-        const alpha = Math.min(1, d.fade * 0.32 + near * 0.75);
+        const cursor = pointer.active ? Math.max(0, 1 - Math.sqrt(dx * dx + dy * dy) / RADIUS) : 0;
+        // Slow diagonal wave of light rolling across the grid
+        const wave = reduce ? 0 : Math.max(0, Math.sin(d.hx * 0.0045 + d.hy * 0.003 - now * 0.0009)) ** 6 * 0.5;
+        // Ping rings: bright where the expanding ring currently passes
+        let ping = 0;
+        for (const p of pings) {
+          const age = now - p.t;
+          const ring = Math.abs(Math.hypot(d.hx - p.x, d.hy - p.y) - age * PING_SPEED);
+          if (ring < 28) ping = Math.max(ping, (1 - ring / 28) * (1 - age / PING_LIFE));
+        }
+        const near = Math.min(1, cursor + ping);
+        const alpha = Math.min(1, d.fade * 0.32 + near * 0.75 + wave * d.fade);
         // White far away, TDS blue near the cursor
         const g = Math.round(255 - near * 125);
         const b = Math.round(255 - near * 9);
@@ -73,7 +90,27 @@ export default function InteractiveDots({ className = "" }) {
 
     const step = () => {
       if (!visible) return;
+      now = performance.now();
+      if (now > nextPing) {
+        // Pings start near the middle third of the grid, where the dots are visible
+        pings.push({ x: width * (0.2 + Math.random() * 0.6), y: height * (0.2 + Math.random() * 0.6), t: now });
+        nextPing = now + PING_EVERY[0] + Math.random() * (PING_EVERY[1] - PING_EVERY[0]);
+      }
+      while (pings.length && now - pings[0].t > PING_LIFE) pings.shift();
       for (const d of dots) {
+        // The ping ring gives the dots it passes a small outward nudge
+        for (const p of pings) {
+          const dx = d.x - p.x;
+          const dy = d.y - p.y;
+          const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+          const age = now - p.t;
+          const ring = Math.abs(dist - age * PING_SPEED);
+          if (ring < 20) {
+            const f = (1 - ring / 20) * (1 - age / PING_LIFE) * 0.35;
+            d.vx += (dx / dist) * f;
+            d.vy += (dy / dist) * f;
+          }
+        }
         if (pointer.active) {
           const dx = d.x - pointer.x;
           const dy = d.y - pointer.y;
