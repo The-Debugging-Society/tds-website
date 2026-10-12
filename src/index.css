@@ -279,3 +279,51 @@ body {
     linear-gradient(180deg, #050a1c 0%, #03050c 100%);
 }
 
+
+/* Footer: a blurred band of TDS blue rising from the bottom, brighter to the right,
+   with a dark dip on the left like light falling across the page */
+.footer-glow {
+  background:
+    radial-gradient(28% 55% at 38% 30%, #03050c 0%, rgba(3, 5, 12, 0) 100%),
+    radial-gradient(70% 60% at 70% 75%, #2563eb 0%, rgba(37, 99, 235, 0) 100%),
+    radial-gradient(90% 70% at 30% 95%, #1d4ed8 0%, rgba(29, 78, 216, 0) 100%),
+    linear-gradient(180deg, rgba(3, 5, 12, 0) 0%, rgba(10, 52, 130, 0.6) 55%, #0b3a8f 100%);
+  filter: blur(40px);
+}
+
+/* Liquid glass (web approximation, not Apple's material): frosted, saturated backdrop with a
+   bright rim, a light sheen across the top, and a faint inner shadow for thickness */
+.liquid-glass {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 45%, rgba(255, 255, 255, 0.07) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(22px) saturate(170%);
+  backdrop-filter: blur(22px) saturate(170%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 24px rgba(255, 255, 255, 0.05),
+    0 24px 60px rgba(1, 4, 16, 0.45);
+}
+
+/* Specular sheen: a soft highlight across the upper-left of the pane */
+.liquid-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 60% at 15% 0%, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 55%),
+    linear-gradient(100deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.06) 50%, rgba(255, 255, 255, 0) 60%);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .liquid-glass {
+    background: #0b1a45;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}

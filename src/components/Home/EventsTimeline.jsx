@@ -63,6 +63,8 @@ export default function EventsTimeline() {
   const dotRefs = useRef([]);
   const posterRefs = useRef([]);
   const copyRefs = useRef([]);
+  const ambientRefs = useRef([]);
+  const ambientWrapRef = useRef(null);
   const [reduceMotion] = useState(prefersReducedMotion);
 
   useGSAP(
@@ -71,8 +73,10 @@ export default function EventsTimeline() {
       const posters = posterRefs.current;
       const copies = copyRefs.current;
       const dots = dotRefs.current;
+      const ambient = ambientRefs.current;
 
       gsap.set(progressRef.current, { scaleY: 0 });
+      gsap.set(ambient.slice(1), { autoAlpha: 0 });
       gsap.set(dots[0], { backgroundColor: "#ffffff", borderColor: "#ffffff" });
       gsap.set(dots.slice(1), { backgroundColor: BRAND_BLUE, borderColor: "rgba(255,255,255,0.5)" });
       gsap.set(copies.slice(1), { autoAlpha: 0, yPercent: 20 });
@@ -101,6 +105,8 @@ export default function EventsTimeline() {
           tl.to(posters[i + 1], { yPercent: 0, ease: "power2.inOut", duration: MOVE }, t);
           tl.to(posters[i], { filter: "brightness(0.3)", ease: "power2.inOut", duration: MOVE }, t);
         }
+        // The ambient light behind the glass takes on the next poster's colours
+        tl.to(ambient[i], { autoAlpha: 0, ease: "none", duration: MOVE }, t).to(ambient[i + 1], { autoAlpha: 1, ease: "none", duration: MOVE }, t);
         tl.to(copies[i], { autoAlpha: 0, yPercent: -20, ease: "power2.in", duration: MOVE * 0.45 }, t)
           .to(copies[i + 1], { autoAlpha: 1, yPercent: 0, ease: "power2.out", duration: MOVE * 0.45 }, t + MOVE * 0.55)
           .set(dots[i + 1], { backgroundColor: "#ffffff", borderColor: "#ffffff" }, t + MOVE);
@@ -110,6 +116,17 @@ export default function EventsTimeline() {
 
       // Entry: a blue band rises out of the hero and curves its top edge as it goes
       if (!reduceMotion) {
+        // The ambient glow only comes up once the panel has slid into place
+        gsap.fromTo(
+          ambientWrapRef.current,
+          { autoAlpha: 0 },
+          {
+            autoAlpha: 1,
+            ease: "none",
+            immediateRender: false,
+            scrollTrigger: { trigger: sectionRef.current, start: "top 30%", end: "top -10%", scrub: true },
+          }
+        );
         gsap.fromTo(
           bandRef.current,
           { clipPath: "ellipse(150% 100% at 50% 100%)", yPercent: 0 },
@@ -139,8 +156,28 @@ export default function EventsTimeline() {
 
       <div
         className="surface-blue-panel sticky top-0 z-[3] flex h-screen w-full flex-col items-center justify-center gap-[4vw] overflow-hidden px-[4vw] max-[1025px]:gap-[6vw] max-[1025px]:px-[5vw]"
-        
       >
+        {/* Ambient light: the current poster, hugely blurred, gives the glass panes colour to refract.
+            Feathered in from the top so it melts into the band above instead of starting on a hard edge */}
+        <div
+          ref={ambientWrapRef}
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 [mask-image:linear-gradient(180deg,transparent_0%,black_35%)] [-webkit-mask-image:linear-gradient(180deg,transparent_0%,black_35%)]"
+        >
+          {events.map((event, i) => (
+            <img
+              key={event.name}
+              ref={(el) => {
+                ambientRefs.current[i] = el;
+              }}
+              src={event.image}
+              alt=""
+              loading="lazy"
+              className="absolute left-1/2 top-1/2 h-[90vh] w-[75vw] max-w-none -translate-x-1/2 -translate-y-1/2 object-cover opacity-45 blur-[90px] saturate-150"
+            />
+          ))}
+        </div>
+
         <SectionLabel path="events" className="-mb-[2.5vw] text-center max-[1025px]:-mb-[3vw]" />
         <TextReveal stagger={0.015}>
           <h2 className="text-center text-[5.5vw] font-semibold leading-[1.1] tracking-tight max-[1025px]:text-[7vw] max-md:text-[9vw]">
@@ -149,17 +186,17 @@ export default function EventsTimeline() {
         </TextReveal>
 
         <div className="flex w-full items-center justify-between gap-[4vw] max-[1025px]:flex-col max-[1025px]:gap-[6vw]">
-          <div className="relative w-[28%] max-[1025px]:hidden">
+          <div className="liquid-glass relative w-[30%] rounded-[1.75rem] py-[1.5vw] pl-[1.8vw] pr-[1vw] max-[1025px]:hidden">
             <div
               aria-hidden="true"
-              className="absolute left-[4px] w-px bg-white/20"
-              style={{ top: `${ROW_VW / 2}vw`, height: `${(events.length - 1) * ROW_VW}vw` }}
+              className="absolute left-[calc(1.8vw+4px)] w-px bg-white/20"
+              style={{ top: `calc(1.5vw + ${ROW_VW / 2}vw)`, height: `${(events.length - 1) * ROW_VW}vw` }}
             />
             <div
               ref={progressRef}
               aria-hidden="true"
-              className="absolute left-[4px] w-px origin-top bg-white"
-              style={{ top: `${ROW_VW / 2}vw`, height: `${(events.length - 1) * ROW_VW}vw` }}
+              className="absolute left-[calc(1.8vw+4px)] w-px origin-top bg-white"
+              style={{ top: `calc(1.5vw + ${ROW_VW / 2}vw)`, height: `${(events.length - 1) * ROW_VW}vw` }}
             />
             <ol>
               {events.map((event, i) => (
@@ -180,7 +217,8 @@ export default function EventsTimeline() {
             </ol>
           </div>
 
-          <div className="relative aspect-[5/6] h-[min(34vw,58vh)] shrink-0 overflow-hidden rounded-xl max-[1025px]:h-auto max-[1025px]:w-[50vw] max-md:w-[68vw]">
+          <div className="liquid-glass shrink-0 rounded-[1.6rem] p-[0.7vw] max-[1025px]:p-[1.6vw]">
+          <div className="relative aspect-[5/6] h-[min(34vw,58vh)] shrink-0 overflow-hidden rounded-[1.1rem] max-[1025px]:h-auto max-[1025px]:w-[50vw] max-md:w-[68vw]">
             {events.map((event, i) => (
               <div
                 key={event.name}
@@ -194,9 +232,10 @@ export default function EventsTimeline() {
               </div>
             ))}
           </div>
+          </div>
 
           {/* All descriptions share one grid cell, so the block sizes to the longest and they swap in place */}
-          <div className="grid w-[30%] max-[1025px]:w-full max-[1025px]:text-center">
+          <div className="liquid-glass grid w-[30%] rounded-[1.75rem] p-[2vw] max-[1025px]:w-full max-[1025px]:p-[5vw] max-[1025px]:text-center">
             {events.map((event, i) => (
               <div
                 key={event.name}

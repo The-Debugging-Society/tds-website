@@ -58,16 +58,31 @@ export default function PresidentMessage() {
         contextSafe(() => {
           if (!letterRef.current) return;
           const split = SplitText.create(letterRef.current.querySelectorAll("[data-read]"), { type: "words" });
-          gsap.fromTo(
-            split.words,
-            { opacity: 0.2 },
-            {
-              opacity: 1,
-              ease: "none",
-              stagger: 0.05,
-              scrollTrigger: { trigger: letterRef.current, start: "top 75%", end: "bottom 60%", scrub: true },
-            }
-          );
+          const read = { opacity: 1, ease: "none", stagger: 0.05 };
+          const mm = gsap.matchMedia();
+          // Desktop: once the whole message is on screen, hold the section in place until every word
+          // has lit up, so it never scrolls away mid-read
+          mm.add("(min-width: 1026px)", () => {
+            gsap.fromTo(split.words, { opacity: 0.2 }, {
+              ...read,
+              scrollTrigger: {
+                trigger: sectionRef.current,
+                start: () => (sectionRef.current.offsetHeight > window.innerHeight ? "bottom bottom" : "center center"),
+                end: () => `+=${Math.round(window.innerHeight * 0.9)}`,
+                pin: true,
+                scrub: true,
+                invalidateOnRefresh: true,
+              },
+            });
+          });
+          // Phones and tablets (section taller than the screen, no pinning): finish lighting up
+          // while the last line is still well inside the screen
+          mm.add("(max-width: 1025px)", () => {
+            gsap.fromTo(split.words, { opacity: 0.2 }, {
+              ...read,
+              scrollTrigger: { trigger: letterRef.current, start: "top 85%", end: "bottom 75%", scrub: true },
+            });
+          });
         })
       );
     },
