@@ -37,6 +37,7 @@ function ResourceRow({ item }) {
       >
         <p className="col-span-3 font-mono text-[1vw] font-medium text-[#3b82f6] max-[1025px]:col-span-1 max-[1025px]:text-[2.6vw] max-md:text-[3.8vw]">
           {item.platform}
+          {item.type && <span className="text-white/45"> • {item.type}</span>}
         </p>
         <div className="col-span-8 max-[1025px]:col-span-1 max-[1025px]:pr-12">
           <h3 className="text-[2.6vw] font-semibold leading-tight tracking-tight max-[1025px]:text-[5vw] max-md:text-[7vw]">
@@ -105,9 +106,10 @@ const Resources = () => {
           </div>
         </section>
 
-        <div className="flex justify-center border-t border-white/15 pt-[4vw] max-[1025px]:pt-[8vw]">
-          <div role="tablist" aria-label="Resource categories" className="inline-flex rounded-full border border-white/15 bg-white/5 p-1">
-            {resources.map(({ category }) => {
+        {/* Tab bar scrolls sideways when the categories don't fit on one line */}
+        <div className="no-scrollbar -mx-[4vw] flex overflow-x-auto border-t border-white/15 px-[4vw] pt-[4vw] max-[1025px]:-mx-[5vw] max-[1025px]:px-[5vw] max-[1025px]:pt-[8vw]">
+          <div role="tablist" aria-label="Resource categories" className="mx-auto inline-flex shrink-0 rounded-full border border-white/15 bg-white/5 p-1">
+            {resources.map(({ category, items }) => {
               const selected = category === active
               return (
                 <button
@@ -116,7 +118,7 @@ const Resources = () => {
                   role="tab"
                   aria-selected={selected}
                   onClick={() => setActive(category)}
-                  className="relative rounded-full px-4 py-2.5 text-sm font-medium md:px-7 md:text-base"
+                  className="relative shrink-0 whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-medium md:px-5 md:text-[15px]"
                 >
                   {selected && (
                     <motion.span
@@ -127,6 +129,7 @@ const Resources = () => {
                   )}
                   <span className={`relative z-10 transition-colors duration-300 ${selected ? 'text-[#03050c]' : 'text-white/70 hover:text-white'}`}>
                     {category}
+                    <span className={`ml-1.5 font-mono text-xs ${selected ? 'text-[#03050c]/50' : 'text-white/40'}`}>{items.length}</span>
                   </span>
                 </button>
               )

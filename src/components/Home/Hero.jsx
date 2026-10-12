@@ -39,6 +39,11 @@ function Hero() {
   const reticleRef = useRef(null);
   const discRef = useRef(null);
   const titleRef = useRef(null);
+  // Scroll-driven layers wrap the intro-driven elements, so the two animations never touch the same element
+  const ambientScrollRef = useRef(null);
+  const titleScrollRef = useRef(null);
+  const logoScrollRef = useRef(null);
+  const labelsScrollRef = useRef(null);
   const labelsRef = useRef(null);
   const barsRef = useRef(null);
   const blackoutRef = useRef(null);
@@ -105,49 +110,43 @@ function Hero() {
     { scope: sectionRef }
   );
 
-  // Scroll: the camera pushes into the crosshair and flies through it
+  // Scroll: the camera pushes into the crosshair and flies through it.
+  // The whole scene is a pure function of scroll progress, recomputed every frame, so it can never get
+  // out of sync with the scroll position (no recorded start states that a refresh could corrupt).
   useGSAP(
     () => {
       if (reduceMotion) return;
       gsap.set(cameraRef.current, { transformOrigin: `${RETICLE.x * 100}% ${RETICLE.y * 100}%` });
-
-      // Every tween states its "top of the page" values explicitly (fromTo, rendered only once scrolled
-      // into), so re-measuring the page mid-intro or mid-scroll can never record a hidden state as the start
-      const fromTo = (target, from, to, at) => tl.fromTo(target, from, { ...to, immediateRender: false }, at);
-      const tl = gsap.timeline({
-        defaults: { ease: "none" },
-        scrollTrigger: { trigger: sectionRef.current, start: "top top", end: "bottom bottom", scrub: 0.6 },
-      });
-      // Exponential zoom (scale = MAX_ZOOM ^ progress) reads as a camera moving at a steady speed
-      const camera = { p: 0 };
+      const clamp01 = (v) => Math.min(1, Math.max(0, v));
       const zoomAt = (scale) => Math.log(scale) / Math.log(MAX_ZOOM);
-      // Start a hair after 0 so the timeline's first render (during the intro) doesn't touch these
-      const START = 0.002;
 
-      fromTo(
-        titleRef.current,
-        { letterSpacing: "-0.03em", paddingLeft: "0em", autoAlpha: 1, filter: "blur(0px)" },
-        { letterSpacing: "0.4em", paddingLeft: "0.4em", autoAlpha: 0, filter: "blur(10px)", duration: 0.18 },
-        START
-      );
-      fromTo(labelsRef.current, { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.1 }, START);
-      fromTo(
-        camera,
-        { p: 0 },
-        {
-          p: 1,
-          duration: 1 - START,
-          ease: "power1.in",
-          onUpdate: () => {
-            gsap.set(cameraRef.current, { scale: Math.pow(MAX_ZOOM, camera.p), rotation: camera.p * 12 });
-          },
+      const apply = (p) => {
+        const c = p * p; // camera eases in: slow push that accelerates
+        gsap.set(cameraRef.current, { scale: Math.pow(MAX_ZOOM, c), rotation: c * 12 });
+        const t = clamp01(p / 0.18);
+        gsap.set(titleScrollRef.current, { autoAlpha: 1 - t, scale: 1 + 0.12 * t, filter: `blur(${10 * t}px)` });
+        gsap.set(labelsScrollRef.current, { autoAlpha: 1 - clamp01(p / 0.1) });
+        gsap.set(ambientScrollRef.current, { autoAlpha: 1 - clamp01((p - 0.15) / 0.3) });
+        // The logo fades as the camera passes it; the vector crosshair stays sharp the whole way
+        gsap.set(logoScrollRef.current, { autoAlpha: 1 - clamp01((c - zoomAt(3.5)) / (zoomAt(8) - zoomAt(3.5))) });
+        gsap.set(blackoutRef.current, { autoAlpha: clamp01((p - 0.88) / 0.12) });
+      };
+
+      // A proxy number follows the scroll with a little smoothing; every update re-applies the scene
+      const camera = { p: 0 };
+      apply(0);
+      gsap.to(camera, {
+        p: 1,
+        ease: "none",
+        onUpdate: () => apply(camera.p),
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 0.6,
+          onRefresh: (self) => apply(self.progress),
         },
-        START
-      );
-      // The logo fades as the camera passes it; the vector crosshair stays sharp the whole way
-      fromTo(logoRef.current, { autoAlpha: 1 }, { autoAlpha: 0, duration: zoomAt(8) - zoomAt(3.5) }, zoomAt(3.5));
-      fromTo([dotsRef.current, glowRef.current], { autoAlpha: 1 }, { autoAlpha: 0, duration: 0.3 }, 0.15);
-      fromTo(blackoutRef.current, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.12 }, 0.88);
+      });
     },
     { scope: sectionRef }
   );
@@ -177,14 +176,20 @@ function Hero() {
   return (
     <section ref={sectionRef} id="hero" className={`relative w-full bg-[#03050c] ${reduceMotion ? "h-screen" : "h-[350vh]"}`}>
       <div ref={stageRef} className="hero-bg sticky top-0 h-screen w-full overflow-hidden">
+        <div ref={ambientScrollRef} className="absolute inset-0">
         <div ref={dotsRef} className="absolute inset-0">
           <InteractiveDots />
         </div>
         <div
           ref={glowRef}
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(38%_42%_at_50%_44%,rgba(37,99,235,0.35),rgba(37,99,235,0)_100%)]"
-        />
+          className="pointer-events-none absolute inset-0"
+        >
+          {/* Slowly breathes and drifts so the hero is never completely still */}
+          <div className="hero-breathe absolute inset-0 bg-[radial-gradient(38%_42%_at_50%_44%,rgba(37,99,235,0.35),rgba(37,99,235,0)_100%)]" />
+          <div className="hero-drift absolute inset-0 bg-[radial-gradient(26%_30%_at_62%_58%,rgba(59,130,246,0.18),rgba(59,130,246,0)_100%)]" />
+        </div>
+        </div>
 
         {/* Boot log */}
         <div
@@ -202,7 +207,7 @@ function Hero() {
           <div ref={cameraRef} className="relative aspect-square w-[min(34vw,52vh)] max-[1025px]:w-[min(44vw,36vh)] max-md:w-[min(48vw,30vh)]">
             <div className="relative h-full w-full">
               {/* The full name, huge, sitting behind the logo */}
-              <div className={TITLE_LAYER}>
+              <div ref={titleScrollRef} className={TITLE_LAYER}>
                 <h1 ref={titleRef} className={TITLE_TEXT}>
                   The
                   <br />
@@ -225,7 +230,7 @@ function Hero() {
               />
 
               {/* Logo above the name. Glow is applied around the masked image, so the cut-out doesn't punch a dark hole in it */}
-              <div className="relative h-full w-full drop-shadow-[0_0_28px_rgba(59,130,246,0.45)]">
+              <div ref={logoScrollRef} className="relative h-full w-full drop-shadow-[0_0_28px_rgba(59,130,246,0.45)]">
                 <img
                   ref={logoRef}
                   src="/tds-logo-transparent.png"
@@ -261,6 +266,7 @@ function Hero() {
         </div>
 
         {/* Corner lines */}
+        <div ref={labelsScrollRef} className="pointer-events-none absolute inset-0 z-[3]">
         <div
           ref={labelsRef}
           className="absolute inset-x-[4vw] bottom-[3.5vw] z-[3] flex items-end justify-between font-mono text-[1.05vw] leading-[1.4] text-white/75 max-[1025px]:inset-x-[5vw] max-[1025px]:bottom-[6vw] max-[1025px]:text-[2.6vw] max-md:text-[3.2vw]"
@@ -276,6 +282,7 @@ function Hero() {
             <br />
             Development
           </p>
+        </div>
         </div>
 
         {/* Cinema letterbox bars, retract when the intro ends */}
