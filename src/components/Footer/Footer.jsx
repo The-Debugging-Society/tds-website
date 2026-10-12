@@ -5,6 +5,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
 import PillButton from '../ui/pill-button'
+import FluidGlow from '../ui/fluid-glow'
 import { WHATSAPP_URL } from '../../lib/constants'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
@@ -47,25 +48,26 @@ const Footer = () => {
   return (
     <footer
       ref={footerRef}
-      style={{ '--glow-pos': '50% 65%', '--glow-size': '60% 55%', '--glow-alpha': 0.16 }}
-      className="surface w-full overflow-x-clip px-[4vw] pt-[4vw] text-white max-[1025px]:px-[5vw] max-md:pt-[10vw]"
+      className="relative isolate w-full overflow-hidden bg-[#03050c] px-[4vw] pt-[10vw] text-white max-[1025px]:px-[5vw] max-md:pt-[20vw]"
     >
+      {/* Flowing blue light rising from the bottom of the page, behind the glass card */}
+      <FluidGlow className="absolute inset-0 -z-10" />
+
       <div
         ref={cardRef}
-        className="surface-blue-card flex flex-col gap-[6vw] rounded-[2rem] px-12 py-12 max-[1025px]:gap-12 max-[1025px]:px-8 max-[1025px]:py-14 max-md:px-6 max-md:py-10"
+        className="flex flex-col gap-[6vw] rounded-[2rem] border border-white/25 bg-white/[0.02] px-12 py-12 backdrop-blur-2xl max-[1025px]:gap-12 max-[1025px]:px-8 max-[1025px]:py-14 max-md:px-6 max-md:py-10"
       >
         <div className="flex items-start justify-between gap-[6vw] max-[1025px]:flex-col-reverse max-[1025px]:items-center max-[1025px]:gap-12">
           <Link to="/" aria-label="The Debugging Society home" className="shrink-0">
-            {/* Logo rendered as a white silhouette so it reads on the brand blue */}
             <img
               src="/tds-logo-transparent.png"
               alt="The Debugging Society logo"
               loading="lazy"
-              className="w-[14vw] [filter:brightness(0)_invert(1)] max-[1025px]:w-[30vw] max-md:w-[44vw]"
+              className="w-[11vw] max-[1025px]:w-[26vw] max-md:w-[40vw]"
             />
           </Link>
           <div className="flex flex-col items-end gap-[2vw] max-[1025px]:items-center max-[1025px]:gap-8 max-[1025px]:text-center">
-            <p className="w-[80%] text-end text-[3.4vw] font-semibold leading-[1.1] tracking-tight max-[1025px]:w-full max-[1025px]:text-center max-[1025px]:text-[6vw] max-md:text-[8vw]">
+            <p className="w-[80%] text-end text-[3.6vw] font-medium leading-[1.1] tracking-tight max-[1025px]:w-full max-[1025px]:text-center max-[1025px]:text-[6vw] max-md:text-[8vw]">
               Ready to code with us?
             </p>
             <PillButton href={WHATSAPP_URL}>
@@ -115,7 +117,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="flex justify-between gap-2 py-8 text-sm text-white/60 max-md:flex-col max-md:items-center max-md:py-6 max-md:text-center">
+      <div className="flex justify-between gap-2 py-8 text-base text-white/80 max-md:flex-col max-md:items-center max-md:py-6 max-md:text-center">
         <p>&copy; {year} The Debugging Society, NSUT</p>
         <p>Built by the TDS Tech Team</p>
       </div>
