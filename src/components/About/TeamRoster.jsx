@@ -15,6 +15,21 @@ const ACCENT = "#3b82f6";
 const prefersReducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 // Shown in the floating card (and the mobile thumbnail) until someone's photo is added
+// Member photo that falls back to the placeholder if the image is missing (e.g. deleted from Cloudinary)
+function MemberPhoto({ id, compact = false, ...size }) {
+  const [failed, setFailed] = useState(false);
+  if (!id || failed) return <PhotoPlaceholder compact={compact} />;
+  return (
+    <img
+      src={photoUrl(id, size)}
+      alt=""
+      loading="lazy"
+      onError={() => setFailed(true)}
+      className="h-full w-full object-cover object-top"
+    />
+  );
+}
+
 function PhotoPlaceholder({ compact = false }) {
   return (
     <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(180deg,#0b1124_0%,#060914_100%)]">
@@ -158,11 +173,7 @@ export default function TeamRoster({ members }) {
               >
                 {/* Mobile and tablet: no hover, so the photo sits in the row */}
                 <div className="hidden size-[14vw] shrink-0 overflow-hidden rounded-lg max-[1025px]:block max-md:size-[16vw]">
-                  {member.photo ? (
-                    <img src={photoUrl(member.photo, { width: 240, aspect: "1:1" })} alt="" loading="lazy" className="h-full w-full object-cover object-top" />
-                  ) : (
-                    <PhotoPlaceholder compact />
-                  )}
+                  <MemberPhoto id={member.photo} compact width={240} aspect="1:1" />
                 </div>
                 <div className="flex flex-wrap items-baseline gap-x-[1.5vw] gap-y-[0.5vw] max-[1025px]:flex-col max-[1025px]:gap-y-[1vw]">
                   <h3 className="text-[3.6vw] font-semibold leading-[1.05] tracking-tight max-[1025px]:text-[6vw] max-md:text-[7vw]">
@@ -205,11 +216,7 @@ export default function TeamRoster({ members }) {
                 }}
                 className="absolute inset-0"
               >
-                {member.photo ? (
-                  <img src={photoUrl(member.photo, { width: 700 })} alt="" loading="lazy" className="h-full w-full object-cover object-top" />
-                ) : (
-                  <PhotoPlaceholder />
-                )}
+                <MemberPhoto id={member.photo} width={700} />
               </div>
             ))}
           </div>
